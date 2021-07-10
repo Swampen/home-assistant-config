@@ -1,9 +1,17 @@
-# Configure a default setup of Home Assistant (frontend, api, etc)
+# This integration is a meta-component and configures a default set of 
+# integrations for Home Assistant to load.
+#
+# https://www.home-assistant.io/integrations/default_config/
 default_config:
 
 homeassistant:
   customize: !include customize.yaml
 
+# Lovelace is the Home Assistant dashboard. 
+# It is a fast, customizable and powerful way for users to manage their 
+# home using their mobiles and desktops
+# 
+# https://www.home-assistant.io/lovelace/
 lovelace:
   mode: storage
   dashboards: !include ./lovelace/dashboards.yaml
@@ -13,38 +21,88 @@ updater:
 
 python_script:
 
+# The http integration serves all files and data required for the Home Assistant frontend
+# 
+# https://www.home-assistant.io/integrations/http/
 http:
+  # Let you set a port to use.
   server_port: !secret http_server_port
+
+  # Path to your TLS/SSL certificate to serve Home Assistant over a secure connection.
   ssl_certificate: !secret http_ssl_certificate
+
+  # Path to your TLS/SSL key to serve Home Assistant over a secure connection.
   ssl_key: !secret http_ssl_key
+
+  # Enable parsing of the X-Forwarded-For header, passing on the client’s 
+  # correct IP address in proxied setups.
   use_x_forwarded_for: true
+
+  # List of trusted proxies, consisting of IP addresses or networks, that are 
+  # allowed to set the X-Forwarded-For header.
   trusted_proxies: !secret http_trusted_proxies
 
+# Text-to-Speech (TTS) enables Home Assistant to speak to you.
+#
+# https://www.home-assistant.io/integrations/tts
 tts:
   - platform: google_translate
 
+# Groups allow the user to combine multiple entities into one.
+#
+# https://www.home-assistant.io/integrations/group/
 group: !include groups.yaml
+
+# Automations in Home Assistant allow you to automatically respond to things that happen.
+#
+# https://www.home-assistant.io/docs/automation/
 automation: !include automations.yaml
+
+# The script integration allows users to specify a sequence of actions to be executed by Home Assistant.
+#
+# https://www.home-assistant.io/integrations/script/
 script: !include scripts.yaml
+
+# You can create scenes that capture the states you want certain entities to be.
+#
+# https://www.home-assistant.io/integrations/scene/
 scene: !include scenes.yaml
 
+# This integration allows you to track and control various light bulbs.
+#
+# https://www.home-assistant.io/integrations/light/
 light: !include light.yaml
 
+# This offers the official frontend to control Home Assistant.
+#
+# https://www.home-assistant.io/integrations/frontend/
 frontend:
+  # Allow to define different themes.
   themes: !include_dir_merge_named themes
 
 google:
   client_id: !secret google_client_id
   client_secret: !secret google_client_secret
 
+# The google_assistant integration allows you to control things via Google Assistant on your 
+# mobile, tablet or Google Home device.
+#
+# https://www.home-assistant.io/integrations/google_assistant/
 google_assistant:
+  # Project ID from the Actions on Google console
   project_id: !secret google_assistant_project_id
+
+  # Service account information.
   service_account: !include service_account.json
+
+  # List of entity domains to expose to Google Assistant if expose_by_default is set to true.
   exposed_domains:
     - group
     - light
     - scene
     - switch
+  
+  # Entity specific configuration for Google Assistant
   entity_config:
     switch.bedlight_switch:
       expose: false
@@ -65,22 +123,23 @@ google_assistant:
     light.kitchen_4:
       expose: false
 
+# The air_quality base platform allows other integrations to process information about 
+# air quality and pollution details.
+#
+# https://www.home-assistant.io/integrations/air_quality/
 air_quality:
+  # The norway_air integration queries the Norway air quality data feed provided by 
+  # the Norwegian Meteorological Institute.
+  #
+  # https://www.home-assistant.io/integrations/norway_air/
   - platform: norway_air
     forecast: 12
 
+# Sensors are a basic platform component in Home Assistant. 
+# They monitor the states and conditions of a variety of entities.
+#
+# https://www.home-assistant.io/integrations/sensor
 sensor:
-  #- platform: feedparser
-  #  name: Valheim Update
-  #  feed_url: 'https://steamdb.info/api/PatchnotesRSS/?appid=892970'
-  #  show_topn: 1
-  #  exclusions:
-  #    - language
-  #- platform: template
-  #  sensors:
-  #    last_valheim_update:
-  #      friendly_name: Last Valheim Update
-  #      value_template: "{{ state_attr('sensor.valheim_update', 'entries')[0].published }}"
   - platform: version
   - platform: systemmonitor
     resources:

@@ -11,6 +11,7 @@
 !custom_components/
 !lovelace/
 !www/
+!themes/
 
 # Ignore folders.
 .storage

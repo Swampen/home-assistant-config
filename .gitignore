@@ -6,6 +6,7 @@
 !.gitignore
 !*.md
 !LICENSE
+!.HA_VERSION
 !blueprints/
 !custom_components/
 !lovelace/

@@ -1,0 +1,157 @@
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+homeassistant:
+  customize: !include customize.yaml
+
+lovelace:
+  mode: storage
+  dashboards: !include ./lovelace/dashboards.yaml
+
+updater:
+  include_used_components: true
+
+python_script:
+
+http:
+  server_port: !secret http_server_port
+  ssl_certificate: !secret http_ssl_certificate
+  ssl_key: !secret http_ssl_key
+  use_x_forwarded_for: true
+  trusted_proxies: !secret http_trusted_proxies
+
+tts:
+  - platform: google_translate
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+light: !include light.yaml
+
+frontend:
+  themes: !include_dir_merge_named themes
+
+google:
+  client_id: !secret google_client_id
+  client_secret: !secret google_client_secret
+
+google_assistant:
+  project_id: !secret google_assistant_project_id
+  service_account: !include service_account.json
+  exposed_domains:
+    - group
+    - light
+    - scene
+    - switch
+  entity_config:
+    switch.bedlight_switch:
+      expose: false
+    switch.erase_omg:
+      expose: false
+    switch.kiosk_screen:
+      expose: false
+    switch.restart_omg:
+      expose: false
+    switch.window_light_switch:
+      expose: false
+    light.kitchen_1:
+      expose: false
+    light.kitchen_2:
+      expose: false
+    light.kitchen_3:
+      expose: false
+    light.kitchen_4:
+      expose: false
+
+air_quality:
+  - platform: norway_air
+    forecast: 12
+
+sensor:
+  #- platform: feedparser
+  #  name: Valheim Update
+  #  feed_url: 'https://steamdb.info/api/PatchnotesRSS/?appid=892970'
+  #  show_topn: 1
+  #  exclusions:
+  #    - language
+  #- platform: template
+  #  sensors:
+  #    last_valheim_update:
+  #      friendly_name: Last Valheim Update
+  #      value_template: "{{ state_attr('sensor.valheim_update', 'entries')[0].published }}"
+  - platform: version
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+        arg: /
+      - type: memory_use_percent
+      - type: memory_use
+      - type: memory_free
+      - type: processor_use
+  - platform: command_line
+    name: Rasberry pi temperature
+    command: "cat /sys/class/thermal/thermal_zone0/temp"
+    unit_of_measurement: "°C"
+    value_template: "{{ value | multiply(0.001) | round(2) }}"
+  - platform: mqtt
+    name: Bridge state
+    state_topic: "zigbee2mqtt/bridge/state"
+    icon: mdi:router-wireless
+  - platform: seventeentrack
+    username: !secret email
+    password: !secret seventeentrack_password
+  - platform: rest
+    name: kiosk
+    json_attributes:
+      - batteryLevel
+      - kioskMode
+      - screenBrightness
+      - motionDetectorState
+      - maintenanceMode
+      - appFreeMemory
+      - appUsedMemory
+      - totalFreeMemory
+      - totalUsedMemory
+      - hostname
+      - ip4
+      - mac
+      - locationLatitude
+      - locationLongitude
+      - locationAltitude
+      - startUrl
+      - currentPage
+    resource: !secret kiosk_secret
+    value_template: "{{ value_json.isScreenOn }}"
+
+spotify:
+  client_id: !secret spotify_client_id
+  client_secret: !secret spotify_client_secret
+
+input_boolean:
+  zigbee_permit_join:
+    name: Allow devices to join
+    initial: off
+    icon: mdi:cellphone-wireless
+  stuff_on_balcony:
+    name: Will it rain?
+    icon: mdi:weather-pouring
+  manual_entryway:
+    name: Manual Entryway
+    icon: mdi:motion-sensor
+
+timer:
+  zigbee_permit_join:
+    name: Time remaining
+    duration: 600 # Updated this to the number of seconds you wish
+
+switch:
+  - platform: command_line
+    switches:
+      kiosk_screen:
+        command_on: !secret kiosk_screen_on
+        command_off: !secret kiosk_screen_off
+        command_state: !secret kiosk_screen_state
+        value_template: '{{ value == "on" }}'
+        friendly_name: Kiosk Screen

@@ -1,0 +1,56 @@
+- id: '1584220922204'
+  name: Morning
+  entities:
+    light.kitchen_lights:
+      brightness: 190
+      color_temp: 377
+      friendly_name: Kitchen Lights
+      max_mireds: 454
+      min_mireds: 250
+      state: 'on'
+      supported_features: 35
+    light.living_room_lights:
+      brightness: 254
+      friendly_name: Living Room Lights
+      hs_color:
+      - 27.527
+      - 57.253
+      rgb_color:
+      - 255
+      - 175
+      - 109
+      state: 'on'
+      supported_features: 49
+      xy_color:
+      - 0.499
+      - 0.381
+    light.window_light:
+      state: 'on'
+  icon: mdi:weather-sunset-up
+- id: '333123512323'
+  name: Bedtime
+  entities:
+    light.living_room_lights:
+      entity_id:
+      - light.corner_lamp
+      - light.table
+      - light.window_light
+      friendly_name: Living Room Lights
+      supported_features: 49
+      state: 'off'
+    light.kitchen_lights:
+      min_mireds: 250
+      max_mireds: 454
+      entity_id:
+      - light.kitchen_1
+      - light.kitchen_2
+      - light.kitchen_3
+      - light.kitchen_4
+      friendly_name: Kitchen Lights
+      supported_features: 35
+      state: 'off'
+    light.bedlight:
+      friendly_name: Bedlight
+      supported_features: 0
+      state: 'on'
+  icon: mdi:weather-night

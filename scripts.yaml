@@ -1,0 +1,31 @@
+sleep_light:
+  alias: Sleep light
+  icon: mdi:bed
+  mode: single
+  sequence:
+  - data: {}
+    entity_id: light.table
+    service: light.turn_on
+  - delay: '3600'
+  - data: {}
+    entity_id: light.all_lights
+    service: light.turn_off
+sleep_heat:
+  alias: Sleep heating
+  icon: mdi:radiator
+  mode: single
+  sequence:
+  - data: {}
+    service: switch.turn_on
+    entity_id: switch.bed_heating
+  - delay: 00:30:00
+  - data: {}
+    service: switch.turn_off
+    entity_id: switch.bed_heating
+toggle_all_lights:
+  sequence:
+  - service: light.toggle
+    target:
+      entity_id: light.all_lights
+  mode: single
+  alias: Toggle All Lights

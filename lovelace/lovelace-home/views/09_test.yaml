@@ -1,0 +1,50 @@
+path: test
+title: test
+visible:
+  - user: 5b37a22c290b4a5bbb7654a0b09d7577
+icon: mdi:pencil-box-multiple
+badges: []
+cards:
+  - type: custom:button-card
+    entity: switch.window_light_switch
+    style:
+      top: 64.5%
+      left: 55.18%
+      width: 25%
+    custom_fields:
+      icon_heater: >
+        [[[ const state = entity.state === 'on' ? 'animate_on' :
+        'animate_off';  return `<svg viewBox="0 0 50 50"
+        fill="var(--button-card-light-color-no-temperature)"
+        stroke= "var(--button-card-light-color-no-temperature)"><style>
+        @keyframes dash {
+          to {
+              stroke-dashoffset: 30;
+          }
+        } .animate_off { display: none; } .animate_on { stroke-dasharray:
+        15; animation: dash 2.5s linear; animation-iteration-count:
+        infinite; } </style> <path class="${state}" style="stroke:
+        var(--button-card-light-color-no-temperature); fill: none;"d="M
+        6.246 1.19 C 5.082 3.064 5.851 4.212 6.412 5.676 C 6.832 6.772 7.445
+        8.606 6.225 10.425 M 11.794 1.434 C 10.63 3.308 11.399 4.456 11.96
+        5.92 C 12.38 7.016 12.993 8.85 11.773 10.669 M 17.761 1.47 C 16.597
+        3.344 17.366 4.492 17.927 5.956 C 18.347 7.052 18.96 8.886 17.74
+        10.705" /> <path style="stroke: none;" d="M20,12H4A2,2 0 0,0 2,14V22H4V20H20V22H22V14A2,2
+        0 0,0 20,12M7,17A1,1 0 0,1 6,18A1,1 0 0,1 5,17V15A1,1 0 0,1 6,14A1,1
+        0 0,1 7,15V17M11,17A1,1 0 0,1 10,18A1,1 0 0,1 9,17V15A1,1 0 0,1
+        10,14A1,1 0 0,1 11,15V17M15,17A1,1 0 0,1 14,18A1,1 0 0,1
+        13,17V15A1,1 0 0,1 14,14A1,1 0 0,1 15,15V17M19,17A1,1 0 0,1
+        18,18A1,1 0 0,1 17,17V15A1,1 0 0,1 18,14A1,1 0 0,1 19,15V17Z" />
+        </svg>`;]]]
+    styles:
+      custom_fields:
+        icon_heater:
+          - top: 20%
+          - left: 5%
+          - width: 50%
+          - position: absolute
+    template: base
+  - color_type: blank-card
+    type: 'custom:button-card'
+  - color_type: blank-card
+    type: 'custom:button-card'

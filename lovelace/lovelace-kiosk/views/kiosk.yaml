@@ -1,0 +1,16 @@
+path: home
+title: kiosk
+panel: false
+badges: []
+cards:
+  - aspect_ratio: 90%
+    type: iframe
+    url: >-
+      https://mon.ruter.no/departures/59.907603-10.801911/N4Igrgzgpgwg9gGzAWwHYBkCGBPOYAuIAXPgE5hQA0IARnJqQCYTEDaoE+cADgAoKYAxlACSzNiAByAZQBKRaVz4DhRAGwAGAOxaQAXWqMoA7FEaKG+ACoBLZFGIbqACxuMjGG6igsioGfKKPPxCUOraukSsUnJEAIpgOEQAjKmaALQAzFrpABLGEABm2KT6AL7UqCg0UKQA8oUAIlDclmCkPsQATNT4NvgIDkQgAKL4+LWcmIwABBAA1ogOhjYQmDSDjFakmKgQ3HCk+ACycEa+rAYgUKjrm8RkFC5uUNtC8-BIaMSFmAjQFQ4ShCwjEFxigWBKjCmgAHBp9IZjDgzBYjrZ7I5nu4bugvJ0-BCFFDQuEdBIAvFEtgUmkNFkcvl-sVSnoKiAqsgavUmi02h1fD0QH0BkNRuNJvhpnMAB+lFZrDZmN57A5HU7nNhXG53MwPchUECuIxvQQfRAoVA-P4Aq4AN0mNjgVqIXTKQA
+  - details: false
+    entity: weather.home_hourly
+    hourly_forecast: true
+    number_of_forecasts: '5'
+    show_forecast: true
+    type: custom:weather-card
+    name: Home

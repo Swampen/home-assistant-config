@@ -1,0 +1,31 @@
+path: sockets
+title: Sockets
+visible:
+  - user: 5b37a22c290b4a5bbb7654a0b09d7577
+icon: mdi:power-socket-de
+badges: []
+cards:
+  - entities:
+      - entity: switch.heater
+      - entity: sensor.heater_consumption
+      - entity: sensor.heater_linkquality
+      - entity: sensor.heater_power
+      - entity: sensor.heater_temperature
+    type: entities
+    title: Heater
+  - entities:
+      - entity: light.window_light
+      - entity: sensor.window_light_consumption
+      - entity: sensor.window_light_linkquality
+      - entity: sensor.window_light_power
+      - entity: sensor.window_light_temperature
+    type: entities
+    title: Window
+  - entities:
+      - entity: light.bedlight
+      - entity: sensor.bedlight_consumption
+      - entity: sensor.bedlight_linkquality
+      - entity: sensor.bedlight_power
+      - entity: sensor.bedlight_temperature
+    type: entities
+    title: Bedlight

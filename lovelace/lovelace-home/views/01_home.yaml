@@ -1,0 +1,61 @@
+path: home
+title: Home
+visible:
+  - user: 5b37a22c290b4a5bbb7654a0b09d7577
+  - user: ba7955bb951d4c15b004edd6ba7b3ff2
+  - user: db1db89f272d40fca73f5d36bc4a5d69
+icon: mdi:home
+badges:
+  - entity: person.ole_martin
+  - entity: person.hanbit
+  - entity: weather.home
+cards:
+  - background: "#cf7517"
+    entities:
+      - entity: light.living_room_lights
+        name: Living Room
+      - entity: light.kitchen_lights
+        name: Kitchen
+      - entity: light.all_lights
+        name: All Lights
+    heading:
+      - mdi:lightbulb-group
+      - Light Panel
+    type: custom:banner-card
+  - background: "#c7c293"
+    entities:
+      - entity: light.living_room_lights
+        name: Lights
+      - entity: sensor.living_room_sensor_temperature
+        name: Temperature
+      - entity: sensor.living_room_sensor_humidity
+        name: Humidity
+      - entity: switch.heater
+        name: Heater
+    heading:
+      - mdi:sofa
+      - Living Room
+    type: custom:banner-card
+  - background: "#32ba57"
+    entities:
+      - entity: sensor.outdoor_sensor_temperature
+        name: Temperature
+      - entity: sensor.outdoor_sensor_humidity
+        name: Humidity
+      - entity: sensor.outdoor_sensor_pressure
+        name: Pressure
+    heading:
+      - mdi:door-open
+      - Outdoor
+    type: custom:banner-card
+  - aspect_ratio: 110%
+    type: iframe
+    url: >-
+      https://mon.ruter.no/departures/59.909601-10.795058/N4Igrgzgpgwg9gGzAWwHYBkCGBPOYAuIAXPgE5hQA0IARnJqQCYTEDaoE+cADgAoKYAxlACSzNiAByAZQBKRaVz4DhRAGwAGAOxaQAXWqMoA7FEaKG+ACoBLZFGIbqACxuMjGG6igsioGfKKPPxCUOraukSsUnJEAIpgOEQAjKmaALQAzFrpABLGEABm2KT6AL7UqCg0UKQA8oUAIlDclmCkPsQATNT4NvgIDkQgAKL4+LWcmIwABBAA1ogOhjYQmDSDjFakmKgQ3HCk+ACycEa+rAYgUKjrm8RkFC5uUNtC8-BIaMSFmAjQFQ4ShCwjEFxigWBKjCmgAHBp9IZjDgzBYjrZ7I5nu4bugvJ0-BUQFVkDV6k0Wm0Or4eiA+gMhqNxpN8NMZtIAB+lFZrDZmN57A5HU7nNhXG53MwPchUECuIxvQQfRAoVA-P4Aq4AN0mNjgaqIXTKQA
+  - type: custom:weather-card
+    entity: weather.home_hourly
+    number_of_forecasts: "5"
+    current: true
+    details: false
+    hourly_forecast: true
+    name: Etterstad

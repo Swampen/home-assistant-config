@@ -1,0 +1,12 @@
+lovelace-home:
+  mode: yaml
+  title: Home
+  icon: mdi:home
+  show_in_sidebar: true
+  filename: lovelace/lovelace-home/dashboard.yaml
+lovelace-kiosk:
+  mode: yaml
+  title: Kiosk
+  icon: mdi:cellphone
+  show_in_sidebar: false
+  filename: lovelace/lovelace-kiosk/dashboard.yaml

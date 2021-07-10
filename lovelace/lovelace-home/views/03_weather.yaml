@@ -1,0 +1,26 @@
+path: weather
+title: Weather
+icon: mdi:weather-partly-cloudy
+badges: []
+cards:
+  - air_pollution_level: sensor.u_s_air_pollution_level
+    air_quality_index: sensor.u_s_air_quality_index
+    city: Etterstad
+    main_pollutant: sensor.u_s_main_pollutant
+    temp: weather.home_hourly
+    type: custom:air-visual-card
+    hide_title: true
+  - cards:
+      - entities:
+          - entity: input_boolean.stuff_on_balcony
+        type: entities
+      - entity: weather.home
+        name: Home
+        number_of_forecasts: "5"
+        type: custom:weather-card
+      - entity: weather.home_hourly
+        hourly_forecast: true
+        name: Hourly
+        show_forecast: true
+        type: custom:weather-card
+    type: vertical-stack

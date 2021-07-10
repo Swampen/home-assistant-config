@@ -1,0 +1,27 @@
+- platform: group
+  name: Kitchen Lights
+  entities:
+    - light.kitchen_1
+    - light.kitchen_2
+    - light.kitchen_3
+    - light.kitchen_4
+
+- platform: group  
+  name: Living Room Lights
+  entities:
+    - light.corner_lamp
+    - light.table
+    - light.window_light
+
+- platform: switch
+  name: Window Light
+  entity_id: switch.window_light_switch
+- platform: switch
+  name: Bedlight
+  entity_id: switch.bedlight_switch
+
+- platform: group
+  name: All Lights
+  entities:
+    - light.living_room_lights
+    - light.kitchen_lights

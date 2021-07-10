@@ -1,0 +1,49 @@
+path: plants
+title: Plants
+visible:
+  - user: 5b37a22c290b4a5bbb7654a0b09d7577
+  - user: ba7955bb951d4c15b004edd6ba7b3ff2
+icon: mdi:sprout
+badges: []
+cards:
+  - color_thresholds:
+      - color: "#5cb85c"
+        value: 50
+      - color: "#f0ad4e"
+        value: 35
+      - color: "#d9534f"
+        value: 25
+    entities:
+      - entity: sensor.florasensor_conductivity
+    hour24: true
+    hours_to_show: 180
+    points_per_hour: 0.25
+    type: custom:mini-graph-card
+  - entities:
+      - entity: sensor.florasensor_light
+    hour24: true
+    hours_to_show: 180
+    points_per_hour: 0.25
+    type: custom:mini-graph-card
+  - color_thresholds:
+      - color: "#5cb85c"
+        value: 28
+      - color: "#f0ad4e"
+        value: 23
+      - color: "#d9534f"
+        value: 5
+    entities:
+      - entity: sensor.florasensor_moisture
+    hour24: true
+    hours_to_show: 180
+    points_per_hour: 0.25
+    type: custom:mini-graph-card
+  - entities:
+      - entity: sensor.florasensor_conductivity
+      - entity: sensor.florasensor_light
+      - entity: sensor.florasensor_moisture
+      - entity: sensor.florasensor_temperature
+      - entity: sensor.florasensor_battery
+    show_header_toggle: false
+    title: Flora sensor
+    type: entities

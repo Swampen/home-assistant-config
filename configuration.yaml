@@ -7,6 +7,14 @@ default_config:
 homeassistant:
   customize: !include customize.yaml
 
+# The logger integration lets you define the level of logging activities in Home Assistant.
+#
+# https://www.home-assistant.io/integrations/logger/
+logger: 
+  default: warn
+  logs:
+    homeassistant.helpers.template: error
+
 # Lovelace is the Home Assistant dashboard. 
 # It is a fast, customizable and powerful way for users to manage their 
 # home using their mobiles and desktops

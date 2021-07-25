@@ -25,7 +25,6 @@ lovelace:
   dashboards: !include ./lovelace/dashboards.yaml
 
 updater:
-  include_used_components: true
 
 python_script:
 

@@ -1,16 +1,50 @@
 path: home
 title: Home
-visible:
-  - user: 5b37a22c290b4a5bbb7654a0b09d7577
-  - user: ba7955bb951d4c15b004edd6ba7b3ff2
-  - user: db1db89f272d40fca73f5d36bc4a5d69
 icon: mdi:home
-badges:
-  - entity: person.ole_martin
-  - entity: person.hanbit
-  - entity: weather.home
+visible:
+  - user: !secret ole-martin
+  - user: !secret hanbit
+
+type: custom:grid-layout
+layout:
+  # Desktop
+  grid-gap: var(--custom-layout-card-padding)
+  grid-template-columns: repeat(4, 1fr) 0
+  grid-template-rows: 0 repeat(2, fit-content(100%)) 0fr
+  grid-template-areas: |
+    "sidebar  .             .         .         ."
+    "sidebar  living_room   kitchen   bedroom   ."
+    "sidebar  media         other     presence  ."
+    "sidebar  footer        footer    footer    ."
+
 cards:
-  - background: "#cf7517"
+  - type: markdown
+    view_layout:
+      grid-area: sidebar
+    content: |
+      # {{ states('sensor.time') }}
+      ## {{ states('sensor.date') }}
+      ## Good{% if now().hour <= 4 or now().hour >= 22 %} Night {{user}}🌝
+      {% elif now().hour >= 18 %} Evening {{user}} 🌃
+      {% elif now().hour >= 12 %} Afternoon {{user}} 🕑
+      {% else %} Morning {{user}} ☕
+      {% endif %}
+    style: |
+      ha-card {
+        min-height: 100vh;
+        ha-card 1s forwards
+      }
+      @keyframes ha-card{
+        0%,100%{
+          border-right:.1vw solid rgba(58,69,73,.2)
+        }
+      }
+      
+
+  - type: custom:banner-card
+    background: "#cf7517"
+    view_layout:
+      grid-area: kitchen
     entities:
       - entity: light.living_room_lights
         name: Living Room
@@ -21,8 +55,11 @@ cards:
     heading:
       - mdi:lightbulb-group
       - Light Panel
-    type: custom:banner-card
-  - background: "#c7c293"
+
+  - type: custom:banner-card
+    view_layout:
+      grid-area: living_room
+    background: "#c7c293"
     entities:
       - entity: light.living_room_lights
         name: Lights
@@ -35,8 +72,11 @@ cards:
     heading:
       - mdi:sofa
       - Living Room
-    type: custom:banner-card
-  - background: "#32ba57"
+
+  - type: custom:banner-card
+    view_layout:
+      grid-area: bedroom
+    background: "#32ba57"
     entities:
       - entity: sensor.outdoor_sensor_temperature
         name: Temperature
@@ -47,15 +87,13 @@ cards:
     heading:
       - mdi:door-open
       - Outdoor
-    type: custom:banner-card
-  - aspect_ratio: 110%
-    type: iframe
-    url: >-
-      https://mon.ruter.no/departures/59.909601-10.795058/N4Igrgzgpgwg9gGzAWwHYBkCGBPOYAuIAXPgE5hQA0IARnJqQCYTEDaoE+cADgAoKYAxlACSzNiAByAZQBKRaVz4DhRAGwAGAOxaQAXWqMoA7FEaKG+ACoBLZFGIbqACxuMjGG6igsioGfKKPPxCUOraukSsUnJEAIpgOEQAjKmaALQAzFrpABLGEABm2KT6AL7UqCg0UKQA8oUAIlDclmCkPsQATNT4NvgIDkQgAKL4+LWcmIwABBAA1ogOhjYQmDSDjFakmKgQ3HCk+ACycEa+rAYgUKjrm8RkFC5uUNtC8-BIaMSFmAjQFQ4ShCwjEFxigWBKjCmgAHBp9IZjDgzBYjrZ7I5nu4bugvJ0-BUQFVkDV6k0Wm0Or4eiA+gMhqNxpN8NMZtIAB+lFZrDZmN57A5HU7nNhXG53MwPchUECuIxvQQfRAoVA-P4Aq4AN0mNjgaqIXTKQA
+
   - type: custom:weather-card
+    view_layout:
+      grid-area: other
     entity: weather.home_hourly
     number_of_forecasts: "5"
     current: true
     details: false
     hourly_forecast: true
-    name: Etterstad
+    name: Home

@@ -12,20 +12,30 @@ cards:
       left: 55.18%
       width: 25%
     custom_fields:
-      icon_heater: >
+      icon_heater: |
         [[[ const state = entity.state === 'on' ? 'animate_on' :
         'animate_off';  return `<svg viewBox="0 0 50 50"
         fill="var(--button-card-light-color-no-temperature)"
-        stroke= "var(--button-card-light-color-no-temperature)"><style>
-        @keyframes dash {
-          to {
-              stroke-dashoffset: 30;
-          }
-        } .animate_off { display: none; } .animate_on { stroke-dasharray:
-        15; animation: dash 2.5s linear; animation-iteration-count:
-        infinite; } </style> <path class="${state}" style="stroke:
-        var(--button-card-light-color-no-temperature); fill: none;"d="M
-        6.246 1.19 C 5.082 3.064 5.851 4.212 6.412 5.676 C 6.832 6.772 7.445
+        stroke= "var(--button-card-light-color-no-temperature)">
+        <style>
+          @keyframes dash {
+            from {
+              stroke-dashoffset: 15;
+            }
+            to {
+              stroke-dashoffset: 45;
+            }
+          } 
+          .animate_off { 
+            display: none; 
+            } 
+          .animate_on { 
+            stroke-dasharray: 15; 
+            animation: dash 2.5s linear infinite; 
+          } 
+        </style> 
+        <path class="${state}" style="stroke:var(--button-card-light-color-no-temperature);
+        fill: none;"d="M 6.246 1.19 C 5.082 3.064 5.851 4.212 6.412 5.676 C 6.832 6.772 7.445
         8.606 6.225 10.425 M 11.794 1.434 C 10.63 3.308 11.399 4.456 11.96
         5.92 C 12.38 7.016 12.993 8.85 11.773 10.669 M 17.761 1.47 C 16.597
         3.344 17.366 4.492 17.927 5.956 C 18.347 7.052 18.96 8.886 17.74

@@ -192,6 +192,13 @@ sensor:
     resource: !secret kiosk_secret
     value_template: "{{ value_json.isScreenOn }}"
 
+    # https://www.home-assistant.io/integrations/time_date/
+  - platform: time_date
+    display_options:
+      - 'time'
+      - 'date'
+      - 'time_date'
+
 spotify:
   client_id: !secret spotify_client_id
   client_secret: !secret spotify_client_secret

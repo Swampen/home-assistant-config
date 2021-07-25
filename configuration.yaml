@@ -169,28 +169,6 @@ sensor:
   - platform: seventeentrack
     username: !secret email
     password: !secret seventeentrack_password
-  - platform: rest
-    name: kiosk
-    json_attributes:
-      - batteryLevel
-      - kioskMode
-      - screenBrightness
-      - motionDetectorState
-      - maintenanceMode
-      - appFreeMemory
-      - appUsedMemory
-      - totalFreeMemory
-      - totalUsedMemory
-      - hostname
-      - ip4
-      - mac
-      - locationLatitude
-      - locationLongitude
-      - locationAltitude
-      - startUrl
-      - currentPage
-    resource: !secret kiosk_secret
-    value_template: "{{ value_json.isScreenOn }}"
 
     # https://www.home-assistant.io/integrations/time_date/
   - platform: time_date
@@ -219,13 +197,3 @@ timer:
   zigbee_permit_join:
     name: Time remaining
     duration: 600 # Updated this to the number of seconds you wish
-
-switch:
-  - platform: command_line
-    switches:
-      kiosk_screen:
-        command_on: !secret kiosk_screen_on
-        command_off: !secret kiosk_screen_off
-        command_state: !secret kiosk_screen_state
-        value_template: '{{ value == "on" }}'
-        friendly_name: Kiosk Screen

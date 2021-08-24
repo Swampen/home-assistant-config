@@ -6,6 +6,11 @@ default_config:
 
 homeassistant:
   customize: !include customize.yaml
+  latitude: !secret latitude
+  longitude: !secret longitude
+  unit_system: metric
+  currency: "NOK"
+  time_zone: !secret time_zone
 
 # The logger integration lets you define the level of logging activities in Home Assistant.
 #
@@ -187,9 +192,9 @@ sensor:
     # https://www.home-assistant.io/integrations/time_date/
   - platform: time_date
     display_options:
-      - 'time'
-      - 'date'
-      - 'time_date'
+      - "time"
+      - "date"
+      - "time_date"
 
 spotify:
   client_id: !secret spotify_client_id

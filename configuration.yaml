@@ -80,6 +80,11 @@ scene: !include scenes.yaml
 # https://www.home-assistant.io/integrations/light/
 light: !include light.yaml
 
+
+input_select: !include input_select.yaml
+
+input_text: !include input_text.yaml
+
 # This offers the official frontend to control Home Assistant.
 #
 # https://www.home-assistant.io/integrations/frontend/
@@ -129,6 +134,13 @@ google_assistant:
       expose: false
     light.kitchen_4:
       expose: false
+
+notify:
+  - platform: html5
+    name: Desktop
+    vapid_pub_key: !secret vapid_pub_key
+    vapid_prv_key: !secret vapid_prv_key
+    vapid_email: !secret gmail
 
 # The air_quality base platform allows other integrations to process information about 
 # air quality and pollution details.

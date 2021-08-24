@@ -1,4 +1,4 @@
-# This integration is a meta-component and configures a default set of 
+# This integration is a meta-component and configures a default set of
 # integrations for Home Assistant to load.
 #
 # https://www.home-assistant.io/integrations/default_config/
@@ -15,7 +15,7 @@ homeassistant:
 # The logger integration lets you define the level of logging activities in Home Assistant.
 #
 # https://www.home-assistant.io/integrations/logger/
-logger: 
+logger:
   default: warn
   logs:
     homeassistant.helpers.template: error
@@ -23,10 +23,10 @@ logger:
 recorder:
   db_url: !secret maria_db
 
-# Lovelace is the Home Assistant dashboard. 
-# It is a fast, customizable and powerful way for users to manage their 
+# Lovelace is the Home Assistant dashboard.
+# It is a fast, customizable and powerful way for users to manage their
 # home using their mobiles and desktops
-# 
+#
 # https://www.home-assistant.io/lovelace/
 lovelace:
   mode: storage
@@ -37,7 +37,7 @@ updater:
 python_script:
 
 # The http integration serves all files and data required for the Home Assistant frontend
-# 
+#
 # https://www.home-assistant.io/integrations/http/
 http:
   # Let you set a port to use.
@@ -49,11 +49,11 @@ http:
   # Path to your TLS/SSL key to serve Home Assistant over a secure connection.
   ssl_key: !secret http_ssl_key
 
-  # Enable parsing of the X-Forwarded-For header, passing on the client’s 
+  # Enable parsing of the X-Forwarded-For header, passing on the client’s
   # correct IP address in proxied setups.
   use_x_forwarded_for: true
 
-  # List of trusted proxies, consisting of IP addresses or networks, that are 
+  # List of trusted proxies, consisting of IP addresses or networks, that are
   # allowed to set the X-Forwarded-For header.
   trusted_proxies: !secret http_trusted_proxies
 
@@ -104,7 +104,7 @@ google:
   client_id: !secret google_client_id
   client_secret: !secret google_client_secret
 
-# The google_assistant integration allows you to control things via Google Assistant on your 
+# The google_assistant integration allows you to control things via Google Assistant on your
 # mobile, tablet or Google Home device.
 #
 # https://www.home-assistant.io/integrations/google_assistant/
@@ -121,14 +121,12 @@ google_assistant:
     - light
     - scene
     - switch
-  
+
   # Entity specific configuration for Google Assistant
   entity_config:
     switch.bedlight_switch:
       expose: false
     switch.erase_omg:
-      expose: false
-    switch.kiosk_screen:
       expose: false
     switch.restart_omg:
       expose: false
@@ -150,19 +148,19 @@ notify:
     vapid_prv_key: !secret vapid_prv_key
     vapid_email: !secret gmail
 
-# The air_quality base platform allows other integrations to process information about 
+# The air_quality base platform allows other integrations to process information about
 # air quality and pollution details.
 #
 # https://www.home-assistant.io/integrations/air_quality/
 air_quality:
-  # The norway_air integration queries the Norway air quality data feed provided by 
+  # The norway_air integration queries the Norway air quality data feed provided by
   # the Norwegian Meteorological Institute.
   #
   # https://www.home-assistant.io/integrations/norway_air/
   - platform: norway_air
     forecast: 12
 
-# Sensors are a basic platform component in Home Assistant. 
+# Sensors are a basic platform component in Home Assistant.
 # They monitor the states and conditions of a variety of entities.
 #
 # https://www.home-assistant.io/integrations/sensor

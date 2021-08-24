@@ -15,10 +15,7 @@
 
 - platform: switch
   name: Window Light
-  entity_id: switch.window_light_switch
-- platform: switch
-  name: Bedlight
-  entity_id: switch.bedlight_switch
+  entity_id: switch.window_light
 
 - platform: group
   name: All Lights

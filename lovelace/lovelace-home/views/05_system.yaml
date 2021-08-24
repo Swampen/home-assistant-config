@@ -107,7 +107,7 @@ cards:
     title: Batteries
     type: custom:battery-state-card
   - type: sensor
-    entity: sensor.real_time_consumption_etterstadsletta_88
+    entity: sensor.power_etterstadsletta_88
     graph: line
   - card:
       type: entities

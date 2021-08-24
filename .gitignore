@@ -17,6 +17,8 @@
 .storage
 .cloud
 .google.token
+*.gz
+__pycache__/
 
 # Ensures these files are ignored, otherwise secret data/credentials might leak.
 ip_bans.yaml

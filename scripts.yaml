@@ -29,3 +29,16 @@ toggle_all_lights:
       entity_id: light.all_lights
   mode: single
   alias: Toggle All Lights
+bother_martin:
+  sequence:
+  - service: notify.desktop
+    data:
+      title: '{{ states(''input_select.emoji'') }}'
+      message: '{{ states(''input_text.notification_message'') }}'
+      data:
+        icon: /local/icon/{% if is_state("input_select.emoji", "😏") -%} smirk.png
+          {%- elif is_state("input_select.emoji", "🥰") -%} hearts.png {%- endif %}
+        requireInteraction: true
+  mode: single
+  alias: Bother Martin
+  icon: mdi:head-heart

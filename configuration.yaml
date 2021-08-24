@@ -15,6 +15,9 @@ logger:
   logs:
     homeassistant.helpers.template: error
 
+recorder:
+  db_url: !secret maria_db
+
 # Lovelace is the Home Assistant dashboard. 
 # It is a fast, customizable and powerful way for users to manage their 
 # home using their mobiles and desktops

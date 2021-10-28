@@ -1,0 +1,4 @@
+*.yaml
+!devices.json
+!*.ps1
+!*.md

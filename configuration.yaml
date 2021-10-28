@@ -166,6 +166,11 @@ sensor:
       - type: memory_use
       - type: memory_free
       - type: processor_use
+      - type: processor_temperature
+      - type: swap_use_percent
+      - type: swap_use
+      - type: swap_free
+      - type: last_boot
   - platform: command_line
     name: Rasberry pi temperature
     command: "cat /sys/class/thermal/thermal_zone0/temp"
@@ -178,6 +183,8 @@ sensor:
   - platform: seventeentrack
     username: !secret email
     password: !secret seventeentrack_password
+  - platform: uptime
+    name: Uptime
 
     # https://www.home-assistant.io/integrations/time_date/
   - platform: time_date

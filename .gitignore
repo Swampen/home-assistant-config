@@ -7,11 +7,14 @@
 !*.md
 !LICENSE
 !.HA_VERSION
+!.github/
+!.vscode/
 !blueprints/
 !custom_components/
 !lovelace/
 !www/
 !themes/
+!zigbee2mqtt/
 
 # Ensures these folders are ignored.
 .storage

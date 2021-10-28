@@ -185,6 +185,12 @@ sensor:
       - "time"
       - "date"
       - "time_date"
+  # https://www.home-assistant.io/integrations/entur_public_transport/
+  - platform: entur_public_transport
+    stop_ids:
+      - !secret entur_stop_1
+      - !secret entur_stop_2
+    show_on_map: true
 
 spotify:
   client_id: !secret spotify_client_id

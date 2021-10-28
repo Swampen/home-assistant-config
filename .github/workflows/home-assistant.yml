@@ -12,7 +12,7 @@ jobs:
       - name: ⤵️ Check out code from GitHub
         uses: actions/checkout@v2
       - name: 🚀 Run yamllint
-        uses: frenck/action-yamllint@v2.4.1
+        uses: frenck/action-yamllint@v1.1.1
   docgen:
     name: docgen
     runs-on: windows-2019

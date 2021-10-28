@@ -89,7 +89,6 @@ scene: !include scenes.yaml
 # https://www.home-assistant.io/integrations/light/
 light: !include light.yaml
 
-
 input_select: !include input_select.yaml
 
 input_text: !include input_text.yaml

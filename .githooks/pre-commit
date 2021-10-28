@@ -1,0 +1,30 @@
+#!/bin/bash
+red=`tput setaf 1`
+if git rev-parse --verify HEAD >/dev/null 2>&1
+then
+	against=HEAD
+else
+	# Initial commit: diff against an empty tree object
+	against=$(git hash-object -t tree /dev/null)
+fi
+# Redirect output to stderr.
+exec 1>&2
+
+output=""
+# Checks if any yaml files have been staged
+stagedFiles=$(git diff --cached --name-only | egrep "*.yaml")
+for file in $stagedFiles
+do
+	# Validates that the linting is correct
+	output+=$(yamllint $file 2>&1)
+	exitCode=$?
+	if [[ "${exitCode}" == 1 ]]
+	then
+		# Don't commit if yamllint has errors
+		echo "$output"
+		echo -e "${red}Fix yaml linting before committing"
+		exit 1
+	fi
+done
+
+exec git diff-index --check --cached $against --

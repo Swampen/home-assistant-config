@@ -1,3 +1,4 @@
+---
 path: test
 title: test
 visible:
@@ -25,15 +26,15 @@ cards:
             to {
               stroke-dashoffset: 45;
             }
-          } 
-          .animate_off { 
-            display: none; 
-            } 
-          .animate_on { 
-            stroke-dasharray: 15; 
-            animation: dash 2.5s linear infinite; 
-          } 
-        </style> 
+          }
+          .animate_off {
+            display: none;
+            }
+          .animate_on {
+            stroke-dasharray: 15;
+            animation: dash 2.5s linear infinite;
+          }
+        </style>
         <path class="${state}" style="stroke:var(--button-card-light-color-no-temperature);
         fill: none;"d="M 6.246 1.19 C 5.082 3.064 5.851 4.212 6.412 5.676 C 6.832 6.772 7.445
         8.606 6.225 10.425 M 11.794 1.434 C 10.63 3.308 11.399 4.456 11.96
@@ -55,6 +56,6 @@ cards:
           - position: absolute
     template: base
   - color_type: blank-card
-    type: 'custom:button-card'
+    type: "custom:button-card"
   - color_type: blank-card
-    type: 'custom:button-card'
+    type: "custom:button-card"

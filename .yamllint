@@ -3,6 +3,7 @@ ignore: |
   themes/
   custom_components/
   zigbee2mqtt/
+  .github/
 rules:
   braces:
     level: error
@@ -56,7 +57,7 @@ rules:
     level: error
   line-length:
     level: warning
-    max: 88
+    max: 100
     allow-non-breakable-words: true
     allow-non-breakable-inline-mappings: true
   new-line-at-end-of-file:

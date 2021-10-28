@@ -1,3 +1,4 @@
+---
 path: home
 title: Home
 icon: mdi:home
@@ -29,17 +30,17 @@ cards:
       {% elif now().hour >= 12 %} Afternoon {{user}} 🕑
       {% else %} Morning {{user}} ☕
       {% endif %}
+
+      {% for light in states.light %}
+      {% if is_state(light.entity_id, 'on') %}
+      {{ light.name }}
+      {% endif %}
+      {% endfor %}
+
     style: |
       ha-card {
         min-height: 100vh;
-        ha-card 1s forwards
       }
-      @keyframes ha-card{
-        0%,100%{
-          border-right:.1vw solid rgba(58,69,73,.2)
-        }
-      }
-      
 
   - type: custom:banner-card
     background: "#cf7517"

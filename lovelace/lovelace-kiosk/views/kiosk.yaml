@@ -1,3 +1,4 @@
+---
 path: home
 title: kiosk
 panel: false
@@ -9,7 +10,7 @@ cards:
   - details: false
     entity: weather.home_hourly
     hourly_forecast: true
-    number_of_forecasts: '5'
+    number_of_forecasts: "5"
     show_forecast: true
     type: custom:weather-card
     name: Home

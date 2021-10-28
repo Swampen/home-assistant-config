@@ -1,3 +1,4 @@
+---
 - platform: group
   name: Kitchen Lights
   entities:
@@ -6,7 +7,7 @@
     - light.kitchen_3
     - light.kitchen_4
 
-- platform: group  
+- platform: group
   name: Living Room Lights
   entities:
     - light.corner_lamp

@@ -1,3 +1,4 @@
+---
 # This integration is a meta-component and configures a default set of
 # integrations for Home Assistant to load.
 #
@@ -74,7 +75,8 @@ group: !include groups.yaml
 # https://www.home-assistant.io/docs/automation/
 automation: !include automations.yaml
 
-# The script integration allows users to specify a sequence of actions to be executed by Home Assistant.
+# The script integration allows users to specify a sequence of
+# actions to be executed by Home Assistant.
 #
 # https://www.home-assistant.io/integrations/script/
 script: !include scripts.yaml
@@ -131,7 +133,6 @@ google_assistant:
       expose: true
     light.entryway:
       expose: true
-
 
 notify:
   - platform: html5
@@ -206,7 +207,7 @@ spotify:
 input_boolean:
   zigbee_permit_join:
     name: Allow devices to join
-    initial: off
+    initial: false
     icon: mdi:cellphone-wireless
   stuff_on_balcony:
     name: Will it rain?
@@ -218,10 +219,10 @@ input_boolean:
 timer:
   zigbee_permit_join:
     name: Time remaining
-    duration: 600 # Updated this to the number of seconds you wish
+    duration: 600
 
 template:
   - sensor:
-    - name: Selected Spotify source
-      unique_id: selected_spotify_source
-      state: "{{state_attr('media_player.spotify_11129748532', 'source')}}"
+      - name: Selected Spotify source
+        unique_id: selected_spotify_source
+        state: "{{state_attr('media_player.spotify_11129748532', 'source')}}"

@@ -8,6 +8,6 @@ overrides:
   - files:
       - "*.yaml"
       - "*.yml"
-    printWidth: 88
+    printWidth: 100
     tabWidth: 2
     useTabs: true

@@ -1,4 +1,4 @@
-$Content = (Get-Content -Path .\devices.json) -join ""
+$Content = (Get-Content -Path $PSScriptRoot\devices.json) -join ""
 $Devices = ConvertFrom-Json $Content
 
 $MarkdownColumns = @"
@@ -19,4 +19,4 @@ foreach ($Device in $Devices)
 }
 
 $Markdown = @($MarkdownColumns, $MarkdownRows) -join "`n"
-$Markdown | Out-File $PSScriptRoot\DEVICES.md
+$Markdown | Out-File $PSScriptRoot\README.md

@@ -1,5 +1,9 @@
+---
 name: Home Assistant CI
-on: push
+on:
+  push:
+    branches:
+      - master
 jobs:
   yamllint:
     name: yamllint
@@ -8,4 +12,17 @@ jobs:
       - name: ⤵️ Check out code from GitHub
         uses: actions/checkout@v2
       - name: 🚀 Run yamllint
-        uses: frenck/action-yamllint@v1
+        uses: frenck/action-yamllint@v2.4.1
+  docgen:
+    name: docgen
+    runs-on: windows-2019
+    steps:
+      - name: ⤵️ Check out code from GitHub
+        uses: actions/checkout@v2
+      - name: 📚 Generates Zigbee device documentation
+        run: ./zigbee2mqtt/New-ZigbeeDoc.ps1
+        shell: powershell
+      - name: ⤴ Pushing changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "📚 Generated documentation for zigbee devices"

@@ -1,0 +1,222 @@
+[
+    {
+        "vendor": "IKEA",
+        "model": "E1743",
+        "friendly_name": "Dimmer",
+        "description": "TRADFRI ON/OFF switch",
+        "manufacturer": "IKEA of Sweden",
+        "model_id": "TRADFRI on/off switch",
+        "power_source": "Battery",
+        "type": "EndDevice"
+    },
+    {
+        "vendor": "IKEA",
+        "model": "E1812",
+        "friendly_name": "Shortcut Button",
+        "description": "TRADFRI shortcut button",
+        "manufacturer": "IKEA of Sweden",
+        "model_id": "TRADFRI SHORTCUT Button",
+        "power_source": "Battery",
+        "type": "EndDevice"
+    },
+    {
+        "vendor": "IKEA",
+        "model": "LED1537R6/LED1739R5",
+        "friendly_name": "Kitchen 1",
+        "description": "TRADFRI LED bulb GU10 400 lumen, dimmable, white spectrum",
+        "manufacturer": "IKEA of Sweden",
+        "model_id": "TRADFRI bulb GU10 WS 400lm",
+        "power_source": "Mains (single phase)",
+        "type": "Router"
+    },
+    {
+        "vendor": "IKEA",
+        "model": "LED1537R6/LED1739R5",
+        "friendly_name": "Kitchen 2",
+        "description": "TRADFRI LED bulb GU10 400 lumen, dimmable, white spectrum",
+        "manufacturer": "IKEA of Sweden",
+        "model_id": "TRADFRI bulb GU10 WS 400lm",
+        "power_source": "Mains (single phase)",
+        "type": "Router"
+    },
+    {
+        "vendor": "IKEA",
+        "model": "LED1537R6/LED1739R5",
+        "friendly_name": "Kitchen 3",
+        "description": "TRADFRI LED bulb GU10 400 lumen, dimmable, white spectrum",
+        "manufacturer": "IKEA of Sweden",
+        "model_id": "TRADFRI bulb GU10 WS 400lm",
+        "power_source": "Mains (single phase)",
+        "type": "Router"
+    },
+    {
+        "vendor": "IKEA",
+        "model": "LED1537R6/LED1739R5",
+        "friendly_name": "Kitchen 4",
+        "description": "TRADFRI LED bulb GU10 400 lumen, dimmable, white spectrum",
+        "manufacturer": "IKEA of Sweden",
+        "model_id": "TRADFRI bulb GU10 WS 400lm",
+        "power_source": "Mains (single phase)",
+        "type": "Router"
+    },
+    {
+        "vendor": "IKEA",
+        "model": "LED1624G9",
+        "friendly_name": "Corner Lamp",
+        "description": "TRADFRI LED bulb E14/E26/E27 600 lumen, dimmable, color, opal white",
+        "manufacturer": "IKEA of Sweden",
+        "model_id": "TRADFRI bulb E27 CWS opal 600lm",
+        "power_source": "Mains (single phase)",
+        "type": "Router"
+    },
+    {
+        "vendor": "IKEA",
+        "model": "LED1624G9",
+        "friendly_name": "Table",
+        "description": "TRADFRI LED bulb E14/E26/E27 600 lumen, dimmable, color, opal white",
+        "manufacturer": "IKEA of Sweden",
+        "model_id": "TRADFRI bulb E27 CWS opal 600lm",
+        "power_source": "Mains (single phase)",
+        "type": "Router"
+    },
+    {
+        "vendor": "IKEA",
+        "model": "LED1732G11",
+        "friendly_name": "Entryway",
+        "description": "TRADFRI LED bulb E27 1000 lumen, dimmable, white spectrum, opal white",
+        "manufacturer": "IKEA of Sweden",
+        "model_id": "TRADFRI bulb E27 WS opal 1000lm",
+        "power_source": "Mains (single phase)",
+        "type": "Router"
+    },
+    {
+        "vendor": "TuYa",
+        "model": "TS0121_plug",
+        "friendly_name": "Bed Heating",
+        "description": "10A UK or 16A EU smart plug",
+        "manufacturer": "_TZ3000_vtscrpmw",
+        "model_id": "TS0121",
+        "power_source": "Mains (single phase)",
+        "type": "Router"
+    },
+    {
+        "vendor": "Xiaomi",
+        "model": "GZCGQ01LM",
+        "friendly_name": "Living Room Illuminance",
+        "description": "MiJia light intensity sensor",
+        "manufacturer": "LUMI",
+        "model_id": "lumi.sen_ill.mgl01",
+        "power_source": "Battery",
+        "type": "EndDevice"
+    },
+    {
+        "vendor": "Xiaomi",
+        "model": "MCCGQ11LM",
+        "friendly_name": "Closet Door",
+        "description": "Aqara door & window contact sensor",
+        "manufacturer": "LUMI",
+        "model_id": "lumi.sensor_magnet.aq2",
+        "power_source": "Battery",
+        "type": "EndDevice"
+    },
+    {
+        "vendor": "Xiaomi",
+        "model": "MCCGQ11LM",
+        "friendly_name": "Refrigerator Door",
+        "description": "Aqara door & window contact sensor",
+        "manufacturer": "LUMI",
+        "model_id": "lumi.sensor_magnet.aq2",
+        "power_source": "Battery",
+        "type": "EndDevice"
+    },
+    {
+        "vendor": "Xiaomi",
+        "model": "RTCGQ11LM",
+        "friendly_name": "Entryway Motion",
+        "description": "Aqara human body movement and illuminance sensor",
+        "manufacturer": "LUMI",
+        "model_id": "lumi.sensor_motion.aq2",
+        "power_source": "Battery",
+        "type": "EndDevice"
+    },
+    {
+        "vendor": "Xiaomi",
+        "model": "SJCGQ11LM",
+        "friendly_name": "Bathroom Water Sensor",
+        "description": "Aqara water leak sensor",
+        "manufacturer": "LUMI",
+        "model_id": "lumi.sensor_wleak.aq1",
+        "power_source": "Battery",
+        "type": "EndDevice"
+    },
+    {
+        "vendor": "Xiaomi",
+        "model": "SJCGQ11LM",
+        "friendly_name": "Kitchen Water Sensor",
+        "description": "Aqara water leak sensor",
+        "manufacturer": "LUMI",
+        "model_id": "lumi.sensor_wleak.aq1",
+        "power_source": "Battery",
+        "type": "EndDevice"
+    },
+    {
+        "vendor": "Xiaomi",
+        "model": "WSDCGQ01LM",
+        "friendly_name": "Living Room sensor",
+        "description": "MiJia temperature & humidity sensor",
+        "manufacturer": "LUMI",
+        "model_id": "lumi.sensor_ht",
+        "power_source": "Battery",
+        "type": "EndDevice"
+    },
+    {
+        "vendor": "Xiaomi",
+        "model": "WSDCGQ11LM",
+        "friendly_name": "Outdoor Sensor",
+        "description": "Aqara temperature, humidity and pressure sensor",
+        "manufacturer": "LUMI",
+        "model_id": "lumi.weather",
+        "power_source": "Battery",
+        "type": "EndDevice"
+    },
+    {
+        "vendor": "Xiaomi",
+        "model": "WXCJKG13LM",
+        "friendly_name": "Living Room Switch",
+        "description": "Aqara Opple switch 3 bands",
+        "manufacturer": "LUMI",
+        "model_id": "lumi.remote.b686opcn01",
+        "power_source": "Battery",
+        "type": "EndDevice"
+    },
+    {
+        "vendor": "Xiaomi",
+        "model": "ZNCZ02LM",
+        "friendly_name": "Heater",
+        "description": "Mi power plug ZigBee",
+        "manufacturer": "LUMI",
+        "model_id": "lumi.plug",
+        "power_source": "Mains (single phase)",
+        "type": "Router"
+    },
+    {
+        "vendor": "Xiaomi",
+        "model": "ZNCZ02LM",
+        "friendly_name": "Window Light",
+        "description": "Mi power plug ZigBee",
+        "manufacturer": "LUMI",
+        "model_id": "lumi.plug",
+        "power_source": "Mains (single phase)",
+        "type": "Router"
+    },
+    {
+        "vendor": "Xiaomi",
+        "model": "ZNLDP12LM",
+        "friendly_name": "Closet Light",
+        "description": "Aqara smart LED bulb",
+        "manufacturer": "LUMI",
+        "model_id": "lumi.light.aqcn02",
+        "power_source": "DC Source",
+        "type": "Router"
+    }
+]

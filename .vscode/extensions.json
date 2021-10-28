@@ -1,5 +1,6 @@
 {
     "recommendations": [
-        "redhat.vscode-yaml"
+        "esbenp.prettier-vscode",
+        "eamodio.gitlens"
     ]
 }

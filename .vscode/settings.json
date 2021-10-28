@@ -1,5 +1,8 @@
 {
     "files.associations": {
         "*.yaml": "home-assistant"
-    }
+    },
+    "prettier.configPath": ".prettierrc.yaml",
+    "editor.formatOnSave": true,
+    "files.eol": "\n"
 }

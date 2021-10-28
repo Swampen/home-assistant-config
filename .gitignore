@@ -7,7 +7,8 @@
 !*.md
 !LICENSE
 !.HA_VERSION
-!.githooks
+!.yamllint
+!.githooks/
 !.github/
 !.vscode/
 !blueprints/

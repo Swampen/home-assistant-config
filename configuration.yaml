@@ -110,32 +110,28 @@ google_assistant:
 
   # Service account information.
   service_account: !include service_account.json
-
-  # List of entity domains to expose to Google Assistant if expose_by_default is set to true.
-  exposed_domains:
-    - group
-    - light
-    - scene
-    - switch
+  expose_by_default: false
+  report_state: true
 
   # Entity specific configuration for Google Assistant
   entity_config:
-    switch.bedlight_switch:
-      expose: false
-    switch.erase_omg:
-      expose: false
-    switch.restart_omg:
-      expose: false
-    switch.window_light_switch:
-      expose: false
-    light.kitchen_1:
-      expose: false
-    light.kitchen_2:
-      expose: false
-    light.kitchen_3:
-      expose: false
-    light.kitchen_4:
-      expose: false
+    light.all_lights:
+      expose: true
+    light.living_room_lights:
+      expose: true
+    light.table:
+      expose: true
+    light.corner_lamp:
+      expose: true
+    light.window_light:
+      expose: true
+    switch.heater:
+      expose: true
+    light.kitchen_lights:
+      expose: true
+    light.entryway:
+      expose: true
+
 
 notify:
   - platform: html5

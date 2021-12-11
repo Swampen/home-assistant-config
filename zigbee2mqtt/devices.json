@@ -202,7 +202,7 @@
     {
         "vendor": "Xiaomi",
         "model": "ZNCZ02LM",
-        "friendly_name": "Outside Light",
+        "friendly_name": "Balcony Light",
         "description": "Mi power plug ZigBee",
         "manufacturer": "LUMI",
         "model_id": "lumi.plug",

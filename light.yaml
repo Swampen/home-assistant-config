@@ -9,8 +9,8 @@
   entity_id: switch.window_light
 
 - platform: switch
-  name: Outside light
-  entity_id: switch.outside_light
+  name: Balcony light
+  entity_id: switch.balcony_light
 
 - platform: group
   name: All Lights

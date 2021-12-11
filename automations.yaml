@@ -78,3 +78,13 @@
       entity_id: light.entryway
       service: light.turn_off
   mode: single
+- id: update_dns_records
+  alias: Update DNS records on boot
+  description: ''
+  trigger:
+  - platform: homeassistant
+    event: start
+  condition: []
+  action:
+  - service: cloudflare.update_records
+  mode: single

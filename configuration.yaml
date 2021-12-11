@@ -226,3 +226,14 @@ template:
       - name: Selected Spotify source
         unique_id: selected_spotify_source
         state: "{{state_attr('media_player.spotify_11129748532', 'source')}}"
+
+camera:
+  - platform: xiaomi_cloud_map_extractor
+    host: !secret xiaomi_vacuum_host
+    token: !secret xiaomi_vacuum_token
+    username: !secret xiaomi_cloud_username
+    password: !secret xiaomi_cloud_password
+    country: de
+    draw: ['all']
+    attributes:
+      - calibration_points   

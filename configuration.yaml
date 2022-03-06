@@ -34,8 +34,6 @@ lovelace:
   mode: storage
   dashboards: !include ./lovelace/dashboards.yaml
 
-updater:
-
 python_script:
 
 # The http integration serves all files and data required for the Home Assistant frontend
@@ -160,7 +158,6 @@ air_quality:
 #
 # https://www.home-assistant.io/integrations/sensor
 sensor:
-  - platform: version
   - platform: systemmonitor
     resources:
       - type: disk_use_percent

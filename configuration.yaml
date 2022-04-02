@@ -221,6 +221,7 @@ camera:
     username: !secret xiaomi_cloud_username
     password: !secret xiaomi_cloud_password
     country: de
-    draw: ['all']
+    scan_interval: 60
+    draw: ["all"]
     attributes:
       - calibration_points

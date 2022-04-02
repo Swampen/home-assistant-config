@@ -121,17 +121,20 @@ google_assistant:
       expose: true
     light.living_room_lights:
       expose: true
-    light.table:
-      expose: true
-    light.corner_lamp:
-      expose: true
     light.window_light:
-      expose: true
-    switch.heater:
       expose: true
     light.kitchen_lights:
       expose: true
+    light.balcony_light:
+      expose: true
     light.entryway:
+      expose: true
+    light.christmas_tree:
+      expose: true
+
+    climate.living_room_floor_heating:
+      expose: true
+    climate.entryway_floor_heating:
       expose: true
 
 notify:

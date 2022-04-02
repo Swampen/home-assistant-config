@@ -192,12 +192,6 @@ sensor:
       - "time"
       - "date"
       - "time_date"
-  # https://www.home-assistant.io/integrations/entur_public_transport/
-  - platform: entur_public_transport
-    stop_ids:
-      - !secret entur_stop_1
-      - !secret entur_stop_2
-    show_on_map: true
 
 spotify:
   client_id: !secret spotify_client_id
@@ -208,12 +202,6 @@ input_boolean:
     name: Allow devices to join
     initial: false
     icon: mdi:cellphone-wireless
-  stuff_on_balcony:
-    name: Will it rain?
-    icon: mdi:weather-pouring
-  manual_entryway:
-    name: Manual Entryway
-    icon: mdi:motion-sensor
 
 timer:
   zigbee_permit_join:

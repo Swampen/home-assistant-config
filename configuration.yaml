@@ -34,6 +34,8 @@ lovelace:
   mode: storage
   dashboards: !include ./lovelace/dashboards.yaml
 
+browser_mod:
+
 python_script:
 
 # The http integration serves all files and data required for the Home Assistant frontend

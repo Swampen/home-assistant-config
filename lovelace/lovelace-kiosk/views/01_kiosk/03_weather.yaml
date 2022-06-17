@@ -1,0 +1,16 @@
+---
+- type: "custom:button-card"
+  template: card_weather
+  entity: weather.home_hourly
+  variables:
+    ulm_card_weather_name: " "
+    ulm_card_weather_primary_info:
+      - precipitation
+      - precipitation_probability
+    ulm_card_weather_secondary_info:
+      - wind_speed
+      - humidity
+    ulm_card_weather_backdrop:
+      fade: true
+      day: "#1d1d1d"
+      night: "#1d1d1d"

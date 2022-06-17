@@ -25,6 +25,15 @@ logger:
 recorder:
   db_url: !secret maria_db
 
+influxdb:
+  host: !secret homeassistant_ip
+  port: 8086
+  database: homeassistant
+  username: !secret influxdb_user
+  password: !secret influxdb_password
+  max_retries: 3
+  default_measurement: state
+
 # Lovelace is the Home Assistant dashboard.
 # It is a fast, customizable and powerful way for users to manage their
 # home using their mobiles and desktops

@@ -217,22 +217,10 @@ spotify:
   client_id: !secret spotify_client_id
   client_secret: !secret spotify_client_secret
 
-input_boolean:
-  zigbee_permit_join:
-    name: Allow devices to join
-    initial: false
-    icon: mdi:cellphone-wireless
-
 timer:
   zigbee_permit_join:
     name: Time remaining
     duration: 600
-
-template:
-  - sensor:
-      - name: Selected Spotify source
-        unique_id: selected_spotify_source
-        state: "{{state_attr('media_player.spotify_11129748532', 'source')}}"
 
 camera:
   - platform: xiaomi_cloud_map_extractor

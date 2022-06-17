@@ -1,0 +1,11 @@
+---
+- type: custom:button-card
+  template: card_title
+  name: Heating
+- type: "custom:button-card"
+  template: card_thermostat
+  entity: climate.living_room_floor_heating
+  variables:
+    ulm_card_thermostat_enable_collapse: true
+    ulm_card_thermostat_enable_controls: true
+    ulm_card_thermostat_enable_popup: true

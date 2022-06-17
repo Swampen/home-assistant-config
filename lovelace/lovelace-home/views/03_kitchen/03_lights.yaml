@@ -1,0 +1,15 @@
+---
+- type: custom:button-card
+  template: card_title
+  name: Lights
+- type: grid
+  columns: 1
+  square: false
+  cards:
+    - type: custom:button-card
+      template: card_light
+      entity: light.kitchen_lights
+      variables:
+        ulm_card_light_enable_slider: true
+        ulm_card_light_enable_popup: true
+        ulm_card_light_enable_horizontal: true

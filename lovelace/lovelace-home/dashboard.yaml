@@ -1,42 +1,55 @@
 ---
-kiosk_mode:
-  user_settings:
-    - users:
-        - User
-      hide_sidebar: true
-swipe_nav:
-  animate: swipe
-  prevent_default: true
-  wrap: true
-button_card_templates:
-  base:
-    aspect_ratio: 1/1
-    show_icon: false
-    state:
-      - value: "on"
-        styles:
-          card:
-            - background-color: rgba(255, 255, 255, 0.8)
-          name:
-            - color: rgba(0, 0, 0, 0.6)
-          state:
-            - color: rgba(0, 0, 0, 0.6)
-    tap_action:
-      action: toggle
-      haptic: light
-    hold_action:
-      action: more-info
-    styles:
-      name:
-        - top: 57.7%
-        - left: 11%
-        - font-size: 2em
-        - position: absolute
-      state:
-        - top: 74%
-        - left: 11%
-        - position: absolute
-      card:
-        - color: rgba(255, 255, 255, 0.3)
-        - background-color: rgba(115, 115, 115, 0.2)
-views: !include_dir_list ./views
+button_card_templates: !include_dir_merge_named "../ulm_templates/"
+
+title: UI Lovelace Minimalist
+theme: minimalist-desktop
+background: var(--background-image)
+views:
+  - title: Home
+    path: home
+    icon: mdi:home
+    cards:
+      - type: vertical-stack
+        cards: !include_dir_merge_list ./views/01_home
+  - title: Living Room
+    path: living_room
+    icon: mdi:sofa
+    cards:
+      - type: vertical-stack
+        cards: !include_dir_merge_list ./views/02_living_room
+  - title: Kitchen
+    path: kitchen
+    icon: mdi:fridge
+    cards:
+      - type: vertical-stack
+        cards: !include_dir_merge_list ./views/03_kitchen
+  - title: Entryway
+    path: entryway
+    icon: mdi:door
+    cards:
+      - type: vertical-stack
+        cards: !include_dir_merge_list ./views/04_entryway
+  - title: Bathroom
+    path: bathroom
+    icon: mdi:shower
+    cards:
+      - type: vertical-stack
+        cards: !include_dir_merge_list ./views/05_bathroom
+  - title: Transport
+    path: transport
+    icon: mdi:bus
+    cards:
+      - type: vertical-stack
+        cards: !include_dir_merge_list ./views/10_transport
+  - title: Lights
+    path: lights
+    icon: mdi:lightbulb-multiple
+    cards:
+      - type: vertical-stack
+        cards: !include_dir_merge_list ./views/11_lights
+  - title: System
+    path: system
+    icon: mdi:gauge
+    cards:
+      - type: vertical-stack
+        cards: !include_dir_merge_list ./views/14_system

@@ -1,0 +1,102 @@
+---
+- type: custom:button-card
+  template: card_title
+  name: Rooms
+- type: grid
+  columns: 2
+  square: false
+  cards:
+    - type: "custom:button-card"
+      template:
+        - card_room
+        - yellow_no_state
+      name: Living Room
+      entity: sensor.living_room_air_quality_sensor_temperature
+      icon: mdi:sofa
+      tap_action:
+        action: navigate
+        navigation_path: "/lovelace-home/living_room"
+      variables:
+        label_use_temperature: true
+        label_use_brightness: false
+        entity_1:
+          entity_id: light.living_room_lights
+          templates:
+            - yellow_on
+          tap_action:
+            action: toggle
+        entity_2:
+          entity_id: climate.living_room_floor_heating
+          templates:
+            - red_on
+          tap_action:
+            action: more-info
+    - type: "custom:button-card"
+      template:
+        - card_room
+        - yellow_no_state
+      name: Kitchen
+      entity: light.kitchen_lights
+      icon: mdi:fridge
+      tap_action:
+        action: navigate
+        navigation_path: "/lovelace-home/kitchen"
+      variables:
+        label_use_temperature: false
+        label_use_brightness: true
+        entity_1:
+          entity_id: light.kitchen_lights
+          templates:
+            - yellow_on
+          tap_action:
+            action: toggle
+        entity_2:
+          entity_id: media_player.kitchen_speaker
+          templates:
+            - red_on
+          tap_action:
+            action: more-info
+    - type: "custom:button-card"
+      template:
+        - card_room
+        - yellow_no_state
+      name: Entryway
+      entity: climate.entryway_floor_heating
+      icon: mdi:door
+      tap_action:
+        action: navigate
+        navigation_path: "/lovelace-home/entryway"
+      variables:
+        label_use_temperature: true
+        label_use_brightness: false
+        entity_1:
+          entity_id: light.entryway_light
+          templates:
+            - yellow_on
+          tap_action:
+            action: toggle
+        entity_2:
+          entity_id: climate.entryway_floor_heating
+          templates:
+            - red_on
+          tap_action:
+            action: more-info
+    - type: "custom:button-card"
+      template:
+        - card_room
+        - green_no_state
+      name: Bathroom
+      entity: sensor.bathroom_sensor_temperature
+      icon: mdi:shower
+      tap_action:
+        action: navigate
+        navigation_path: "/lovelace-home/bathroom"
+      variables:
+        label_use_temperature: true
+        label_use_brightness: false
+        entity_1:
+          entity_id: climate.bathroom_floor_heating
+          templates:
+            - red_on
+          tap_action:
+            action: more-info

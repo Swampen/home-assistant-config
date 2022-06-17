@@ -1,0 +1,22 @@
+---
+- type: custom:button-card
+  template: card_title
+  name: Updates
+- type: grid
+  columns: 1
+  square: false
+  cards:
+    - type: custom:auto-entities
+      card:
+        type: entities
+      filter:
+        exclude: null
+        include:
+          - entity_id: '*update*available*'
+            state: 'on'
+          - entity_id: binary_sensor.updater
+            state: 'on'
+          - entity_id: sensor.hacs
+            state: '> 0'
+      sort:
+        method: name

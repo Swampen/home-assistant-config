@@ -1,0 +1,7 @@
+---
+- type: custom:button-card
+  template: card_title
+  name: Ruter
+- aspect_ratio: 150%
+  type: iframe
+  url: !secret ruter_url

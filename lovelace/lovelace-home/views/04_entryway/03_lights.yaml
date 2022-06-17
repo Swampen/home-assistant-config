@@ -1,0 +1,16 @@
+---
+- type: custom:button-card
+  template: card_title
+  name: Lights
+- type: grid
+  columns: 1
+  square: false
+  cards:
+    - type: custom:button-card
+      template: card_light
+      entity: light.entryway_light
+      variables:
+        ulm_card_light_enable_slider: true
+        ulm_card_light_enable_color: true
+        ulm_card_light_enable_popup: true
+        ulm_card_light_enable_horizontal: true

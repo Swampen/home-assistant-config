@@ -1,0 +1,54 @@
+---
+- type: custom:button-card
+  template: card_title
+  name: Lights
+- type: grid
+  columns: 2
+  square: false
+  cards:
+    - type: custom:button-card
+      template: card_light
+      entity: light.living_room_lights
+      variables:
+        ulm_card_light_enable_slider: true
+        ulm_card_light_enable_color: true
+        ulm_card_light_enable_popup: true
+    - type: custom:button-card
+      template: card_light
+      entity: light.living_room_lights_1
+      variables:
+        ulm_card_light_name: Sideboard
+        ulm_card_light_icon: mdi:buffet
+        ulm_card_light_enable_slider: true
+        ulm_card_light_enable_color: true
+        ulm_card_light_enable_popup: true
+    - type: custom:button-card
+      template: card_light
+      entity: light.living_room_lights_2
+      variables:
+        ulm_card_light_name: Sofa
+        ulm_card_light_icon: mdi:sofa
+        ulm_card_light_enable_slider: true
+        ulm_card_light_enable_color: true
+        ulm_card_light_enable_popup: true
+    - type: custom:button-card
+      template: card_light
+      entity: light.balcony_light
+      variables:
+        ulm_card_light_enable_slider: false
+        ulm_card_light_enable_color: true
+        ulm_card_light_enable_popup: true
+    - type: custom:button-card
+      template: card_light
+      entity: light.kitchen_lights
+      variables:
+        ulm_card_light_enable_slider: true
+        ulm_card_light_enable_color: true
+        ulm_card_light_enable_popup: true
+    - type: custom:button-card
+      template: card_light
+      entity: light.entryway_light
+      variables:
+        ulm_card_light_enable_slider: true
+        ulm_card_light_enable_color: true
+        ulm_card_light_enable_popup: true

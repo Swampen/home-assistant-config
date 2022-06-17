@@ -1,0 +1,13 @@
+---
+- type: grid
+  columns: 1
+  square: false
+  cards:
+    - type: "custom:button-card"
+      template: card_graph
+      variables:
+        ulm_card_graph_color: "var(--google-red)"
+        ulm_card_graph_name: Temperature
+        ulm_card_graph_entity: sensor.entryway_floor_heating_floor_temp
+        ulm_card_graph_type: fill
+        ulm_card_graph_hours: 24

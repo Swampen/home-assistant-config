@@ -1,0 +1,14 @@
+---
+zigbee_permit_join:
+  name: Allow devices to join
+  initial: false
+  icon: mdi:cellphone-wireless
+
+minimalist_header_toggle:
+  name: Welcome header toggle
+  initial: true
+
+entryway_motion_toggle:
+  name: Entryway motion toggle
+  initial: true
+  icon: mdi:motion-sensor

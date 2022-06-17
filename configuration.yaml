@@ -104,6 +104,10 @@ input_select: !include input_select.yaml
 
 input_text: !include input_text.yaml
 
+input_boolean: !include input_boolean.yaml
+
+input_number: !include input_number.yaml
+
 # This offers the official frontend to control Home Assistant.
 #
 # https://www.home-assistant.io/integrations/frontend/
@@ -120,7 +124,6 @@ frontend:
 google_assistant:
   # Project ID from the Actions on Google console
   project_id: !secret google_assistant_project_id
-
   # Service account information.
   service_account: !include service_account.json
   expose_by_default: false

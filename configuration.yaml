@@ -138,7 +138,7 @@ google_assistant:
       expose: true
     light.balcony_light:
       expose: true
-    light.entryway:
+    light.entryway_light:
       expose: true
     light.christmas_tree:
       expose: true
@@ -146,6 +146,12 @@ google_assistant:
     climate.living_room_floor_heating:
       expose: true
     climate.entryway_floor_heating:
+      expose: true
+
+    climate.bathroom_floor_heating:
+      expose: true
+
+    switch.printer:
       expose: true
 
 notify:

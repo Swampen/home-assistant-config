@@ -7,16 +7,19 @@
   square: false
   cards:
     - type: custom:auto-entities
+      show_empty: false
       card:
         type: entities
       filter:
         exclude: null
         include:
-          - entity_id: '*update*available*'
-            state: 'on'
-          - entity_id: binary_sensor.updater
-            state: 'on'
+          - entity_id: "*_update"
+            state: "on"
           - entity_id: sensor.hacs
-            state: '> 0'
+            state: "> 0"
+            options:
+              tap_action:
+                action: navigate
+                navigation_path: /hacs
       sort:
         method: name

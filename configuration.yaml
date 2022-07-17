@@ -44,6 +44,14 @@ lovelace:
   dashboards: !include ./lovelace/dashboards.yaml
 
 browser_mod:
+  prefix: "browser_"
+  devices:
+    fd14ea1e-bb727b31:
+      name: ole-martin
+    79ec62c1_9b57ea32:
+      name: kiosk
+  disable:
+    - all
 
 python_script:
 

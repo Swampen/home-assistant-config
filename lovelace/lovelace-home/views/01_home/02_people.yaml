@@ -8,12 +8,8 @@
       variables:
         ulm_card_person_entity: person.ole_martin
         ulm_card_person_use_entity_picture: true
-        ulm_card_person_zone1: zone.slattum
-        ulm_address: device_tracker.sm_g986b
     - type: 'custom:button-card'
       template: card_person
       variables:
         ulm_card_person_entity: person.hanbit
         ulm_card_person_use_entity_picture: true
-        ulm_card_person_zone1: zone.ulleval
-        ulm_address: device_tracker.sm_g991b

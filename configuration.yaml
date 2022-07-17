@@ -114,6 +114,8 @@ input_text: !include input_text.yaml
 
 input_boolean: !include input_boolean.yaml
 
+input_button: !include input_button.yaml
+
 input_number: !include input_number.yaml
 
 mqtt: !include mqtt.yaml
@@ -214,17 +216,20 @@ sensor:
     password: !secret seventeentrack_password
   - platform: uptime
     name: Uptime
+  - platform: min_max
+    name: Apartment Mean Humidity
+    type: mean
+    entity_ids:
+      - sensor.living_room_air_quality_sensor_humidity
+      - sensor.bedroom_sensor_humidity
+      - sensor.office_sensor_humidity
 
-    # https://www.home-assistant.io/integrations/time_date/
+  # https://www.home-assistant.io/integrations/time_date/
   - platform: time_date
     display_options:
       - "time"
       - "date"
       - "time_date"
-
-spotify:
-  client_id: !secret spotify_client_id
-  client_secret: !secret spotify_client_secret
 
 timer:
   zigbee_permit_join:

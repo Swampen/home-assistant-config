@@ -6,7 +6,7 @@ zigbee_permit_join:
 
 minimalist_header_toggle:
   name: Welcome header toggle
-  initial: true
+  initial: false
 
 entryway_motion_toggle:
   name: Entryway motion toggle

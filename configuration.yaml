@@ -10,7 +10,7 @@ homeassistant:
   latitude: !secret latitude
   longitude: !secret longitude
   unit_system: metric
-  currency: "NOK"
+  currency: NOK
   time_zone: !secret time_zone
   external_url: !secret external_url
 
@@ -214,8 +214,6 @@ sensor:
   - platform: seventeentrack
     username: !secret email
     password: !secret seventeentrack_password
-  - platform: uptime
-    name: Uptime
   - platform: min_max
     name: Apartment Mean Humidity
     type: mean

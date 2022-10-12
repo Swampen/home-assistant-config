@@ -31,6 +31,12 @@
             - red_on
           tap_action:
             action: more-info
+        entity_3:
+          entity_id: media_player.living_room
+          templates:
+            - red_on
+          tap_action:
+            action: more-info
     - type: "custom:button-card"
       template:
         - card_room

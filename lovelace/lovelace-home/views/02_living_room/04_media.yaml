@@ -1,0 +1,13 @@
+---
+- type: custom:button-card
+  template: card_title
+  name: Media
+- type: "custom:button-card"
+  template: card_media_player
+  entity: media_player.living_room
+  variables:
+    ulm_card_media_player_name: Living Room TV
+    ulm_card_media_player_icon: mdi:television
+    ulm_card_media_player_enable_controls: true
+    ulm_card_media_player_enable_volume_slider: true
+    ulm_card_media_player_enable_popup: true

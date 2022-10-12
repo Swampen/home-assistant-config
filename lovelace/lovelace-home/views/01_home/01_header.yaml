@@ -16,9 +16,9 @@
       name: Lights
       color: yellow
     entity_3:
-      nav: security
-      icon: mdi:shield
-      name: Secure
+      nav: electricity
+      icon: mdi:lightning-bolt
+      name: El.Price
       color: green
     entity_4:
       nav: network

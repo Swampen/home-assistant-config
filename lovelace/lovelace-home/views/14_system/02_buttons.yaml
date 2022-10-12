@@ -1,0 +1,7 @@
+---
+- type: custom:button-card
+  template: card_title
+  name: Buttons
+- type: "custom:button-card"
+  template: card_generic_swap
+  entity: button.galaxy_s8_restart_browser

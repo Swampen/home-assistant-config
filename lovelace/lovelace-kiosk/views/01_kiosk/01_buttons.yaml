@@ -17,7 +17,15 @@
         ulm_card_light_enable_slider: false
         ulm_card_light_enable_color: false
         ulm_card_light_enable_popup: false
-    - type: 'custom:button-card'
+    - type: "custom:button-card"
       template: card_input_boolean
       entity: input_boolean.entryway_motion_toggle
       name: Entryway Motion
+    - type: "custom:button-card"
+      template: card_generic
+      entity: sensor.electricity_price_kristins_vei_6
+      tap_action:
+        action: navigate
+        navigation_path: /lovelace-kiosk/electricity
+      hold_action:
+        action: more-info

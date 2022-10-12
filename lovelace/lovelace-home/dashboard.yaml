@@ -47,6 +47,12 @@ views:
     cards:
       - type: vertical-stack
         cards: !include_dir_merge_list ./views/11_lights
+  - title: Electricity
+    path: electricity
+    icon: mdi:lightning-bolt
+    cards:
+      - type: vertical-stack
+        cards: !include_dir_merge_list ./views/12_electricity
   - title: System
     path: system
     icon: mdi:gauge

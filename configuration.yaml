@@ -231,6 +231,11 @@ sensor:
       - "date"
       - "time_date"
 
+  # https://github.com/custom-components/nordpool
+  - platform: nordpool
+    region: Oslo
+    precision: 4
+
 timer:
   zigbee_permit_join:
     name: Time remaining

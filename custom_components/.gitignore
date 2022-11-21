@@ -1,4 +1,4 @@
 # Includes all files in subfolders
-!*
+**/manifest.json
 *.pyc
 *.gz

@@ -221,6 +221,16 @@ sensor:
       - sensor.living_room_air_quality_sensor_humidity
       - sensor.bedroom_sensor_humidity
       - sensor.office_sensor_humidity
+  - platform: integration
+    name: Living Room Floor Heating Energy
+    unit_prefix: k
+    round: 2
+    source: sensor.living_room_floor_heating_current_load
+  - platform: integration
+    name: Bathroom Floor Heating Energy Custom
+    unit_prefix: k
+    round: 2
+    source: sensor.bathroom_floor_heating_current_load
 
   # https://www.home-assistant.io/integrations/time_date/
   - platform: time_date
@@ -250,3 +260,4 @@ camera:
     draw: ["all"]
     attributes:
       - calibration_points
+template: !include templates.yaml

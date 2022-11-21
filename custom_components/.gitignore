@@ -1,4 +1,12 @@
 # Includes all files in subfolders
-**/manifest.json
-*.pyc
-*.gz
+!browser_mod
+browser_mod/*
+!/fullykiosk
+fullykiosk/*
+!hacs
+hacs/*
+!nordpool
+nordpool/*
+!xiaomi_cloud_map_extractor
+xiaomi_cloud_map_extractor/*
+!manifest.json

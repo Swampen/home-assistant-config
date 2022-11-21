@@ -112,27 +112,7 @@
     {
         "vendor": "Namron",
         "model": "1402755",
-        "friendly_name": "Kitchen Lights Old",
-        "description": "ZigBee LED dimmer",
-        "manufacturer": "Namron AS",
-        "model_id": "1402755",
-        "power_source": "Mains (single phase)",
-        "type": "Router"
-    },
-    {
-        "vendor": "Namron",
-        "model": "1402755",
         "friendly_name": "Living Room Lights 1",
-        "description": "ZigBee LED dimmer",
-        "manufacturer": "Namron AS",
-        "model_id": "1402755",
-        "power_source": "Mains (single phase)",
-        "type": "Router"
-    },
-    {
-        "vendor": "Namron",
-        "model": "1402755",
-        "friendly_name": "Living Room Lights 1 Old",
         "description": "ZigBee LED dimmer",
         "manufacturer": "Namron AS",
         "model_id": "1402755",
@@ -152,7 +132,7 @@
     {
         "vendor": "Namron",
         "model": "1402755",
-        "friendly_name": "Living Room Lights 2 Old",
+        "friendly_name": "Toilet Lights",
         "description": "ZigBee LED dimmer",
         "manufacturer": "Namron AS",
         "model_id": "1402755",
@@ -206,6 +186,16 @@
         "description": "Aqara human body movement and illuminance sensor",
         "manufacturer": "LUMI",
         "model_id": "lumi.sensor_motion.aq2",
+        "power_source": "Battery",
+        "type": "EndDevice"
+    },
+    {
+        "vendor": "Xiaomi",
+        "model": "RTCGQ14LM",
+        "friendly_name": "Toilet Motion",
+        "description": "Aqara P1 human body movement and illuminance sensor",
+        "manufacturer": "LUMI",
+        "model_id": "lumi.motion.ac02",
         "power_source": "Battery",
         "type": "EndDevice"
     },
@@ -307,16 +297,6 @@
         "manufacturer": "LUMI",
         "model_id": "lumi.plug",
         "power_source": "Mains (single phase)",
-        "type": "Router"
-    },
-    {
-        "vendor": "Xiaomi",
-        "model": "ZNLDP12LM",
-        "friendly_name": "Closet Light 1",
-        "description": "Aqara smart LED bulb",
-        "manufacturer": "LUMI",
-        "model_id": "lumi.light.aqcn02",
-        "power_source": "DC Source",
         "type": "Router"
     }
 ]

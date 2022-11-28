@@ -160,6 +160,35 @@
         "type": "Router"
     },
     {
+        "vendor": "TuYa",
+        "model": "TS011F_plug_2",
+        "friendly_name": "Balcony Light",
+        "description": "Smart plug (without power monitoring)",
+        "manufacturer": "_TZ3000_bfn1w0mm",
+        "model_id": "TS011F",
+        "power_source": "Mains (single phase)",
+        "type": "Router"
+    },
+    {
+        "vendor": "TuYa",
+        "model": "TS011F_plug_2",
+        "friendly_name": "Office Light",
+        "description": "Smart plug (without power monitoring)",
+        "manufacturer": "_TZ3000_bfn1w0mm",
+        "model_id": "TS011F",
+        "power_source": "Mains (single phase)",
+        "type": "Router"
+    },
+    {
+        "vendor": "TuYa",
+        "model": "TS011F_plug_2",
+        "friendly_name": "Window Light",
+        "description": "Smart plug (without power monitoring)",
+        "manufacturer": "_TZ3000_bfn1w0mm",
+        "model_id": "TS011F",
+        "type": "Router"
+    },
+    {
         "vendor": "Xiaomi",
         "model": "GZCGQ01LM",
         "friendly_name": "Living Room Illuminance",
@@ -282,7 +311,7 @@
     {
         "vendor": "Xiaomi",
         "model": "ZNCZ02LM",
-        "friendly_name": "Balcony Light",
+        "friendly_name": "Printer",
         "description": "Mi power plug ZigBee",
         "manufacturer": "LUMI",
         "model_id": "lumi.plug",
@@ -291,12 +320,12 @@
     },
     {
         "vendor": "Xiaomi",
-        "model": "ZNCZ02LM",
-        "friendly_name": "Printer",
-        "description": "Mi power plug ZigBee",
+        "model": "ZNLDP12LM",
+        "friendly_name": "Closet Light 1",
+        "description": "Aqara smart LED bulb",
         "manufacturer": "LUMI",
-        "model_id": "lumi.plug",
-        "power_source": "Mains (single phase)",
+        "model_id": "lumi.light.aqcn02",
+        "power_source": "DC Source",
         "type": "Router"
     }
 ]

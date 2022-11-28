@@ -11,16 +11,19 @@
         ulm_card_light_enable_color: false
         ulm_card_light_enable_popup: true
     - type: custom:button-card
-      template: card_light
+      template: card_generic
       entity: light.all_lights
-      variables:
-        ulm_card_light_enable_slider: false
-        ulm_card_light_enable_color: false
-        ulm_card_light_enable_popup: false
+      tap_action:
+        action: navigate
+        navigation_path: /lovelace-kiosk/lights
+      hold_action:
+        action: more-info
+
     - type: "custom:button-card"
       template: card_input_boolean
       entity: input_boolean.entryway_motion_toggle
       name: Entryway Motion
+
     - type: "custom:button-card"
       template: card_generic
       entity: sensor.electricity_price_kristins_vei_6

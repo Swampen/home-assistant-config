@@ -1,9 +1,9 @@
 ---
 - type: custom:button-card
   template: card_esh_welcome
-  triggers_update: input_boolean.welcome_header_toggle
+  triggers_update: input_boolean.minimalist_header_toggle
   variables:
-    ulm_card_esh_welcome_collapse: input_boolean.welcome_header_toggle
+    ulm_card_esh_welcome_collapse: input_boolean.minimalist_header_toggle
     ulm_weather: weather.home
     entity_1:
       nav: transport

@@ -53,8 +53,6 @@ browser_mod:
   disable:
     - all
 
-python_script:
-
 # The http integration serves all files and data required for the Home Assistant frontend
 #
 # https://www.home-assistant.io/integrations/http/

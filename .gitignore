@@ -1,5 +1,5 @@
 # Ensures that everything will be ignored.
-*
+/*
 
 # Whitelist files and folders.
 !*.yaml

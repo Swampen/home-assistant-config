@@ -3,5 +3,12 @@
   template: card_title
   name: Buttons
 - type: "custom:button-card"
-  template: card_generic_swap
-  entity: button.galaxy_s8_restart_browser
+  template: card_script
+  variables:
+    ulm_card_script_title: Restart Kiosk
+    ulm_card_script_icon: "mdi:cellphone"
+  tap_action:
+    action: call-service
+    service: button.press
+    service_data:
+      entity_id: button.galaxy_s8_restart_browser

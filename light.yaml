@@ -19,4 +19,4 @@
 
 - platform: switch
   name: Office Light
-  entity_id: switch.office_light
+  entity_id: switch.office_window_light

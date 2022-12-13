@@ -8,7 +8,7 @@
       variables:
         ulm_card_graph_color: "var(--google-blue)"
         ulm_card_graph_name: Temperature
-        ulm_card_graph_entity: sensor.living_room_air_quality_sensor_temperature
+        ulm_card_graph_entity: sensor.living_room_air_sensor_temperature
         ulm_card_graph_type: fill
         ulm_card_graph_hours: 24
     - type: "custom:button-card"
@@ -16,6 +16,6 @@
       variables:
         ulm_card_graph_color: "var(--google-blue)"
         ulm_card_graph_name: Voc
-        ulm_card_graph_entity: sensor.living_room_air_quality_sensor_voc
+        ulm_card_graph_entity: sensor.living_room_air_sensor_voc
         ulm_card_graph_type: fill
         ulm_card_graph_hours: 24

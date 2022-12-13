@@ -3,13 +3,13 @@
   columns: 2
   square: false
   cards:
-    - type: 'custom:button-card'
+    - type: "custom:button-card"
       template: card_person
       variables:
         ulm_card_person_entity: person.ole_martin
         ulm_card_person_use_entity_picture: true
-    # - type: 'custom:button-card'
-    #   template: card_person
-    #   variables:
-    #     ulm_card_person_entity: person.hanbit
-    #     ulm_card_person_use_entity_picture: true
+    - type: "custom:button-card"
+      template: card_person
+      variables:
+        ulm_card_person_entity: person.hanbit
+        ulm_card_person_use_entity_picture: true

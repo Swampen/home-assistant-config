@@ -11,7 +11,7 @@
         - card_room
         - yellow_no_state
       name: Living Room
-      entity: sensor.living_room_air_quality_sensor_temperature
+      entity: sensor.living_room_air_sensor_temperature
       icon: mdi:sofa
       tap_action:
         action: navigate

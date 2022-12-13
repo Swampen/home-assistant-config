@@ -6,7 +6,7 @@ kiosk_mode:
   user_settings:
     - users:
         - "kiosk"
-      hide_sidebar: false
+      hide_sidebar: true
 theme: minimalist-mobile
 background: var(--background-image)
 views:

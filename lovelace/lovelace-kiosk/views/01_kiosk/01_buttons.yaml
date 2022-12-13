@@ -13,11 +13,13 @@
     - type: custom:button-card
       template: card_generic
       entity: light.all_lights
-      tap_action:
-        action: navigate
-        navigation_path: /lovelace-kiosk/lights
-      hold_action:
-        action: more-info
+      variables:
+        ulm_card_tap_action: navigate
+        ulm_card_tap_navigate_path: /lovelace-kiosk/lights
+        ulm_name_tap_action: navigate
+        ulm_name_tap_navigate_path: /lovelace-kiosk/lights
+        ulm_icon_tap_action: navigate
+        ulm_icon_tap_navigate_path: /lovelace-kiosk/lights
 
     - type: "custom:button-card"
       template: card_input_boolean
@@ -27,8 +29,10 @@
     - type: "custom:button-card"
       template: card_generic
       entity: sensor.electricity_price_kristins_vei_6
-      tap_action:
-        action: navigate
-        navigation_path: /lovelace-kiosk/electricity
-      hold_action:
-        action: more-info
+      variables:
+        ulm_card_tap_action: navigate
+        ulm_card_tap_navigate_path: /lovelace-kiosk/electricity
+        ulm_name_tap_action: navigate
+        ulm_name_tap_navigate_path: /lovelace-kiosk/electricity
+        ulm_icon_tap_action: navigate
+        ulm_icon_tap_navigate_path: /lovelace-kiosk/electricity

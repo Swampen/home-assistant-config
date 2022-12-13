@@ -4,11 +4,13 @@
   square: false
   cards:
     - type: "custom:button-card"
+      entity: person.ole_martin
       template: card_person
       variables:
         ulm_card_person_entity: person.ole_martin
         ulm_card_person_use_entity_picture: true
     - type: "custom:button-card"
+      entity: person.hanbit
       template: card_person
       variables:
         ulm_card_person_entity: person.hanbit

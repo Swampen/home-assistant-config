@@ -5,6 +5,7 @@
   cards:
     - type: "custom:button-card"
       template: card_graph
+      entity: sensor.bathroom_sensor_temperature
       variables:
         ulm_card_graph_color: "var(--google-blue)"
         ulm_card_graph_name: Temperature
@@ -13,6 +14,7 @@
         ulm_card_graph_hours: 24
     - type: "custom:button-card"
       template: card_graph
+      entity: sensor.bathroom_sensor_humidity
       variables:
         ulm_card_graph_color: "var(--google-blue)"
         ulm_card_graph_name: Humidity

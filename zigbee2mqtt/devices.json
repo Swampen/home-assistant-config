@@ -1,15 +1,5 @@
 [
     {
-        "vendor": "Develco",
-        "model": "SMSZB-120",
-        "friendly_name": "Office Smoke Detector",
-        "description": "Smoke detector with siren",
-        "manufacturer": "Develco Products A/S",
-        "model_id": "SMSZB-120",
-        "power_source": "Battery",
-        "type": "EndDevice"
-    },
-    {
         "vendor": "ELKO",
         "model": "4523430",
         "friendly_name": "Bathroom Floor Heating",
@@ -41,18 +31,8 @@
     },
     {
         "vendor": "IKEA",
-        "model": "E1524/E1810",
-        "friendly_name": "Bedroom Switch",
-        "description": "TRADFRI remote control",
-        "manufacturer": "IKEA of Sweden",
-        "model_id": "TRADFRI remote control",
-        "power_source": "Battery",
-        "type": "EndDevice"
-    },
-    {
-        "vendor": "IKEA",
         "model": "LED1732G11",
-        "friendly_name": "Closet Light 2",
+        "friendly_name": "Closet Light 1",
         "description": "TRADFRI LED bulb E27 1000 lumen, dimmable, white spectrum, opal white",
         "manufacturer": "IKEA of Sweden",
         "model_id": "TRADFRI bulb E27 WS opal 1000lm",
@@ -62,7 +42,7 @@
     {
         "vendor": "IKEA",
         "model": "LED2005R5",
-        "friendly_name": "Entryway 1",
+        "friendly_name": "Entryway Light 1",
         "description": "TRADFRI LED bulb GU10 345/380 lumen, dimmable, white spectrum",
         "manufacturer": "IKEA of Sweden",
         "model_id": "TRADFRIbulbGU10WS345lm",
@@ -72,7 +52,7 @@
     {
         "vendor": "IKEA",
         "model": "LED2005R5",
-        "friendly_name": "Entryway 2",
+        "friendly_name": "Entryway Light 2",
         "description": "TRADFRI LED bulb GU10 345/380 lumen, dimmable, white spectrum",
         "manufacturer": "IKEA of Sweden",
         "model_id": "TRADFRIbulbGU10WS345lm",
@@ -82,7 +62,7 @@
     {
         "vendor": "IKEA",
         "model": "LED2005R5",
-        "friendly_name": "Entryway 3",
+        "friendly_name": "Entryway Light 3",
         "description": "TRADFRI LED bulb GU10 345/380 lumen, dimmable, white spectrum",
         "manufacturer": "IKEA of Sweden",
         "model_id": "TRADFRIbulbGU10WS345lm",
@@ -92,7 +72,7 @@
     {
         "vendor": "IKEA",
         "model": "LED2005R5",
-        "friendly_name": "Entryway 4",
+        "friendly_name": "Entryway Light 4",
         "description": "TRADFRI LED bulb GU10 345/380 lumen, dimmable, white spectrum",
         "manufacturer": "IKEA of Sweden",
         "model_id": "TRADFRIbulbGU10WS345lm",
@@ -141,13 +121,13 @@
     },
     {
         "vendor": "TuYa",
-        "model": "ERS-10TZBVK-AA",
-        "friendly_name": "0x385b44fffe0b93d6",
-        "description": "Smart knob",
-        "manufacturer": "_TZ3000_ixla93vd",
-        "model_id": "TS004F",
-        "power_source": "Battery",
-        "type": "EndDevice"
+        "model": "TS011F_plug_1",
+        "friendly_name": "Christmas Tree",
+        "description": "Smart plug (with power monitoring)",
+        "manufacturer": "_TZ3000_typdpbpg",
+        "model_id": "TS011F",
+        "power_source": "Mains (single phase)",
+        "type": "Router"
     },
     {
         "vendor": "TuYa",
@@ -172,7 +152,7 @@
     {
         "vendor": "TuYa",
         "model": "TS011F_plug_2",
-        "friendly_name": "Office Light",
+        "friendly_name": "Office Window Light",
         "description": "Smart plug (without power monitoring)",
         "manufacturer": "_TZ3000_bfn1w0mm",
         "model_id": "TS011F",
@@ -186,6 +166,7 @@
         "description": "Smart plug (without power monitoring)",
         "manufacturer": "_TZ3000_bfn1w0mm",
         "model_id": "TS011F",
+        "power_source": "Mains (single phase)",
         "type": "Router"
     },
     {
@@ -221,6 +202,16 @@
     {
         "vendor": "Xiaomi",
         "model": "RTCGQ14LM",
+        "friendly_name": "Entryway Motion Test",
+        "description": "Aqara P1 human body movement and illuminance sensor",
+        "manufacturer": "LUMI",
+        "model_id": "lumi.motion.ac02",
+        "power_source": "Battery",
+        "type": "EndDevice"
+    },
+    {
+        "vendor": "Xiaomi",
+        "model": "RTCGQ14LM",
         "friendly_name": "Toilet Motion",
         "description": "Aqara P1 human body movement and illuminance sensor",
         "manufacturer": "LUMI",
@@ -230,18 +221,8 @@
     },
     {
         "vendor": "Xiaomi",
-        "model": "SJCGQ11LM",
-        "friendly_name": "Bathroom Water Leak Sensor",
-        "description": "Aqara water leak sensor",
-        "manufacturer": "LUMI",
-        "model_id": "lumi.sensor_wleak.aq1",
-        "power_source": "Battery",
-        "type": "EndDevice"
-    },
-    {
-        "vendor": "Xiaomi",
         "model": "VOCKQJK11LM",
-        "friendly_name": "Bedroom Air Quality Sensor",
+        "friendly_name": "Bedroom Air Sensor",
         "description": "Aqara TVOC air quality monitor",
         "manufacturer": "LUMI",
         "model_id": "lumi.airmonitor.acn01",
@@ -251,7 +232,7 @@
     {
         "vendor": "Xiaomi",
         "model": "VOCKQJK11LM",
-        "friendly_name": "Living Room Air Quality Sensor",
+        "friendly_name": "Living Room Air Sensor",
         "description": "Aqara TVOC air quality monitor",
         "manufacturer": "LUMI",
         "model_id": "lumi.airmonitor.acn01",
@@ -280,18 +261,8 @@
     },
     {
         "vendor": "Xiaomi",
-        "model": "WSDCGQ01LM",
-        "friendly_name": "Office Sensor",
-        "description": "MiJia temperature & humidity sensor",
-        "manufacturer": "LUMI",
-        "model_id": "lumi.sensor_ht",
-        "power_source": "Battery",
-        "type": "EndDevice"
-    },
-    {
-        "vendor": "Xiaomi",
         "model": "WSDCGQ11LM",
-        "friendly_name": "Outdoor sensor",
+        "friendly_name": "Outdoor Sensor",
         "description": "Aqara temperature, humidity and pressure sensor",
         "manufacturer": "LUMI",
         "model_id": "lumi.weather",
@@ -310,18 +281,8 @@
     },
     {
         "vendor": "Xiaomi",
-        "model": "ZNCZ02LM",
-        "friendly_name": "Printer",
-        "description": "Mi power plug ZigBee",
-        "manufacturer": "LUMI",
-        "model_id": "lumi.plug",
-        "power_source": "Mains (single phase)",
-        "type": "Router"
-    },
-    {
-        "vendor": "Xiaomi",
         "model": "ZNLDP12LM",
-        "friendly_name": "Closet Light 1",
+        "friendly_name": "Closet Light 2",
         "description": "Aqara smart LED bulb",
         "manufacturer": "LUMI",
         "model_id": "lumi.light.aqcn02",

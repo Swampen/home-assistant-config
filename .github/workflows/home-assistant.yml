@@ -3,7 +3,7 @@ name: Home Assistant CI
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   yamllint:
     name: yamllint

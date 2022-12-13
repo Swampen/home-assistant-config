@@ -44,16 +44,6 @@ lovelace:
   mode: storage
   dashboards: !include ./lovelace/dashboards.yaml
 
-browser_mod:
-  prefix: "browser_"
-  devices:
-    fd14ea1e-bb727b31:
-      name: ole-martin
-    79ec62c1_9b57ea32:
-      name: kiosk
-  disable:
-    - all
-
 # The http integration serves all files and data required for the Home Assistant frontend
 #
 # https://www.home-assistant.io/integrations/http/

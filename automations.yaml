@@ -91,6 +91,7 @@
             "action_topic": "zigbee2mqtt/Living Room Floor Heating",
             "availability": [
               {
+                "value_template": {{'"{{ value_json.state }}"'}},
                 "topic": "zigbee2mqtt/bridge/state"
               }
             ],
@@ -133,6 +134,7 @@
             "action_topic": "zigbee2mqtt/Entryway Floor Heating",
             "availability": [
               {
+                "value_template": {{'"{{ value_json.state }}"'}},
                 "topic": "zigbee2mqtt/bridge/state"
               }
             ],

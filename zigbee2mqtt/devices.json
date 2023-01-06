@@ -31,6 +31,16 @@
     },
     {
         "vendor": "IKEA",
+        "model": "E1812",
+        "friendly_name": "Kitchen Counter Switch",
+        "description": "TRADFRI shortcut button",
+        "manufacturer": "IKEA of Sweden",
+        "model_id": "TRADFRI SHORTCUT Button",
+        "power_source": "Battery",
+        "type": "EndDevice"
+    },
+    {
+        "vendor": "IKEA",
         "model": "LED1732G11",
         "friendly_name": "Closet Light 1",
         "description": "TRADFRI LED bulb E27 1000 lumen, dimmable, white spectrum, opal white",
@@ -141,6 +151,16 @@
     },
     {
         "vendor": "TuYa",
+        "model": "TS011F_plug_1",
+        "friendly_name": "Kitchen Counter Light",
+        "description": "Smart plug (with power monitoring)",
+        "manufacturer": "_TZ3000_typdpbpg",
+        "model_id": "TS011F",
+        "power_source": "Mains (single phase)",
+        "type": "Router"
+    },
+    {
+        "vendor": "TuYa",
         "model": "TS011F_plug_2",
         "friendly_name": "Balcony Light",
         "description": "Smart plug (without power monitoring)",
@@ -183,6 +203,16 @@
         "vendor": "Xiaomi",
         "model": "MCCGQ11LM",
         "friendly_name": "Closet Door",
+        "description": "Aqara door & window contact sensor",
+        "manufacturer": "LUMI",
+        "model_id": "lumi.sensor_magnet.aq2",
+        "power_source": "Battery",
+        "type": "EndDevice"
+    },
+    {
+        "vendor": "Xiaomi",
+        "model": "MCCGQ11LM",
+        "friendly_name": "Living Room Door",
         "description": "Aqara door & window contact sensor",
         "manufacturer": "LUMI",
         "model_id": "lumi.sensor_magnet.aq2",
@@ -253,6 +283,16 @@
         "vendor": "Xiaomi",
         "model": "WSDCGQ01LM",
         "friendly_name": "Bedroom Sensor",
+        "description": "MiJia temperature & humidity sensor",
+        "manufacturer": "LUMI",
+        "model_id": "lumi.sensor_ht",
+        "power_source": "Battery",
+        "type": "EndDevice"
+    },
+    {
+        "vendor": "Xiaomi",
+        "model": "WSDCGQ01LM",
+        "friendly_name": "Office Sensor",
         "description": "MiJia temperature & humidity sensor",
         "manufacturer": "LUMI",
         "model_id": "lumi.sensor_ht",

@@ -1,47 +1,3 @@
----
-- id: enable_zigbee_join
-  alias: Enable Zigbee joining
-  trigger:
-    platform: state
-    entity_id: input_boolean.zigbee_permit_join
-    to: "on"
-  action:
-    - service: mqtt.publish
-      data:
-        topic: zigbee2mqtt/bridge/config/permit_join
-        payload: "true"
-    - service: timer.start
-      data:
-        entity_id: timer.zigbee_permit_join
-- id: disable_zigbee_join
-  alias: Disable Zigbee joining
-  trigger:
-    - entity_id: input_boolean.zigbee_permit_join
-      platform: state
-      to: "off"
-  action:
-    - data:
-        payload: "false"
-        topic: zigbee2mqtt/bridge/config/permit_join
-      service: mqtt.publish
-    - data:
-        entity_id: timer.zigbee_permit_join
-      service: timer.cancel
-- id: disable_zigbee_join_timer
-  alias: Disable Zigbee joining by timer
-  trigger:
-    - platform: event
-      event_type: timer.finished
-      event_data:
-        entity_id: timer.zigbee_permit_join
-  action:
-    - service: mqtt.publish
-      data:
-        topic: zigbee2mqtt/bridge/config/permit_join
-        payload: "false"
-    - service: input_boolean.turn_off
-      data:
-        entity_id: input_boolean.zigbee_permit_join
 - id: zigbee2mqtt_create_notification_on_successfull_interview
   alias: Zigbee Device Joined Notification
   trigger:
@@ -69,7 +25,13 @@
       event: start
   condition: []
   action:
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 20
+        milliseconds: 0
     - service: cloudflare.update_records
+      data: {}
   mode: single
 - id: set_correct_floor_heating_config
   alias: Set correct floor heating config
@@ -80,7 +42,6 @@
       minutes: "0"
       hours: "/1"
   action:
-    # Living Room
     - service: mqtt.publish
       data:
         topic: homeassistant/climate/0x000d6f0015552cdc/climate/config

@@ -9,5 +9,5 @@
     ulm_card_media_player_name: Living Room TV
     ulm_card_media_player_icon: mdi:television
     ulm_card_media_player_enable_controls: true
-    ulm_card_media_player_enable_volume_slider: true
+    ulm_card_media_player_enable_volume_slider: false
     ulm_card_media_player_enable_popup: true

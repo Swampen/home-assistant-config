@@ -1,6 +1,5 @@
 # Includes all files in subfolders
 browser_mod/*
-fullykiosk/*
 hacs/*
 nordpool/*
 tapo_control/*

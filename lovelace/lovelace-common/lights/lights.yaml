@@ -9,15 +9,10 @@
     - type: custom:button-card
       template: card_light
       entity: light.all_lights
+
     - type: custom:button-card
       template: card_light
       entity: light.balcony_light
-    - type: custom:button-card
-      template: card_light
-      entity: light.window_light
-    - type: custom:button-card
-      template: card_light
-      entity: light.office_light
 
     - type: custom:button-card
       template: card_light

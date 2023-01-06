@@ -53,6 +53,12 @@ views:
     cards:
       - type: vertical-stack
         cards: !include_dir_merge_list ./views/12_electricity
+  - title: Camera
+    path: camera
+    icon: mdi:camera
+    cards:
+      - type: vertical-stack
+        cards: !include_dir_merge_list ./views/13_camera
   - title: System
     path: system
     icon: mdi:gauge

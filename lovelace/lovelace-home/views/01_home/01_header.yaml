@@ -21,9 +21,9 @@
       name: El.Price
       color: green
     entity_4:
-      nav: network
-      icon: mdi:nas
-      name: Lab
+      nav: camera
+      icon: mdi:cctv
+      name: Cam
       color: purple
     entity_5:
       nav: system

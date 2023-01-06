@@ -23,24 +23,42 @@ sleep_heat:
     - data: {}
       service: switch.turn_off
       entity_id: switch.bed_heating
-toggle_all_lights:
+toggle_privacy:
+  alias: Toggle Privacy
   sequence:
-    - service: light.toggle
-      target:
-        entity_id: light.all_lights
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: switch.c210_privacy
+              state: "on"
+          sequence:
+            - service: switch.turn_off
+              data: {}
+              target:
+                entity_id: switch.c210_privacy
+            - service: select.select_option
+              data:
+                option: Default
+              target:
+                entity_id: select.c210_move_to_preset
+        - conditions:
+            - condition: state
+              entity_id: switch.c210_privacy
+              state: "off"
+          sequence:
+            - service: select.select_option
+              data:
+                option: Hide
+              target:
+                entity_id: select.c210_move_to_preset
+            - delay:
+                hours: 0
+                minutes: 0
+                seconds: 7
+                milliseconds: 0
+            - service: switch.turn_on
+              data: {}
+              target:
+                entity_id: switch.c210_privacy
   mode: single
-  alias: Toggle All Lights
-bother_martin:
-  sequence:
-    - service: notify.desktop
-      data:
-        title: "{{ states('input_select.emoji') }}"
-        message: "{{ states('input_text.notification_message') }}"
-        data:
-          icon:
-            /local/icon/{% if is_state("input_select.emoji", "😏") -%} smirk.png
-            {%- elif is_state("input_select.emoji", "🥰") -%} hearts.png {%- endif %}
-          requireInteraction: true
-  mode: single
-  alias: Bother Martin
-  icon: mdi:head-heart
+  icon: mdi:eye-off

@@ -3,7 +3,7 @@
   template: card_title
   name: Lights
 - type: grid
-  columns: 1
+  columns: 2
   square: false
   cards:
     - type: custom:button-card
@@ -12,4 +12,11 @@
       variables:
         ulm_card_light_enable_slider: true
         ulm_card_light_enable_popup: true
-        ulm_card_light_enable_horizontal: true
+        ulm_card_light_enable_horizontal: false
+    - type: custom:button-card
+      template: card_light
+      entity: light.kitchen_counter_light
+      variables:
+        ulm_card_light_name: Counter Light
+        ulm_card_light_enable_popup: false
+        ulm_card_light_enable_horizontal: false

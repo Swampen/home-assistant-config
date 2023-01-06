@@ -1,0 +1,16 @@
+---
+- type: picture-glance
+  title: Living room
+  camera_view: live
+  entities:
+    - button.c210_move_left
+    - button.c210_move_right
+    - script.toggle_privacy
+  camera_image: camera.c210_hd_stream
+
+- type: picture-glance
+  title: Web Camera
+  camera_view: live
+  entities:
+    - light.entryway_light
+  camera_image: camera.camera1

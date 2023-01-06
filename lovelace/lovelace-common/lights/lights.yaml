@@ -57,3 +57,7 @@
         ulm_card_light_enable_slider: true
         ulm_card_light_enable_color: true
         ulm_card_light_enable_popup: true
+
+    - type: custom:button-card
+      template: card_light
+      entity: light.kitchen_counter_light

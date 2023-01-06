@@ -3,6 +3,7 @@ browser_mod/*
 fullykiosk/*
 hacs/*
 nordpool/*
+tapo_control/*
 ui_lovelace_minimalist/*
 xiaomi_cloud_map_extractor/*
 

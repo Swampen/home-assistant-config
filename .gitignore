@@ -4,6 +4,7 @@
 # Whitelist files and folders.
 !*.yaml
 !.gitignore
+!.prettierignore
 !*.md
 !LICENSE
 !.HA_VERSION

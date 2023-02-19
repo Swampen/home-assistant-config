@@ -11,3 +11,9 @@ overrides:
     printWidth: 100
     tabWidth: 2
     useTabs: true
+
+  - files:
+      - "*.json"
+    indent_style: tab
+    tabWidth: 4
+    useTabs: true

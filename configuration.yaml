@@ -158,6 +158,9 @@ google_assistant:
     switch.printer:
       expose: true
 
+    script.toggle_camera:
+      expose: true
+
 notify:
   - platform: html5
     name: Desktop

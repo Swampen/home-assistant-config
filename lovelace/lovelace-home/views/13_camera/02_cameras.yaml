@@ -5,7 +5,7 @@
   entities:
     - button.c210_move_left
     - button.c210_move_right
-    - script.toggle_privacy
+    - script.toggle_camera
   camera_image: camera.c210_hd_stream
 
 - type: picture-glance

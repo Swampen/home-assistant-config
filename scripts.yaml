@@ -23,8 +23,8 @@ sleep_heat:
     - data: {}
       service: switch.turn_off
       entity_id: switch.bed_heating
-toggle_privacy:
-  alias: Toggle Privacy
+toggle_camera:
+  alias: Toggle Camera
   sequence:
     - choose:
         - conditions:

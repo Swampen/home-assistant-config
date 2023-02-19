@@ -9,3 +9,10 @@
     ulm_card_thermostat_enable_collapse: true
     ulm_card_thermostat_enable_controls: true
     ulm_card_thermostat_enable_popup: true
+- type: "custom:button-card"
+  template: card_thermostat
+  entity: climate.living_room
+  variables:
+    ulm_card_thermostat_enable_collapse: true
+    ulm_card_thermostat_enable_controls: true
+    ulm_card_thermostat_enable_popup: true

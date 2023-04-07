@@ -17,6 +17,7 @@
 !www/
 !themes/
 !zigbee2mqtt/
+!ui_lovelace_minimalist/
 
 # Ensures these folders are ignored.
 .storage

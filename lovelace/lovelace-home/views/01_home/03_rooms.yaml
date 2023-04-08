@@ -37,6 +37,7 @@
             - red_on
           tap_action:
             action: more-info
+
     - type: "custom:button-card"
       template:
         - card_room
@@ -62,6 +63,7 @@
             - red_on
           tap_action:
             action: more-info
+
     - type: "custom:button-card"
       template:
         - card_room
@@ -87,6 +89,7 @@
             - red_on
           tap_action:
             action: more-info
+
     - type: "custom:button-card"
       template:
         - card_room
@@ -102,6 +105,26 @@
         label_use_brightness: false
         entity_1:
           entity_id: climate.bathroom_floor_heating
+          templates:
+            - red_on
+          tap_action:
+            action: more-info
+
+    - type: "custom:button-card"
+      template:
+        - card_room
+        - blue_no_state
+      name: Bathroom
+      entity: sensor.office_sensor_temperature
+      icon: mdi:desktop-classic
+      tap_action:
+        action: navigate
+        navigation_path: "/lovelace-home/office"
+      variables:
+        label_use_temperature: true
+        label_use_brightness: false
+        entity_1:
+          entity_id: climate.office_heater
           templates:
             - red_on
           tap_action:

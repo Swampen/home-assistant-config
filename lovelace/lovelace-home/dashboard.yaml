@@ -35,6 +35,12 @@ views:
     cards:
       - type: vertical-stack
         cards: !include_dir_merge_list ./views/05_bathroom
+  - title: Office
+    path: office
+    icon: mdi:desktop-classic
+    cards:
+      - type: vertical-stack
+        cards: !include_dir_merge_list ./views/06_office
   - title: Transport
     path: transport
     icon: mdi:bus

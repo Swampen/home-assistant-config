@@ -1,0 +1,23 @@
+---
+- type: grid
+  columns: 2
+  square: false
+  cards:
+    - type: "custom:button-card"
+      template: card_graph
+      entity: sensor.bathroom_sensor_temperature
+      variables:
+        ulm_card_graph_color: "var(--google-red)"
+        ulm_card_graph_name: Temperature
+        ulm_card_graph_entity: sensor.office_sensor_temperature
+        ulm_card_graph_type: fill
+        ulm_card_graph_hours: 24
+    - type: "custom:button-card"
+      template: card_graph
+      entity: sensor.bathroom_sensor_humidity
+      variables:
+        ulm_card_graph_color: "var(--google-blue)"
+        ulm_card_graph_name: Humidity
+        ulm_card_graph_entity: sensor.office_sensor_humidity
+        ulm_card_graph_type: fill
+        ulm_card_graph_hours: 24

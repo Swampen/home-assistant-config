@@ -1,3 +1,4 @@
+---
 - id: zigbee2mqtt_create_notification_on_successfull_interview
   alias: Zigbee Device Joined Notification
   trigger:

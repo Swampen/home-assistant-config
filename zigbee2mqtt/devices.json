@@ -261,16 +261,6 @@
     },
     {
         "vendor": "Xiaomi",
-        "model": "VOCKQJK11LM",
-        "friendly_name": "Living Room Air Sensor",
-        "description": "Aqara TVOC air quality monitor",
-        "manufacturer": "LUMI",
-        "model_id": "lumi.airmonitor.acn01",
-        "power_source": "Battery",
-        "type": "EndDevice"
-    },
-    {
-        "vendor": "Xiaomi",
         "model": "WSDCGQ01LM",
         "friendly_name": "Bathroom Sensor",
         "description": "MiJia temperature & humidity sensor",

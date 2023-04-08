@@ -5,19 +5,19 @@
   cards:
     - type: "custom:button-card"
       template: card_graph
-      entity: sensor.living_room_air_sensor_temperature
+      entity: sensor.living_room_floor_heating_floor_temp
       variables:
-        ulm_card_graph_color: "var(--google-blue)"
+        ulm_card_graph_color: "var(--google-red)"
         ulm_card_graph_name: Temperature
-        ulm_card_graph_entity: sensor.living_room_air_sensor_temperature
+        ulm_card_graph_entity: sensor.living_room_floor_heating_floor_temp
         ulm_card_graph_type: fill
         ulm_card_graph_hours: 24
     - type: "custom:button-card"
       template: card_graph
-      entity: sensor.living_room_air_sensor_voc
+      entity: sensor.living_room_illuminance_illuminance_lux
       variables:
-        ulm_card_graph_color: "var(--google-blue)"
-        ulm_card_graph_name: Voc
-        ulm_card_graph_entity: sensor.living_room_air_sensor_voc
+        ulm_card_graph_color: "var(--google-yellow)"
+        ulm_card_graph_name: Lux
+        ulm_card_graph_entity: sensor.living_room_illuminance_illuminance_lux
         ulm_card_graph_type: fill
         ulm_card_graph_hours: 24

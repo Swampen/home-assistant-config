@@ -114,7 +114,7 @@
       template:
         - card_room
         - blue_no_state
-      name: Bathroom
+      name: Office
       entity: sensor.office_sensor_temperature
       icon: mdi:desktop-classic
       tap_action:

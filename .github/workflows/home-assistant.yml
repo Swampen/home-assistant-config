@@ -10,18 +10,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: ⤵️ Check out code from GitHub
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: 🚀 Run yamllint
         uses: frenck/action-yamllint@v1.1.1
-  docgen:
-    name: docgen
-    runs-on: windows-2019
+  documentation-gen:
+    name: Documentation Generation
+    runs-on: ubuntu-latest
     steps:
       - name: ⤵️ Check out code from GitHub
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: 📚 Generates Zigbee device documentation
         run: ./zigbee2mqtt/New-ZigbeeDoc.ps1
-        shell: powershell
+        shell: pwsh
       - name: ⤴ Pushing changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:

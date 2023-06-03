@@ -13,6 +13,7 @@
 !.github/
 !.vscode/
 !custom_components/
+!esphome/
 !lovelace/
 !www/
 !themes/

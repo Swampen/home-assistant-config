@@ -34,11 +34,6 @@ recorder:
 tts:
   - platform: google_translate
 
-# Groups allow the user to combine multiple entities into one.
-#
-# https://www.home-assistant.io/integrations/group/
-group: !include groups.yaml
-
 # Automations in Home Assistant allow you to automatically respond to things that happen.
 #
 # https://www.home-assistant.io/docs/automation/

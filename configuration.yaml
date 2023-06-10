@@ -34,11 +34,6 @@ recorder:
 tts:
   - platform: google_translate
 
-# This integration allows you to track and control various light bulbs.
-#
-# https://www.home-assistant.io/integrations/light/
-light: !include light.yaml
-
 input_text: !include input_text.yaml
 
 input_boolean: !include input_boolean.yaml

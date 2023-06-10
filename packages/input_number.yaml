@@ -1,0 +1,19 @@
+---
+input_number:
+  living_room_floor_heating_set_temperature:
+    name: Living Room Set Temperature
+    min: 5
+    max: 25
+    step: 1
+
+  entryway_floor_heating_set_temperature:
+    name: Entryway Set Temperature
+    min: 5
+    max: 25
+    step: 1
+
+  bathroom_floor_heating_set_percentage:
+    name: Bathroom Set Percentage
+    min: 5
+    max: 100
+    step: 1

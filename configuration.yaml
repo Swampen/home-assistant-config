@@ -109,6 +109,8 @@ input_number: !include input_number.yaml
 
 mqtt: !include mqtt.yaml
 
+command_line: !include command_line.yaml
+
 # This offers the official frontend to control Home Assistant.
 #
 # https://www.home-assistant.io/integrations/frontend/
@@ -201,11 +203,6 @@ sensor:
       - type: swap_use
       - type: swap_free
       - type: last_boot
-  - platform: command_line
-    name: Rasberry pi temperature
-    command: "cat /sys/class/thermal/thermal_zone0/temp"
-    unit_of_measurement: "°C"
-    value_template: "{{ value | multiply(0.001) | round(2) }}"
   - platform: seventeentrack
     username: !secret email
     password: !secret seventeentrack_password

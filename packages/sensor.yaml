@@ -1,0 +1,51 @@
+---
+# Sensors are a basic platform component in Home Assistant.
+# They monitor the states and conditions of a variety of entities.
+#
+# https://www.home-assistant.io/integrations/sensor
+sensor:
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+        arg: /
+      - type: memory_use_percent
+      - type: memory_use
+      - type: memory_free
+      - type: processor_use
+      - type: processor_temperature
+      - type: swap_use_percent
+      - type: swap_use
+      - type: swap_free
+      - type: last_boot
+  - platform: seventeentrack
+    username: !secret email
+    password: !secret seventeentrack_password
+  - platform: min_max
+    name: Apartment Mean Humidity
+    type: mean
+    entity_ids:
+      - sensor.living_room_air_quality_sensor_humidity
+      - sensor.bedroom_sensor_humidity
+      - sensor.office_sensor_humidity
+  - platform: integration
+    name: Living Room Floor Heating Energy
+    unit_prefix: k
+    round: 2
+    source: sensor.living_room_floor_heating_current_load
+  - platform: integration
+    name: Bathroom Floor Heating Energy Custom
+    unit_prefix: k
+    round: 2
+    source: sensor.bathroom_floor_heating_current_load
+
+  # https://www.home-assistant.io/integrations/time_date/
+  - platform: time_date
+    display_options:
+      - "time"
+      - "date"
+      - "time_date"
+
+  # https://github.com/custom-components/nordpool
+  - platform: nordpool
+    region: Oslo
+    precision: 4

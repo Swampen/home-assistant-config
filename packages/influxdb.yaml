@@ -1,0 +1,9 @@
+---
+influxdb:
+  host: !secret homeassistant_ip
+  port: 8086
+  database: homeassistant
+  username: !secret influxdb_user
+  password: !secret influxdb_password
+  max_retries: 3
+  default_measurement: state

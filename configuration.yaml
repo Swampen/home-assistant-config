@@ -15,6 +15,8 @@ homeassistant:
   country: "NO"
   external_url: !secret external_url
 
+  packages: !include_dir_named packages
+
 # The logger integration lets you define the level of logging activities in Home Assistant.
 #
 # https://www.home-assistant.io/integrations/logger/
@@ -25,45 +27,6 @@ logger:
 
 recorder:
   db_url: !secret maria_db
-
-influxdb:
-  host: !secret homeassistant_ip
-  port: 8086
-  database: homeassistant
-  username: !secret influxdb_user
-  password: !secret influxdb_password
-  max_retries: 3
-  default_measurement: state
-
-# Lovelace is the Home Assistant dashboard.
-# It is a fast, customizable and powerful way for users to manage their
-# home using their mobiles and desktops
-#
-# https://www.home-assistant.io/lovelace/
-lovelace:
-  mode: storage
-  dashboards: !include ./lovelace/dashboards.yaml
-
-# The http integration serves all files and data required for the Home Assistant frontend
-#
-# https://www.home-assistant.io/integrations/http/
-http:
-  # Let you set a port to use.
-  server_port: !secret http_server_port
-
-  # Path to your TLS/SSL certificate to serve Home Assistant over a secure connection.
-  ssl_certificate: !secret http_ssl_certificate
-
-  # Path to your TLS/SSL key to serve Home Assistant over a secure connection.
-  ssl_key: !secret http_ssl_key
-
-  # Enable parsing of the X-Forwarded-For header, passing on the client’s
-  # correct IP address in proxied setups.
-  use_x_forwarded_for: true
-
-  # List of trusted proxies, consisting of IP addresses or networks, that are
-  # allowed to set the X-Forwarded-For header.
-  trusted_proxies: !secret http_trusted_proxies
 
 # Text-to-Speech (TTS) enables Home Assistant to speak to you.
 #
@@ -111,145 +74,4 @@ mqtt: !include mqtt.yaml
 
 command_line: !include command_line.yaml
 
-# This offers the official frontend to control Home Assistant.
-#
-# https://www.home-assistant.io/integrations/frontend/
-frontend:
-  # Allow to define different themes.
-  themes: !include_dir_merge_named themes
-  extra_module_url:
-    - /hacsfiles/lovelace-card-mod/card-mod.js
-
-# The google_assistant integration allows you to control things via Google Assistant on your
-# mobile, tablet or Google Home device.
-#
-# https://www.home-assistant.io/integrations/google_assistant/
-google_assistant:
-  # Project ID from the Actions on Google console
-  project_id: !secret google_assistant_project_id
-  # Service account information.
-  service_account: !include service_account.json
-  expose_by_default: false
-  report_state: true
-
-  # Entity specific configuration for Google Assistant
-  entity_config:
-    light.all_lights:
-      expose: true
-    light.living_room_lights:
-      expose: true
-    light.window_light:
-      expose: true
-    light.kitchen_lights:
-      expose: true
-    light.balcony_light:
-      expose: true
-    light.entryway_light:
-      expose: true
-    light.christmas_tree:
-      expose: true
-
-    climate.living_room_floor_heating:
-      expose: true
-    climate.entryway_floor_heating:
-      expose: true
-
-    climate.bathroom_floor_heating:
-      expose: true
-
-    switch.printer:
-      expose: true
-
-    script.toggle_camera:
-      expose: true
-
-    cover.balcony_blinds:
-      expose: true
-
-notify:
-  - platform: html5
-    name: Desktop
-    vapid_pub_key: !secret vapid_pub_key
-    vapid_prv_key: !secret vapid_prv_key
-    vapid_email: !secret gmail
-
-# The air_quality base platform allows other integrations to process information about
-# air quality and pollution details.
-#
-# https://www.home-assistant.io/integrations/air_quality/
-air_quality:
-  # The norway_air integration queries the Norway air quality data feed provided by
-  # the Norwegian Meteorological Institute.
-  #
-  # https://www.home-assistant.io/integrations/norway_air/
-  - platform: norway_air
-    forecast: 12
-
-# Sensors are a basic platform component in Home Assistant.
-# They monitor the states and conditions of a variety of entities.
-#
-# https://www.home-assistant.io/integrations/sensor
-sensor:
-  - platform: systemmonitor
-    resources:
-      - type: disk_use_percent
-        arg: /
-      - type: memory_use_percent
-      - type: memory_use
-      - type: memory_free
-      - type: processor_use
-      - type: processor_temperature
-      - type: swap_use_percent
-      - type: swap_use
-      - type: swap_free
-      - type: last_boot
-  - platform: seventeentrack
-    username: !secret email
-    password: !secret seventeentrack_password
-  - platform: min_max
-    name: Apartment Mean Humidity
-    type: mean
-    entity_ids:
-      - sensor.living_room_air_quality_sensor_humidity
-      - sensor.bedroom_sensor_humidity
-      - sensor.office_sensor_humidity
-  - platform: integration
-    name: Living Room Floor Heating Energy
-    unit_prefix: k
-    round: 2
-    source: sensor.living_room_floor_heating_current_load
-  - platform: integration
-    name: Bathroom Floor Heating Energy Custom
-    unit_prefix: k
-    round: 2
-    source: sensor.bathroom_floor_heating_current_load
-
-  # https://www.home-assistant.io/integrations/time_date/
-  - platform: time_date
-    display_options:
-      - "time"
-      - "date"
-      - "time_date"
-
-  # https://github.com/custom-components/nordpool
-  - platform: nordpool
-    region: Oslo
-    precision: 4
-
-timer:
-  zigbee_permit_join:
-    name: Time remaining
-    duration: 600
-
-camera:
-  - platform: xiaomi_cloud_map_extractor
-    host: !secret xiaomi_vacuum_host
-    token: !secret xiaomi_vacuum_token
-    username: !secret xiaomi_cloud_username
-    password: !secret xiaomi_cloud_password
-    country: de
-    scan_interval: 60
-    draw: ["all"]
-    attributes:
-      - calibration_points
 template: !include templates.yaml

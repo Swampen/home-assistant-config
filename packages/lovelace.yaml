@@ -1,0 +1,9 @@
+---
+# Lovelace is the Home Assistant dashboard.
+# It is a fast, customizable and powerful way for users to manage their
+# home using their mobiles and desktops
+#
+# https://www.home-assistant.io/lovelace/
+lovelace:
+  mode: storage
+  dashboards: !include ../lovelace/dashboards.yaml

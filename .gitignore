@@ -15,6 +15,7 @@
 !custom_components/
 !esphome/
 !lovelace/
+!packages/
 !www/
 !themes/
 !zigbee2mqtt/

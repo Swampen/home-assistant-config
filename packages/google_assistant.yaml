@@ -1,0 +1,47 @@
+---
+# The google_assistant integration allows you to control things via Google Assistant on your
+# mobile, tablet or Google Home device.
+#
+# https://www.home-assistant.io/integrations/google_assistant/
+
+google_assistant:
+  # Project ID from the Actions on Google console
+  project_id: !secret google_assistant_project_id
+  # Service account information.
+  service_account: !include ../secrets/service_account.json
+  expose_by_default: false
+  report_state: true
+
+  # Entity specific configuration for Google Assistant
+  entity_config:
+    light.all_lights:
+      expose: true
+    light.living_room_lights:
+      expose: true
+    light.window_light:
+      expose: true
+    light.kitchen_lights:
+      expose: true
+    light.balcony_light:
+      expose: true
+    light.entryway_light:
+      expose: true
+    light.christmas_tree:
+      expose: true
+
+    climate.living_room_floor_heating:
+      expose: true
+    climate.entryway_floor_heating:
+      expose: true
+
+    climate.bathroom_floor_heating:
+      expose: true
+
+    switch.printer:
+      expose: true
+
+    script.toggle_camera:
+      expose: true
+
+    cover.balcony_blinds:
+      expose: true

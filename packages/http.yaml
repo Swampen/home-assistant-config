@@ -1,0 +1,21 @@
+---
+# The http integration serves all files and data required for the Home Assistant frontend
+#
+# https://www.home-assistant.io/integrations/http/
+http:
+  # Let you set a port to use.
+  server_port: !secret http_server_port
+
+  # Path to your TLS/SSL certificate to serve Home Assistant over a secure connection.
+  ssl_certificate: !secret http_ssl_certificate
+
+  # Path to your TLS/SSL key to serve Home Assistant over a secure connection.
+  ssl_key: !secret http_ssl_key
+
+  # Enable parsing of the X-Forwarded-For header, passing on the client’s
+  # correct IP address in proxied setups.
+  use_x_forwarded_for: true
+
+  # List of trusted proxies, consisting of IP addresses or networks, that are
+  # allowed to set the X-Forwarded-For header.
+  trusted_proxies: !secret http_trusted_proxies

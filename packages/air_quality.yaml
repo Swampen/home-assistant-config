@@ -1,0 +1,12 @@
+---
+# The air_quality base platform allows other integrations to process information about
+# air quality and pollution details.
+#
+# https://www.home-assistant.io/integrations/air_quality/
+air_quality:
+  # The norway_air integration queries the Norway air quality data feed provided by
+  # the Norwegian Meteorological Institute.
+  #
+  # https://www.home-assistant.io/integrations/norway_air/
+  - platform: norway_air
+    forecast: 12

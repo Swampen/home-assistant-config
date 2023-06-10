@@ -40,11 +40,6 @@ tts:
 # https://www.home-assistant.io/integrations/script/
 script: !include scripts.yaml
 
-# You can create scenes that capture the states you want certain entities to be.
-#
-# https://www.home-assistant.io/integrations/scene/
-scene: !include scenes.yaml
-
 # This integration allows you to track and control various light bulbs.
 #
 # https://www.home-assistant.io/integrations/light/

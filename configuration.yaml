@@ -34,8 +34,6 @@ recorder:
 tts:
   - platform: google_translate
 
-mqtt: !include mqtt.yaml
-
 command_line: !include command_line.yaml
 
 template: !include templates.yaml

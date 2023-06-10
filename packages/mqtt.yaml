@@ -1,0 +1,6 @@
+---
+mqtt:
+  sensor:
+    name: Bridge state
+    state_topic: "zigbee2mqtt/bridge/state"
+    icon: mdi:router-wireless

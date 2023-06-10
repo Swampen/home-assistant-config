@@ -34,8 +34,6 @@ recorder:
 tts:
   - platform: google_translate
 
-input_button: !include input_button.yaml
-
 input_number: !include input_number.yaml
 
 mqtt: !include mqtt.yaml

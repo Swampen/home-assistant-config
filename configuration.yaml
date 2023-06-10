@@ -6,6 +6,9 @@
 default_config:
 
 homeassistant:
+  # Sets up basic information in Home Assistant
+  #
+  # https://www.home-assistant.io/docs/configuration/basic/
   customize: !include customize.yaml
   latitude: !secret latitude
   longitude: !secret longitude
@@ -15,6 +18,10 @@ homeassistant:
   country: "NO"
   external_url: !secret external_url
 
+  # Makes it possible to split the configuration in to
+  # smaller chucks that is easier to maintain
+  #
+  # https://www.home-assistant.io/docs/configuration/packages/
   packages: !include_dir_named packages
 
 recorder:

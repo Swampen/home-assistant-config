@@ -38,6 +38,11 @@
           tap_action:
             action: more-info
 
+        entity_4:
+          entity_id: cover.balcony_blinds
+          tap_action:
+            action: more-info
+
     - type: "custom:button-card"
       template:
         - card_room

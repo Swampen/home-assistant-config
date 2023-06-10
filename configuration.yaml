@@ -161,6 +161,9 @@ google_assistant:
     script.toggle_camera:
       expose: true
 
+    cover.balcony_blinds:
+      expose: true
+
 notify:
   - platform: html5
     name: Desktop

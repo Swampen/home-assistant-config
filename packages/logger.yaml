@@ -1,0 +1,8 @@
+---
+# The logger integration lets you define the level of logging activities in Home Assistant.
+#
+# https://www.home-assistant.io/integrations/logger/
+logger:
+  default: warn
+  logs:
+    homeassistant.helpers.template: error

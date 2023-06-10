@@ -1,0 +1,134 @@
+---
+# Automations in Home Assistant allow you to automatically respond to things that happen.
+#
+# https://www.home-assistant.io/docs/automation/
+automation:
+  - id: zigbee2mqtt_create_notification_on_successfull_interview
+    alias: Zigbee Device Joined Notification
+    trigger:
+      platform: mqtt
+      topic: zigbee2mqtt/bridge/log
+    condition:
+      condition: template
+      value_template:
+        '{{trigger.payload_json.type == "pairing" and trigger.payload_json.message
+        == "interview_successful"}}'
+    action:
+      - service: persistent_notification.create
+        data_template:
+          title: Device joined the Zigbee2MQTT network
+          message: |
+            "Name: {{trigger.payload_json.meta.friendly_name}},
+            Vendor: {{trigger.payload_json.meta.vendor}},
+            Description: {{trigger.payload_json.meta.description}}"
+    mode: single
+  - id: update_dns_records
+    alias: Update DNS records on boot
+    description: ""
+    trigger:
+      - platform: homeassistant
+        event: start
+    condition: []
+    action:
+      - delay:
+          hours: 0
+          minutes: 0
+          seconds: 20
+          milliseconds: 0
+      - service: cloudflare.update_records
+        data: {}
+    mode: single
+  - id: set_correct_floor_heating_config
+    alias: Set correct floor heating config
+    trigger:
+      - platform: homeassistant
+        event: start
+      - platform: time_pattern
+        minutes: "0"
+        hours: "/1"
+    action:
+      - service: mqtt.publish
+        data:
+          topic: homeassistant/climate/0x000d6f0015552cdc/climate/config
+          retain: true
+          payload: >-
+            {
+              "action_template": {{ '"{% set values = {None:None,\'idle\':\'off\',\'heat\':\'heating\'} %}{{ values[value_json.running_state] }}"'}},
+              "action_topic": "zigbee2mqtt/Living Room Floor Heating",
+              "availability": [
+                {
+                  "value_template": {{'"{{ value_json.state }}"'}},
+                  "topic": "zigbee2mqtt/bridge/state"
+                }
+              ],
+              "current_temperature_template": {{'"{{ value_json.floor_temp }}"'}},
+              "current_temperature_topic": "zigbee2mqtt/Living Room Floor Heating",
+              "device": {
+                "identifiers": [
+                  "zigbee2mqtt_0x000d6f0015552cdc"
+                ],
+                "manufacturer": "ELKO",
+                "model": "ESH Plus Super TR RF PH (4523430)",
+                "name": "Living Room Floor Heating"
+              },
+              "json_attributes_topic": "zigbee2mqtt/Living Room Floor Heating",
+              "max_temp": "50",
+              "min_temp": "5",
+              "mode_command_topic": "zigbee2mqtt/Living Room Floor Heating/set/system_mode",
+              "mode_state_template": {{'"{{ value_json.system_mode }}"'}},
+              "mode_state_topic": "zigbee2mqtt/Living Room Floor Heating",
+              "modes": [
+                "off",
+                "heat"
+              ],
+              "name": "Living Room Floor Heating",
+              "temp_step": 1,
+              "temperature_command_topic": "zigbee2mqtt/Living Room Floor Heating/set/occupied_heating_setpoint",
+              "temperature_state_template": {{'"{{ value_json.occupied_heating_setpoint }}"'}},
+              "temperature_state_topic": "zigbee2mqtt/Living Room Floor Heating",
+              "temperature_unit": "C",
+              "unique_id": "0x000d6f0015552cdc_climate_zigbee2mqtt"
+            }
+      # Entryway
+      - service: mqtt.publish
+        data:
+          topic: homeassistant/climate/0x000d6f001554d0db/climate/config
+          retain: true
+          payload: >-
+            {
+              "action_template": {{ '"{% set values = {None:None,\'idle\':\'off\',\'heat\':\'heating\'} %}{{ values[value_json.running_state] }}"'}},
+              "action_topic": "zigbee2mqtt/Entryway Floor Heating",
+              "availability": [
+                {
+                  "value_template": {{'"{{ value_json.state }}"'}},
+                  "topic": "zigbee2mqtt/bridge/state"
+                }
+              ],
+              "current_temperature_template": {{'"{{ value_json.floor_temp }}"'}},
+              "current_temperature_topic": "zigbee2mqtt/Entryway Floor Heating",
+              "device": {
+                "identifiers": [
+                  "zigbee2mqtt_0x000d6f001554d0db"
+                ],
+                "manufacturer": "ELKO",
+                "model": "ESH Plus Super TR RF PH (4523430)",
+                "name": "Entryway Floor Heating"
+              },
+              "json_attributes_topic": "zigbee2mqtt/Entryway Floor Heating",
+              "max_temp": "50",
+              "min_temp": "5",
+              "mode_command_topic": "zigbee2mqtt/Entryway Floor Heating/set/system_mode",
+              "mode_state_template": {{'"{{ value_json.system_mode }}"'}},
+              "mode_state_topic": "zigbee2mqtt/Entryway Floor Heating",
+              "modes": [
+                "off",
+                "heat"
+              ],
+              "name": "Entryway Floor Heating",
+              "temp_step": 1,
+              "temperature_command_topic": "zigbee2mqtt/Entryway Floor Heating/set/occupied_heating_setpoint",
+              "temperature_state_template": {{'"{{ value_json.occupied_heating_setpoint }}"'}},
+              "temperature_state_topic": "zigbee2mqtt/Entryway Floor Heating",
+              "temperature_unit": "C",
+              "unique_id": "0x000d6f001554d0db_climate_zigbee2mqtt"
+            }

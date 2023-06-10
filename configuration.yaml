@@ -34,11 +34,6 @@ recorder:
 tts:
   - platform: google_translate
 
-# Automations in Home Assistant allow you to automatically respond to things that happen.
-#
-# https://www.home-assistant.io/docs/automation/
-automation: !include automations.yaml
-
 # The script integration allows users to specify a sequence of
 # actions to be executed by Home Assistant.
 #

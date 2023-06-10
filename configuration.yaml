@@ -34,12 +34,6 @@ recorder:
 tts:
   - platform: google_translate
 
-# The script integration allows users to specify a sequence of
-# actions to be executed by Home Assistant.
-#
-# https://www.home-assistant.io/integrations/script/
-script: !include scripts.yaml
-
 # This integration allows you to track and control various light bulbs.
 #
 # https://www.home-assistant.io/integrations/light/

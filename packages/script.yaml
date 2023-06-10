@@ -1,0 +1,57 @@
+---
+# The script integration allows users to specify a sequence of
+# actions to be executed by Home Assistant.
+#
+# https://www.home-assistant.io/integrations/script/
+script:
+  sleep_light:
+    alias: Sleep light
+    icon: mdi:bed
+    mode: single
+    sequence:
+      - data: {}
+        entity_id: light.table
+        service: light.turn_on
+      - delay: "3600"
+      - data: {}
+        entity_id: light.all_lights
+        service: light.turn_off
+  toggle_camera:
+    alias: Toggle Camera
+    sequence:
+      - choose:
+          - conditions:
+              - condition: state
+                entity_id: switch.c210_privacy
+                state: "on"
+            sequence:
+              - service: switch.turn_off
+                data: {}
+                target:
+                  entity_id: switch.c210_privacy
+              - service: select.select_option
+                data:
+                  option: Default
+                target:
+                  entity_id: select.c210_move_to_preset
+          - conditions:
+              - condition: state
+                entity_id: switch.c210_privacy
+                state: "off"
+            sequence:
+              - service: select.select_option
+                data:
+                  option: Hide
+                target:
+                  entity_id: select.c210_move_to_preset
+              - delay:
+                  hours: 0
+                  minutes: 0
+                  seconds: 7
+                  milliseconds: 0
+              - service: switch.turn_on
+                data: {}
+                target:
+                  entity_id: switch.c210_privacy
+    mode: single
+    icon: mdi:eye-off

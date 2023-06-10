@@ -33,5 +33,3 @@ recorder:
 # https://www.home-assistant.io/integrations/tts
 tts:
   - platform: google_translate
-
-template: !include templates.yaml

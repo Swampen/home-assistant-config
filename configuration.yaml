@@ -19,9 +19,3 @@ homeassistant:
 
 recorder:
   db_url: !secret maria_db
-
-# Text-to-Speech (TTS) enables Home Assistant to speak to you.
-#
-# https://www.home-assistant.io/integrations/tts
-tts:
-  - platform: google_translate

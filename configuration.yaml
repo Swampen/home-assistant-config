@@ -34,8 +34,6 @@ recorder:
 tts:
   - platform: google_translate
 
-input_text: !include input_text.yaml
-
 input_boolean: !include input_boolean.yaml
 
 input_button: !include input_button.yaml

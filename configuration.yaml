@@ -23,6 +23,3 @@ homeassistant:
   #
   # https://www.home-assistant.io/docs/configuration/packages/
   packages: !include_dir_named packages
-
-recorder:
-  db_url: !secret maria_db

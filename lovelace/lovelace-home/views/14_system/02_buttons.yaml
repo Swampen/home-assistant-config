@@ -1,6 +1,23 @@
 ---
 - type: custom:button-card
   template: card_title
+  name: Graphs
+- type: grid
+  columns: 1
+  square: false
+  cards:
+    - type: "custom:button-card"
+      template: card_graph
+      entity: sensor.tomatoes_moisture
+      variables:
+        ulm_card_graph_color: "var(--google-red)"
+        ulm_card_graph_name: Tomatoes moisture
+        ulm_card_graph_entity: sensor.tomatoes_moisture
+        ulm_card_graph_type: fill
+        ulm_card_graph_hours: 24
+
+- type: custom:button-card
+  template: card_title
   name: Buttons
 - type: "custom:button-card"
   template: card_script

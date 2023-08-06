@@ -9,8 +9,8 @@
   camera_image: camera.c210_hd_stream
 
 - type: picture-glance
-  title: Web Camera
+  title: 3D Printer
   camera_view: live
   entities:
     - light.entryway_light
-  camera_image: camera.camera1
+  camera_image: camera.octoprint_camera

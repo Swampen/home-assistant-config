@@ -19,7 +19,6 @@
       entity: light.living_room_lights
       variables:
         ulm_card_light_enable_slider: true
-        ulm_card_light_enable_color: true
         ulm_card_light_enable_popup: true
 
     - type: custom:button-card
@@ -29,7 +28,6 @@
         ulm_card_light_name: Sideboard
         ulm_card_light_icon: mdi:buffet
         ulm_card_light_enable_slider: true
-        ulm_card_light_enable_color: true
         ulm_card_light_enable_popup: true
 
     - type: custom:button-card
@@ -39,7 +37,6 @@
         ulm_card_light_name: Sofa
         ulm_card_light_icon: mdi:sofa
         ulm_card_light_enable_slider: true
-        ulm_card_light_enable_color: true
         ulm_card_light_enable_popup: true
 
     - type: custom:button-card
@@ -47,7 +44,6 @@
       entity: light.kitchen_lights
       variables:
         ulm_card_light_enable_slider: true
-        ulm_card_light_enable_color: true
         ulm_card_light_enable_popup: true
 
     - type: custom:button-card
@@ -55,9 +51,11 @@
       entity: light.entryway_light
       variables:
         ulm_card_light_enable_slider: true
-        ulm_card_light_enable_color: true
         ulm_card_light_enable_popup: true
 
     - type: custom:button-card
       template: card_light
       entity: light.kitchen_counter_light
+      variables:
+        ulm_card_light_enable_slider: true
+        ulm_card_light_enable_popup: true

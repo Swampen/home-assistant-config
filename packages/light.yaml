@@ -24,7 +24,3 @@ light:
   - platform: switch
     name: Office Light
     entity_id: switch.office_window_light
-
-  - platform: switch
-    name: Kitchen Counter Light
-    entity_id: switch.kitchen_counter_light

@@ -30,6 +30,16 @@
         "type": "Router"
     },
     {
+        "vendor": "Gledopto",
+        "model": "GL-C-006P",
+        "friendly_name": "Kitchen Counter Light",
+        "description": "Zigbee LED Controller WW/CW (pro)",
+        "manufacturer": "GLEDOPTO",
+        "model_id": "GL-C-006P",
+        "power_source": "Mains (single phase)",
+        "type": "Router"
+    },
+    {
         "vendor": "IKEA",
         "model": "E1812",
         "friendly_name": "Kitchen Counter Switch",
@@ -143,16 +153,6 @@
         "vendor": "TuYa",
         "model": "TS011F_plug_1",
         "friendly_name": "Kiosk Charger",
-        "description": "Smart plug (with power monitoring)",
-        "manufacturer": "_TZ3000_typdpbpg",
-        "model_id": "TS011F",
-        "power_source": "Mains (single phase)",
-        "type": "Router"
-    },
-    {
-        "vendor": "TuYa",
-        "model": "TS011F_plug_1",
-        "friendly_name": "Kitchen Counter Light",
         "description": "Smart plug (with power monitoring)",
         "manufacturer": "_TZ3000_typdpbpg",
         "model_id": "TS011F",

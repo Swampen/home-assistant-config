@@ -18,5 +18,6 @@
       entity: light.kitchen_counter_light
       variables:
         ulm_card_light_name: Counter Light
-        ulm_card_light_enable_popup: false
+        ulm_card_light_enable_slider: true
+        ulm_card_light_enable_popup: true
         ulm_card_light_enable_horizontal: false

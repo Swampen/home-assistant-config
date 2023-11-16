@@ -1,0 +1,24 @@
+---
+- id: "1700155406040"
+  alias: Notify Hanbit
+  description: ""
+  trigger:
+    - platform: state
+      entity_id:
+        - sensor.washing_machine_washer_job_state
+      to: stop
+      from: run
+    - platform: state
+      entity_id:
+        - sensor.dryer_dryer_job_state
+  condition:
+    - condition: state
+      entity_id: person.hanbit
+      state: home
+  action:
+    - variables: {}
+    - service: notify.html5_notify_hanbit_desktop
+      data:
+        title: Washer/Dryer finished
+        message: "{{trigger.event}}"
+  mode: single

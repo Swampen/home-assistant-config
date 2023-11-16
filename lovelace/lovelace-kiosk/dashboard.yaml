@@ -2,11 +2,6 @@
 button_card_templates: !include_dir_merge_named "../../custom_components/ui_lovelace_minimalist/__ui_minimalist__/ulm_templates/"
 
 title: Kiosk
-kiosk_mode:
-  user_settings:
-    - users:
-        - "kiosk"
-      hide_sidebar: true
 theme: minimalist-mobile
 background: var(--background-image)
 views:

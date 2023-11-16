@@ -1,5 +1,15 @@
 [
     {
+        "vendor": "Develco",
+        "model": "SMSZB-120",
+        "friendly_name": "0x0015bc0031005caa",
+        "description": "Smoke detector with siren",
+        "manufacturer": "Develco Products A/S",
+        "model_id": "SMSZB-120",
+        "power_source": "Battery",
+        "type": "EndDevice"
+    },
+    {
         "vendor": "ELKO",
         "model": "4523430",
         "friendly_name": "Bathroom Floor Heating",
@@ -131,11 +141,11 @@
     },
     {
         "vendor": "Namron",
-        "model": "1402755",
+        "model": "1402769",
         "friendly_name": "Toilet Lights",
         "description": "ZigBee LED dimmer",
         "manufacturer": "Namron AS",
-        "model_id": "1402755",
+        "model_id": "1402769",
         "power_source": "Mains (single phase)",
         "type": "Router"
     },
@@ -308,6 +318,16 @@
         "model_id": "lumi.remote.b686opcn01",
         "power_source": "Battery",
         "type": "EndDevice"
+    },
+    {
+        "vendor": "Xiaomi",
+        "model": "ZNCZ02LM",
+        "friendly_name": "Printer",
+        "description": "Mi power plug ZigBee",
+        "manufacturer": "LUMI",
+        "model_id": "lumi.plug",
+        "power_source": "Mains (single phase)",
+        "type": "Router"
     },
     {
         "vendor": "Xiaomi",

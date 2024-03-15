@@ -1,1 +1,7 @@
 ---
+climate.office_heater:
+  target_temp_step: 0.5
+climate.oil_heater:
+  target_temp_step: 0.5
+climate.living_room_heater:
+  target_temp_step: 0.5

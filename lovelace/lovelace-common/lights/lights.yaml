@@ -59,3 +59,25 @@
       variables:
         ulm_card_light_enable_slider: true
         ulm_card_light_enable_popup: true
+
+    # Christmas decoration
+    - type: custom:button-card
+      template: card_light
+      entity: light.christmas_tree
+      variables:
+        ulm_card_light_enable_slider: false
+        ulm_card_light_enable_popup: false
+
+    - type: custom:button-card
+      template: card_light
+      entity: light.window_light
+      variables:
+        ulm_card_light_enable_slider: false
+        ulm_card_light_enable_popup: false
+
+    - type: custom:button-card
+      template: card_light
+      entity: light.office_light
+      variables:
+        ulm_card_light_enable_slider: false
+        ulm_card_light_enable_popup: false

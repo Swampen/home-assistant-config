@@ -18,22 +18,31 @@ google_assistant:
       expose: true
     light.living_room_lights:
       expose: true
-    light.window_light:
-      expose: true
     light.kitchen_lights:
+      expose: true
+    light.kitchen_counter_light:
       expose: true
     light.balcony_light:
       expose: true
     light.entryway_light:
       expose: true
+
+    # Christmas decorations
     light.christmas_tree:
       expose: true
+    light.window_light:
+      expose: true
+    light.office_light:
+      expose: true
 
+    climate.office_heater:
+      expose: true
     climate.living_room_floor_heating:
+      expose: true
+    climate.living_room_heater:
       expose: true
     climate.entryway_floor_heating:
       expose: true
-
     climate.bathroom_floor_heating:
       expose: true
 

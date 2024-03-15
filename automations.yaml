@@ -21,4 +21,48 @@
       data:
         title: Washer/Dryer finished
         message: "{{trigger.event}}"
+- id: "1702154474232"
+  alias: Turn on printer
+  description: ""
+  trigger:
+    - platform: state
+      entity_id:
+        - sensor.hp_envy_6000_series_hpcups_3_21_2
+      to: printing
+  condition: []
+  action:
+    - service: switch.turn_on
+      target:
+        entity_id: switch.printer
+      data: {}
+  mode: single
+- id: "1702154913131"
+  alias: Turn off printer
+  description: ""
+  trigger:
+    - platform: state
+      entity_id:
+        - sensor.hp_envy_6000_series_hpcups_3_21_2
+      from: printing
+      to: idle
+  condition: []
+  action:
+    - delay:
+        hours: 0
+        minutes: 30
+        seconds: 0
+        milliseconds: 0
+    - if:
+        - condition: state
+          entity_id: sensor.hp_envy_6000_series_driverless_cups_filters_1_28_7
+          state: printing
+      then:
+        - stop: Printing ongoing
+    - service: switch.turn_off
+      target:
+        entity_id:
+          - switch.printer
+        device_id: []
+        area_id: []
+      data: {}
   mode: single

@@ -4,19 +4,6 @@
 #
 # https://www.home-assistant.io/integrations/sensor
 sensor:
-  - platform: systemmonitor
-    resources:
-      - type: disk_use_percent
-        arg: /
-      - type: memory_use_percent
-      - type: memory_use
-      - type: memory_free
-      - type: processor_use
-      - type: processor_temperature
-      - type: swap_use_percent
-      - type: swap_use
-      - type: swap_free
-      - type: last_boot
   - platform: seventeentrack
     username: !secret email
     password: !secret seventeentrack_password

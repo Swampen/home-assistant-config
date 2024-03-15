@@ -1,6 +1,6 @@
 ---
-- entity: weather.home_hourly
-  hourly_forecast: true
+- entity: weather.forecast_home
+  forecast_type: hourly
   name: Home
   show_forecast: true
   type: custom:weather-card

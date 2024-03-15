@@ -4,7 +4,7 @@
   triggers_update: input_boolean.minimalist_header_toggle
   variables:
     ulm_card_esh_welcome_collapse: input_boolean.minimalist_header_toggle
-    ulm_weather: weather.home
+    ulm_weather: weather.forecast_home
     entity_1:
       nav: transport
       icon: mdi:bus

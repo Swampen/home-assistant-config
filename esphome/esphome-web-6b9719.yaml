@@ -1,0 +1,79 @@
+---
+esphome:
+  name: garbage
+  friendly_name: Garbage
+
+esp8266:
+  board: nodemcuv2
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: !secret garbage_api_key
+  services:
+    - service: control_servo
+      variables:
+        level: float
+      then:
+        - servo.write:
+            id: my_servo
+            level: !lambda "return level / 100.0;"
+
+ota:
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  manual_ip:
+    static_ip: 192.168.20.233
+    gateway: 192.168.20.1
+    subnet: 255.255.255.0
+
+  ap:
+    ssid: "Esphome-Web-6B9719"
+    password: "viYU0NziLh7q"
+
+captive_portal:
+
+button:
+  - platform: template
+    name: Open Drawer
+    on_press:
+      - script.execute: open_drawer
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: D2
+      mode: INPUT_PULLUP
+      inverted: true
+    name: Button
+    internal: true
+    on_click:
+      - script.execute: open_drawer
+
+script:
+  - id: open_drawer
+    then:
+      - servo.write:
+          id: my_servo
+          level: -100%
+      - delay: 1.5s
+      - servo.write:
+          id: my_servo
+          level: 0%
+
+servo:
+  - id: my_servo
+    output: pwm_output
+    restore: true
+    transition_length: 0s
+
+output:
+  - platform: esp8266_pwm
+    id: pwm_output
+    pin: D1
+    frequency: 50 Hz

@@ -1,26 +1,43 @@
 ---
 - id: "1700155406040"
-  alias: Notify Hanbit
+  alias: Notify
   description: ""
   trigger:
     - platform: state
       entity_id:
-        - sensor.washing_machine_washer_job_state
+        - sensor.washing_machine_washer_machine_state
       to: stop
       from: run
     - platform: state
       entity_id:
-        - sensor.dryer_dryer_job_state
-  condition:
-    - condition: state
-      entity_id: person.hanbit
-      state: home
+        - sensor.dryer_dryer_machine_state
+      to: stop
+      from: run
+  condition: []
   action:
-    - variables: {}
     - service: notify.html5_notify_hanbit_desktop
       data:
-        title: Washer/Dryer finished
+        title:
+          "{{ trigger.from_state.attributes.friendly_name.split(' State')[0]
+          }} finished"
         message: "{{trigger.event}}"
+      enabled: true
+    - service: notify.html5_notify_ole_martin_desktop
+      data:
+        title:
+          "{{ trigger.from_state.attributes.friendly_name.split(' State')[0]
+          }} finished"
+        message: "{{ trigger.event }}"
+      enabled: true
+    - service: tts.google_translate_say
+      data:
+        cache: false
+        entity_id: media_player.living_room
+        message:
+          The {{ trigger.from_state.attributes.friendly_name.split(' State')[0]
+          }} has finished running
+      enabled: false
+  mode: single
 - id: "1702154474232"
   alias: Turn on printer
   description: ""

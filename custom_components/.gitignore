@@ -1,9 +1,9 @@
 # Includes all files in subfolders
 browser_mod/*
 hacs/*
+localtuya/*
 nordpool/*
 tapo_control/*
 ui_lovelace_minimalist/*
-xiaomi_cloud_map_extractor/*
 
 !manifest.json

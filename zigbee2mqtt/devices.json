@@ -1,8 +1,108 @@
 [
     {
+        "vendor": "Aqara",
+        "model": "MCCGQ11LM",
+        "friendly_name": "Closet Door",
+        "description": "Door and window sensor",
+        "manufacturer": "LUMI",
+        "model_id": "lumi.sensor_magnet.aq2",
+        "power_source": "Battery",
+        "type": "EndDevice"
+    },
+    {
+        "vendor": "Aqara",
+        "model": "MCCGQ11LM",
+        "friendly_name": "Living Room Door",
+        "description": "Door and window sensor",
+        "manufacturer": "LUMI",
+        "model_id": "lumi.sensor_magnet.aq2",
+        "power_source": "Battery",
+        "type": "EndDevice"
+    },
+    {
+        "vendor": "Aqara",
+        "model": "RTCGQ11LM",
+        "friendly_name": "Entryway Motion 2",
+        "description": "Motion sensor",
+        "manufacturer": "LUMI",
+        "model_id": "lumi.sensor_motion.aq2",
+        "power_source": "Battery",
+        "type": "EndDevice"
+    },
+    {
+        "vendor": "Aqara",
+        "model": "RTCGQ14LM",
+        "friendly_name": "Entryway Motion",
+        "description": "Motion sensor P1",
+        "manufacturer": "LUMI",
+        "model_id": "lumi.motion.ac02",
+        "power_source": "Battery",
+        "type": "EndDevice"
+    },
+    {
+        "vendor": "Aqara",
+        "model": "RTCGQ14LM",
+        "friendly_name": "Toilet Motion",
+        "description": "Motion sensor P1",
+        "manufacturer": "LUMI",
+        "model_id": "lumi.motion.ac02",
+        "power_source": "Battery",
+        "type": "EndDevice"
+    },
+    {
+        "vendor": "Aqara",
+        "model": "VOCKQJK11LM",
+        "friendly_name": "Bedroom Air Sensor",
+        "description": "TVOC air quality monitor",
+        "manufacturer": "LUMI",
+        "model_id": "lumi.airmonitor.acn01",
+        "power_source": "Battery",
+        "type": "EndDevice"
+    },
+    {
+        "vendor": "Aqara",
+        "model": "WSDCGQ11LM",
+        "friendly_name": "Outdoor Sensor",
+        "description": "Temperature and humidity sensor",
+        "manufacturer": "LUMI",
+        "model_id": "lumi.weather",
+        "power_source": "Battery",
+        "type": "EndDevice"
+    },
+    {
+        "vendor": "Aqara",
+        "model": "WXCJKG13LM",
+        "friendly_name": "Living Room Switch",
+        "description": "Opple wireless switch (triple band)",
+        "manufacturer": "LUMI",
+        "model_id": "lumi.remote.b686opcn01",
+        "power_source": "Battery",
+        "type": "EndDevice"
+    },
+    {
+        "vendor": "Aqara",
+        "model": "ZNLDP12LM",
+        "friendly_name": "Closet Light 2",
+        "description": "Light bulb",
+        "manufacturer": "LUMI",
+        "model_id": "lumi.light.aqcn02",
+        "power_source": "DC Source",
+        "type": "Router"
+    },
+    {
         "vendor": "Develco",
         "model": "SMSZB-120",
         "friendly_name": "0x0015bc0031005caa",
+        "description": "Smoke detector with siren",
+        "manufacturer": "Develco Products A/S",
+        "model_id": "SMSZB-120",
+        "power_source": "Battery",
+        "type": "EndDevice"
+    },
+    {
+        "vendor": "Develco",
+        "model": "SMSZB-120",
+        "friendly_name": "Entryway Smoke Alarm",
         "description": "Smoke detector with siren",
         "manufacturer": "Develco Products A/S",
         "model_id": "SMSZB-120",
@@ -52,7 +152,7 @@
     {
         "vendor": "IKEA",
         "model": "E1812",
-        "friendly_name": "Kitchen Counter Switch",
+        "friendly_name": "Toggle Button",
         "description": "TRADFRI shortcut button",
         "manufacturer": "IKEA of Sweden",
         "model_id": "TRADFRI SHORTCUT Button",
@@ -61,9 +161,19 @@
     },
     {
         "vendor": "IKEA",
+        "model": "E2201",
+        "friendly_name": "Kitchen Counter Switch",
+        "description": "RODRET wireless dimmer/power switch",
+        "manufacturer": "IKEA of Sweden",
+        "model_id": "RODRET Dimmer",
+        "power_source": "Battery",
+        "type": "EndDevice"
+    },
+    {
+        "vendor": "IKEA",
         "model": "LED1732G11",
         "friendly_name": "Closet Light 1",
-        "description": "TRADFRI LED bulb E27 1000 lumen, dimmable, white spectrum, opal white",
+        "description": "TRADFRI bulb E26/E27, white spectrum, globe, opal, 1000 lm",
         "manufacturer": "IKEA of Sweden",
         "model_id": "TRADFRI bulb E27 WS opal 1000lm",
         "power_source": "Mains (single phase)",
@@ -71,9 +181,9 @@
     },
     {
         "vendor": "IKEA",
-        "model": "LED2005R5",
+        "model": "LED2005R5/LED2106R3",
         "friendly_name": "Entryway Light 1",
-        "description": "TRADFRI LED bulb GU10 345/380 lumen, dimmable, white spectrum",
+        "description": "TRADFRI bulb GU10, white spectrum, 345/380 lm",
         "manufacturer": "IKEA of Sweden",
         "model_id": "TRADFRIbulbGU10WS345lm",
         "power_source": "Mains (single phase)",
@@ -81,9 +191,9 @@
     },
     {
         "vendor": "IKEA",
-        "model": "LED2005R5",
+        "model": "LED2005R5/LED2106R3",
         "friendly_name": "Entryway Light 2",
-        "description": "TRADFRI LED bulb GU10 345/380 lumen, dimmable, white spectrum",
+        "description": "TRADFRI bulb GU10, white spectrum, 345/380 lm",
         "manufacturer": "IKEA of Sweden",
         "model_id": "TRADFRIbulbGU10WS345lm",
         "power_source": "Mains (single phase)",
@@ -91,9 +201,9 @@
     },
     {
         "vendor": "IKEA",
-        "model": "LED2005R5",
+        "model": "LED2005R5/LED2106R3",
         "friendly_name": "Entryway Light 3",
-        "description": "TRADFRI LED bulb GU10 345/380 lumen, dimmable, white spectrum",
+        "description": "TRADFRI bulb GU10, white spectrum, 345/380 lm",
         "manufacturer": "IKEA of Sweden",
         "model_id": "TRADFRIbulbGU10WS345lm",
         "power_source": "Mains (single phase)",
@@ -101,9 +211,9 @@
     },
     {
         "vendor": "IKEA",
-        "model": "LED2005R5",
+        "model": "LED2005R5/LED2106R3",
         "friendly_name": "Entryway Light 4",
-        "description": "TRADFRI LED bulb GU10 345/380 lumen, dimmable, white spectrum",
+        "description": "TRADFRI bulb GU10, white spectrum, 345/380 lm",
         "manufacturer": "IKEA of Sweden",
         "model_id": "TRADFRIbulbGU10WS345lm",
         "power_source": "Mains (single phase)",
@@ -203,7 +313,7 @@
         "vendor": "Xiaomi",
         "model": "GZCGQ01LM",
         "friendly_name": "Living Room Illuminance",
-        "description": "MiJia light intensity sensor",
+        "description": "Mi light sensor",
         "manufacturer": "LUMI",
         "model_id": "lumi.sen_ill.mgl01",
         "power_source": "Battery",
@@ -211,69 +321,9 @@
     },
     {
         "vendor": "Xiaomi",
-        "model": "MCCGQ11LM",
-        "friendly_name": "Closet Door",
-        "description": "Aqara door & window contact sensor",
-        "manufacturer": "LUMI",
-        "model_id": "lumi.sensor_magnet.aq2",
-        "power_source": "Battery",
-        "type": "EndDevice"
-    },
-    {
-        "vendor": "Xiaomi",
-        "model": "MCCGQ11LM",
-        "friendly_name": "Living Room Door",
-        "description": "Aqara door & window contact sensor",
-        "manufacturer": "LUMI",
-        "model_id": "lumi.sensor_magnet.aq2",
-        "power_source": "Battery",
-        "type": "EndDevice"
-    },
-    {
-        "vendor": "Xiaomi",
-        "model": "RTCGQ11LM",
-        "friendly_name": "Entryway Motion",
-        "description": "Aqara human body movement and illuminance sensor",
-        "manufacturer": "LUMI",
-        "model_id": "lumi.sensor_motion.aq2",
-        "power_source": "Battery",
-        "type": "EndDevice"
-    },
-    {
-        "vendor": "Xiaomi",
-        "model": "RTCGQ14LM",
-        "friendly_name": "Entryway Motion Test",
-        "description": "Aqara P1 human body movement and illuminance sensor",
-        "manufacturer": "LUMI",
-        "model_id": "lumi.motion.ac02",
-        "power_source": "Battery",
-        "type": "EndDevice"
-    },
-    {
-        "vendor": "Xiaomi",
-        "model": "RTCGQ14LM",
-        "friendly_name": "Toilet Motion",
-        "description": "Aqara P1 human body movement and illuminance sensor",
-        "manufacturer": "LUMI",
-        "model_id": "lumi.motion.ac02",
-        "power_source": "Battery",
-        "type": "EndDevice"
-    },
-    {
-        "vendor": "Xiaomi",
-        "model": "VOCKQJK11LM",
-        "friendly_name": "Bedroom Air Sensor",
-        "description": "Aqara TVOC air quality monitor",
-        "manufacturer": "LUMI",
-        "model_id": "lumi.airmonitor.acn01",
-        "power_source": "Battery",
-        "type": "EndDevice"
-    },
-    {
-        "vendor": "Xiaomi",
         "model": "WSDCGQ01LM",
         "friendly_name": "Bathroom Sensor",
-        "description": "MiJia temperature & humidity sensor",
+        "description": "Mi temperature and humidity sensor",
         "manufacturer": "LUMI",
         "model_id": "lumi.sensor_ht",
         "power_source": "Battery",
@@ -283,7 +333,7 @@
         "vendor": "Xiaomi",
         "model": "WSDCGQ01LM",
         "friendly_name": "Bedroom Sensor",
-        "description": "MiJia temperature & humidity sensor",
+        "description": "Mi temperature and humidity sensor",
         "manufacturer": "LUMI",
         "model_id": "lumi.sensor_ht",
         "power_source": "Battery",
@@ -293,7 +343,7 @@
         "vendor": "Xiaomi",
         "model": "WSDCGQ01LM",
         "friendly_name": "Office Sensor",
-        "description": "MiJia temperature & humidity sensor",
+        "description": "Mi temperature and humidity sensor",
         "manufacturer": "LUMI",
         "model_id": "lumi.sensor_ht",
         "power_source": "Battery",
@@ -301,42 +351,12 @@
     },
     {
         "vendor": "Xiaomi",
-        "model": "WSDCGQ11LM",
-        "friendly_name": "Outdoor Sensor",
-        "description": "Aqara temperature, humidity and pressure sensor",
-        "manufacturer": "LUMI",
-        "model_id": "lumi.weather",
-        "power_source": "Battery",
-        "type": "EndDevice"
-    },
-    {
-        "vendor": "Xiaomi",
-        "model": "WXCJKG13LM",
-        "friendly_name": "Living Room Switch",
-        "description": "Aqara Opple switch 3 bands",
-        "manufacturer": "LUMI",
-        "model_id": "lumi.remote.b686opcn01",
-        "power_source": "Battery",
-        "type": "EndDevice"
-    },
-    {
-        "vendor": "Xiaomi",
         "model": "ZNCZ02LM",
         "friendly_name": "Printer",
-        "description": "Mi power plug ZigBee",
+        "description": "Mi smart plug",
         "manufacturer": "LUMI",
         "model_id": "lumi.plug",
         "power_source": "Mains (single phase)",
-        "type": "Router"
-    },
-    {
-        "vendor": "Xiaomi",
-        "model": "ZNLDP12LM",
-        "friendly_name": "Closet Light 2",
-        "description": "Aqara smart LED bulb",
-        "manufacturer": "LUMI",
-        "model_id": "lumi.light.aqcn02",
-        "power_source": "DC Source",
         "type": "Router"
     }
 ]

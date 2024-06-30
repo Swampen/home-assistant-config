@@ -1,0 +1,12 @@
+{
+  "domain": "wellbeing",
+  "name": "Electrolux Wellbeing",
+  "codeowners": ["@JohNan"],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/JohNan/homeassistant-wellbeing",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/JohNan/homeassistant-wellbeing/issues",
+  "requirements": [],
+  "version": "v0.0.0"
+}

@@ -5,5 +5,6 @@ localtuya/*
 nordpool/*
 tapo_control/*
 ui_lovelace_minimalist/*
+wellbeing/*
 
 !manifest.json

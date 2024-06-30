@@ -1,0 +1,11 @@
+---
+- type: custom:button-card
+  template: card_title
+  name: Blinds
+- type: "custom:button-card"
+  template: card_cover
+  entity: cover.balcony_blinds
+  variables:
+    ulm_card_cover_enable_controls: true
+    ulm_card_cover_enable_slider: false
+    ulm_card_cover_color: "green"

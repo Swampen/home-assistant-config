@@ -2,7 +2,7 @@
 substitutions:
   devicename: balcony-blinds
   upper_devicename: Balcony Blinds
-  mystepper: my_stepper # Name of the stepper motor (leave as is)
+  mystepper: my_stepper
   speed: 300 steps/s # Set the speed of the motor
   reportin: "1" # Set if you want the blind to report position while moving (causes delay)
 
@@ -22,11 +22,17 @@ api:
     key: !secret roller_blinds_api_key
 
 ota:
-  password: !secret roller_blinds_ota_password
+  - platform: esphome
+    password: !secret roller_blinds_ota_password
+
+bluetooth_proxy:
+  active: true
 
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
+  # Not compatible with bluetooth_proxy
+  # power_save_mode: NONE
   manual_ip:
     static_ip: 192.168.20.231
     gateway: 192.168.20.1
@@ -71,7 +77,7 @@ esphome:
               - lambda: "return id(${mystepper}_global) == 0;"
             then: # Publish state etc.
               - cover.template.publish:
-                  id: blinded
+                  id: blinds_cover
                   state: CLOSED
                   current_operation: IDLE
         - if: # If blind is Open
@@ -79,16 +85,19 @@ esphome:
               - lambda: "return id(${mystepper}_global) == id(endstop);"
             then: # Publish state etc.
               - cover.template.publish:
-                  id: blinded
+                  id: blinds_cover
                   state: OPEN
                   current_operation: IDLE
         - if: # If blind is Neither
             condition:
-              - lambda: "return (id(${mystepper}_global) != 0) && (id(${mystepper}_global) != id(endstop));"
+              - lambda: |-
+                  return (id(${mystepper}_global) != 0)
+                        && (id(${mystepper}_global) != id(endstop));
             then: #  # Publish state etc.
               - cover.template.publish:
-                  id: blinded
-                  position: !lambda "return (float(float(id($mystepper).current_position) / float(id(endstop))));"
+                  id: blinds_cover
+                  position: !lambda |-
+                    return (float(float(id($mystepper).current_position) / float(id(endstop))));
                   current_operation: IDLE
 
 globals:
@@ -119,34 +128,30 @@ globals:
 
 text_sensor:
   - platform: version
-    name: ${upper_devicename} ESPHome Version
+    name: ESPHome Version
     hide_timestamp: true
   - platform: wifi_info
     ip_address:
-      name: ${upper_devicename} IP
+      name: IP
       icon: mdi:ip-network
     ssid:
-      name: ${upper_devicename} SSID
+      name: SSID
       icon: mdi:wifi
     mac_address:
-      name: "${upper_devicename} MAC"
+      name: MAC
       icon: mdi:identifier
   - platform: template
-    name: ${upper_devicename} Friendly Name
-    icon: "mdi:information-outline"
-    lambda: |-
-      return {"$upper_devicename"};
-  - platform: template
-    name: ${upper_devicename} Uptime
+    name: Uptime
     id: uptime_human
     icon: mdi:clock-start
 
 sensor:
   # Uptime sensor.
   - platform: uptime
-    name: ${upper_devicename} Uptime Internal
+    name: Uptime Internal
     id: "upptime"
     internal: true
+    update_interval: 60s
     on_raw_value:
       then:
         - text_sensor.template.publish:
@@ -167,12 +172,12 @@ sensor:
               ).c_str();
   # WiFi Signal sensor.
   - platform: wifi_signal
-    name: ${upper_devicename} WiFi Signal
+    name: WiFi Signal
     update_interval: 120s
 
 switch:
   - platform: template
-    name: ${upper_devicename} Setup Switch # Switch to enter Setup Mode
+    name: Setup Switch # Switch to enter Setup Mode
     id: setupswitch
     lambda: |-
       if (id(settingmode) != 0) {
@@ -195,7 +200,7 @@ switch:
 
 button:
   - platform: template
-    name: ${upper_devicename} Setup Button # Software Button to replicate the Physical Button
+    name: Setup Button # Software Button to replicate the Physical Button
     id: hasetup
     on_press:
       - if: # If settings variable is on
@@ -206,8 +211,8 @@ button:
 
 cover:
   - platform: template
-    name: $upper_devicename
-    id: blinded
+    name: Cover
+    id: blinds_cover
     open_action:
       then:
         - logger.log: "Opening"
@@ -226,14 +231,16 @@ cover:
                     lambda: "return id($mystepper).current_position != id(endstop);"
                   then:
                     - cover.template.publish:
-                        id: blinded
-                        position: !lambda "return (float(float(id($mystepper).current_position) / float(id(endstop))));"
+                        id: blinds_cover
+                        position: !lambda |-
+                          return (float(float(id($mystepper).current_position)/float(id(endstop))));
                         current_operation: OPENING
                     - delay: 1000 ms
             else:
               - cover.template.publish:
-                  id: blinded
-                  position: !lambda "return (float(float(id($mystepper).current_position) / float(id(endstop))));"
+                  id: blinds_cover
+                  position: !lambda |-
+                    return (float(float(id($mystepper).current_position) / float(id(endstop))));
                   current_operation: OPENING
               - wait_until: # Wait until endstop reached
                   lambda: "return (id($mystepper).current_position == id(endstop));"
@@ -244,7 +251,7 @@ cover:
             id: openclosed
             value: "1"
         - cover.template.publish:
-            id: blinded
+            id: blinds_cover
             state: OPEN
             current_operation: IDLE
     close_action:
@@ -262,14 +269,16 @@ cover:
                     lambda: "return id($mystepper).current_position != 0;"
                   then:
                     - cover.template.publish:
-                        id: blinded
-                        position: !lambda "return (float(float(id($mystepper).current_position) / float(id(endstop))));"
+                        id: blinds_cover
+                        position: !lambda |-
+                          return (float(float(id($mystepper).current_position)/float(id(endstop))));
                         current_operation: CLOSING
                     - delay: 1000 ms
             else:
               - cover.template.publish:
-                  id: blinded
-                  position: !lambda "return (float(float(id($mystepper).current_position) / float(id(endstop))));"
+                  id: blinds_cover
+                  position: !lambda |-
+                    return (float(float(id($mystepper).current_position) / float(id(endstop))));
                   current_operation: CLOSING
               - wait_until: # Wait until endstop reached
                   lambda: "return id($mystepper).current_position == 0;"
@@ -280,7 +289,7 @@ cover:
             id: openclosed
             value: "0"
         - cover.template.publish:
-            id: blinded
+            id: blinds_cover
             state: CLOSED
             current_operation: IDLE
     position_action:
@@ -297,8 +306,9 @@ cover:
                     lambda: "return id($mystepper).current_position != int(id(endstop) * pos);"
                   then:
                     - cover.template.publish:
-                        id: blinded
-                        position: !lambda "return (float(float(id($mystepper).current_position) / float(id(endstop))));"
+                        id: blinds_cover
+                        position: !lambda |-
+                          return (float(float(id($mystepper).current_position)/float(id(endstop))));
                     - delay: 1000 ms
             else:
               - wait_until: # Wait until endstop reached
@@ -307,8 +317,9 @@ cover:
             id: ${mystepper}_global
             value: !lambda return id($mystepper).current_position;
         - cover.template.publish:
-            id: blinded
-            position: !lambda "return (float(float(id($mystepper).current_position) / float(id(endstop))));"
+            id: blinds_cover
+            position: !lambda |-
+              return (float(float(id($mystepper).current_position)/float(id(endstop))));
             current_operation: IDLE
     stop_action:
       then:
@@ -319,8 +330,9 @@ cover:
             id: ${mystepper}_global
             value: !lambda return id($mystepper).current_position;
         - cover.template.publish:
-            id: blinded
-            position: !lambda "return (float(float(id($mystepper).current_position) / float(id(endstop))));"
+            id: blinds_cover
+            position: !lambda |-
+              return (float(float(id($mystepper).current_position) / float(id(endstop))));
             current_operation: IDLE
     has_position: true
     device_class: blind
@@ -353,7 +365,7 @@ script:
                 id: openclosed
                 value: "1"
             - cover.template.publish:
-                id: blinded
+                id: blinds_cover
                 state: OPEN
                 current_operation: IDLE
             - logger.log: "Exiting Setting Mode"

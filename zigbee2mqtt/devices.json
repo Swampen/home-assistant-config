@@ -2,6 +2,16 @@
     {
         "vendor": "Aqara",
         "model": "MCCGQ11LM",
+        "friendly_name": "Bedroom Window Sensor",
+        "description": "Door and window sensor",
+        "manufacturer": "LUMI",
+        "model_id": "lumi.sensor_magnet.aq2",
+        "power_source": "Battery",
+        "type": "EndDevice"
+    },
+    {
+        "vendor": "Aqara",
+        "model": "MCCGQ11LM",
         "friendly_name": "Closet Door",
         "description": "Door and window sensor",
         "manufacturer": "LUMI",
@@ -13,6 +23,26 @@
         "vendor": "Aqara",
         "model": "MCCGQ11LM",
         "friendly_name": "Living Room Door",
+        "description": "Door and window sensor",
+        "manufacturer": "LUMI",
+        "model_id": "lumi.sensor_magnet.aq2",
+        "power_source": "Battery",
+        "type": "EndDevice"
+    },
+    {
+        "vendor": "Aqara",
+        "model": "MCCGQ11LM",
+        "friendly_name": "Living Room Window Sensor",
+        "description": "Door and window sensor",
+        "manufacturer": "LUMI",
+        "model_id": "lumi.sensor_magnet.aq2",
+        "power_source": "Battery",
+        "type": "EndDevice"
+    },
+    {
+        "vendor": "Aqara",
+        "model": "MCCGQ11LM",
+        "friendly_name": "Office Window Sensor",
         "description": "Door and window sensor",
         "manufacturer": "LUMI",
         "model_id": "lumi.sensor_magnet.aq2",
@@ -92,7 +122,7 @@
     {
         "vendor": "Develco",
         "model": "SMSZB-120",
-        "friendly_name": "0x0015bc0031005caa",
+        "friendly_name": "Bedroom Smoke Detector",
         "description": "Smoke detector with siren",
         "manufacturer": "Develco Products A/S",
         "model_id": "SMSZB-120",
@@ -102,7 +132,7 @@
     {
         "vendor": "Develco",
         "model": "SMSZB-120",
-        "friendly_name": "Entryway Smoke Alarm",
+        "friendly_name": "Entryway Fire Alarm",
         "description": "Smoke detector with siren",
         "manufacturer": "Develco Products A/S",
         "model_id": "SMSZB-120",
@@ -260,7 +290,7 @@
         "type": "Router"
     },
     {
-        "vendor": "TuYa",
+        "vendor": "Tuya",
         "model": "TS011F_plug_1",
         "friendly_name": "Christmas Tree",
         "description": "Smart plug (with power monitoring)",
@@ -270,7 +300,7 @@
         "type": "Router"
     },
     {
-        "vendor": "TuYa",
+        "vendor": "Tuya",
         "model": "TS011F_plug_1",
         "friendly_name": "Kiosk Charger",
         "description": "Smart plug (with power monitoring)",
@@ -280,7 +310,17 @@
         "type": "Router"
     },
     {
-        "vendor": "TuYa",
+        "vendor": "Tuya",
+        "model": "TS011F_plug_1",
+        "friendly_name": "Living Room Corner Lamp",
+        "description": "Smart plug (with power monitoring)",
+        "manufacturer": "_TZ3000_typdpbpg",
+        "model_id": "TS011F",
+        "power_source": "Mains (single phase)",
+        "type": "Router"
+    },
+    {
+        "vendor": "Tuya",
         "model": "TS011F_plug_2",
         "friendly_name": "Balcony Light",
         "description": "Smart plug (without power monitoring)",
@@ -290,7 +330,7 @@
         "type": "Router"
     },
     {
-        "vendor": "TuYa",
+        "vendor": "Tuya",
         "model": "TS011F_plug_2",
         "friendly_name": "Office Window Light",
         "description": "Smart plug (without power monitoring)",
@@ -300,7 +340,7 @@
         "type": "Router"
     },
     {
-        "vendor": "TuYa",
+        "vendor": "Tuya",
         "model": "TS011F_plug_2",
         "friendly_name": "Window Light",
         "description": "Smart plug (without power monitoring)",
@@ -332,7 +372,7 @@
     {
         "vendor": "Xiaomi",
         "model": "WSDCGQ01LM",
-        "friendly_name": "Bedroom Sensor",
+        "friendly_name": "Living Room Sensor",
         "description": "Mi temperature and humidity sensor",
         "manufacturer": "LUMI",
         "model_id": "lumi.sensor_ht",

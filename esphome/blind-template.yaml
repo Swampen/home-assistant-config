@@ -1,0 +1,235 @@
+globals:
+  - id: open_position_${id}
+    type: int
+    initial_value: "${open_position}"
+    restore_value: true
+  - id: current_position_${id}
+    type: int
+    initial_value: "0"
+    restore_value: true
+
+esp32:
+  board: wemos_d1_mini32
+
+esphome:
+  name: balcony-blinds-v2
+  friendly_name: Balcony Blinds v2
+  on_boot:
+    - tmc2209.configure:
+        id: driver_${id}
+        microsteps: ${microsteps}
+        interpolation: false
+    - tmc2209.stallguard:
+        id: driver_${id}
+        threshold: 50
+    - tmc2209.currents:
+        id: driver_${id}
+        standstill_mode: freewheeling
+        irun: ${irun}
+        ihold: ${ihold}
+        tpowerdown: 0
+        iholddelay: 0
+    - stepper.report_position:
+        id: driver_${id}
+        position: !lambda "return id(current_position_${id});"
+    - stepper.set_target:
+        id: driver_${id}
+        target: !lambda "return id(current_position_${id});"
+
+external_components:
+  - source: github://slimcdk/esphome-custom-components
+    components: [ tmc2209_hub, tmc2209, stepper ]
+
+stepper:
+  - platform: tmc2209
+    id: driver_${id}
+    tmc2209_hub_id: hub
+    max_speed: ${max_speed} steps/s
+    acceleration: ${acceleration}
+    deceleration: ${deceleration}
+    address: ${address}
+    rsense: 110 mOhm
+    vsense: False
+    analog_current_scale: False
+    enn_pin: ${enn_pin}
+    index_pin: ${index_pin}
+    diag_pin: ${diag_pin}
+    on_stall:
+      - logger.log: "Motor stalled!"
+      - stepper.stop: driver_${id}
+
+# number:
+#   - platform: template
+#     name: Target position ${cover_name}
+#     min_value: -10000
+#     max_value: 10000
+#     step: 1000
+#     lambda: return id(driver_${id})->current_position;
+#     update_interval: 1s
+#     set_action:
+#       - stepper.set_target:
+#           id: driver_${id}
+#           target: !lambda "return x;"
+
+sensor:
+  - platform: tmc2209
+    tmc2209_id: driver_${id}
+    type: motor_load
+    name: ${cover_name} Motor Load 
+    update_interval: 1s
+
+  - platform: template
+    name: ${cover_name} Stallguard Result
+    lambda: return id(driver_${id})->read_register(SG_RESULT);
+    unit_of_measurement: "°"
+
+  - platform: template
+    entity_category: DIAGNOSTIC
+    name: ${cover_name} Open Position 
+    accuracy_decimals: 0
+    unit_of_measurement: "steps"
+    lambda: !lambda "return id(open_position_${id});"
+    update_interval: 10s
+
+  - platform: template
+    entity_category: DIAGNOSTIC
+    name: ${cover_name} Current Stepper Position 
+    accuracy_decimals: 0
+    unit_of_measurement: "steps"
+    lambda: !lambda "return id(driver_${id})->current_position;"
+    update_interval: 2s
+
+  - platform: template
+    entity_category: DIAGNOSTIC
+    name: ${cover_name} Current Position 
+    accuracy_decimals: 0
+    unit_of_measurement: "steps"
+    lambda: !lambda "return id(current_position_${id});"
+    update_interval: 2s
+
+cover:
+  - platform: template
+    has_position: true
+    optimistic: true
+    name: ${cover_name}
+    id: cover_${id}
+    open_action:
+      - script.execute: 
+          id: move_stepper_${id}
+          target: !lambda "return id(open_position_${id});"
+      # - stepper.set_target:
+      #     id: driver_${id}
+      #     target: !lambda "return id(open_position_${id});"
+      # - globals.set:
+      #     id: current_position_${id}
+      #     value: !lambda "return id(open_position_${id});"
+    close_action:
+      - script.execute: 
+          id: move_stepper_${id}
+          target: 0
+      # - stepper.set_target:
+      #     id: driver_${id}
+      #     target: 0
+      # - globals.set:
+      #     id: current_position_${id}
+      #     value: "0"
+    stop_action:
+      - script.execute: 
+          id: move_stepper_${id}
+          target: !lambda "return id(driver_${id})->current_position;"
+      # - stepper.stop: driver_${id}
+    position_action:
+      - script.execute: 
+          id: move_stepper_${id}
+          target: !lambda "return id(open_position_${id}) * pos;"
+      # - stepper.set_target:
+      #     id: driver_${id}
+      #     target: !lambda "return id(open_position_${id}) * pos;"
+      # - globals.set:
+      #     id: current_position_${id}
+      #     value: !lambda "return id(open_position_${id}) * pos;"
+
+button:
+  - platform: template
+    name: ${cover_name} Closed
+    entity_category: CONFIG
+    on_press:
+      - stepper.report_position:
+          id: driver_${id}
+          position: 0
+      - stepper.set_target:
+          id: driver_${id}
+          target: 0
+      - globals.set:
+          id: current_position_${id}
+          value: "0"
+
+  - platform: template
+    name: ${cover_name} Stepper Open
+    entity_category: CONFIG
+    on_press:
+      - globals.set:
+          id: open_position_${id}
+          value: !lambda "return id(driver_${id})->current_position;"
+
+  - platform: template
+    name: ${cover_name} Set Open
+    entity_category: CONFIG
+    on_press:
+      - globals.set:
+          id: open_position_${id}
+          value: !lambda "return id(${open_position});"
+      - globals.set:
+          id: current_position_${id}
+          value: !lambda "return id(${open_position});"
+      - stepper.report_position:
+          id: driver_${id}
+          position: !lambda "return id(${open_position});"
+      - stepper.set_target:
+          id: driver_${id}
+          target: !lambda "return id(${open_position});"
+
+  - platform: template
+    name: ${cover_name} Forward 
+    entity_category: config
+    on_press:
+      - stepper.set_target:
+          id: driver_${id}
+          target: !lambda return id(driver_${id})->current_position + 1000;
+
+  - platform: template
+    name: ${cover_name} Backward 
+    entity_category: config
+    on_press:
+      - stepper.set_target:
+          id: driver_${id}
+          target: !lambda return id(driver_${id})->current_position - 1000;
+
+script:
+  - id: move_stepper_${id}
+    mode: restart
+    parameters:
+      target: int
+    then:
+      - stepper.set_target:
+          id: driver_${id}
+          target: !lambda 'return target;'
+      - while:
+          condition:
+            lambda: 'return !id(driver_${id})->has_reached_target();'
+          then:
+            - cover.template.publish:
+                id: cover_${id}
+                position: !lambda 'return float( id(driver_${id})->current_position ) / float( id(open_position_${id}) );' 
+                current_operation: !lambda 'return id(driver_${id})->current_position < id(driver_${id}).target_position ? COVER_OPERATION_OPENING : COVER_OPERATION_CLOSING;'
+            - delay: 500ms
+      - cover.template.publish:
+          id: cover_${id}
+          position: !lambda 'return float( id(driver_${id}).current_position ) / float( id(open_position_${id}) );' 
+          current_operation: IDLE
+      - tmc2209.currents:
+          id: driver_${id}
+          ihold: !lambda 'return target < id(open_position_${id}) ? ${ihold} : floor(${ihold}/2);'
+      - globals.set:
+          id: current_position_${id}
+          value: !lambda 'return target;'

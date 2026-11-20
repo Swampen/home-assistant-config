@@ -33,3 +33,7 @@ secrets.yaml
 known_devices.yaml
 google_calendars.yaml
 service_account.json
+
+# Local editor backups.
+/Untitled-1.yaml
+/cover_card_backup.yaml

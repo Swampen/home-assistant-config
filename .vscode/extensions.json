@@ -1,6 +1,8 @@
 {
     "recommendations": [
         "esbenp.prettier-vscode",
-        "eamodio.gitlens"
+        "eamodio.gitlens",
+        "redhat.vscode-yaml",
+        "keesschollaart.vscode-home-assistant"
     ]
 }

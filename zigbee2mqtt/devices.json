@@ -51,11 +51,11 @@
     },
     {
         "vendor": "Aqara",
-        "model": "RTCGQ11LM",
-        "friendly_name": "Entryway Motion 2",
-        "description": "Motion sensor",
+        "model": "RTCGQ14LM",
+        "friendly_name": "0x54ef44100050cc79",
+        "description": "Motion sensor P1",
         "manufacturer": "LUMI",
-        "model_id": "lumi.sensor_motion.aq2",
+        "model_id": "lumi.motion.ac02",
         "power_source": "Battery",
         "type": "EndDevice"
     },
@@ -66,36 +66,6 @@
         "description": "Motion sensor P1",
         "manufacturer": "LUMI",
         "model_id": "lumi.motion.ac02",
-        "power_source": "Battery",
-        "type": "EndDevice"
-    },
-    {
-        "vendor": "Aqara",
-        "model": "RTCGQ14LM",
-        "friendly_name": "Toilet Motion",
-        "description": "Motion sensor P1",
-        "manufacturer": "LUMI",
-        "model_id": "lumi.motion.ac02",
-        "power_source": "Battery",
-        "type": "EndDevice"
-    },
-    {
-        "vendor": "Aqara",
-        "model": "VOCKQJK11LM",
-        "friendly_name": "Bedroom Air Sensor",
-        "description": "TVOC air quality monitor",
-        "manufacturer": "LUMI",
-        "model_id": "lumi.airmonitor.acn01",
-        "power_source": "Battery",
-        "type": "EndDevice"
-    },
-    {
-        "vendor": "Aqara",
-        "model": "WSDCGQ11LM",
-        "friendly_name": "Outdoor Sensor",
-        "description": "Temperature and humidity sensor",
-        "manufacturer": "LUMI",
-        "model_id": "lumi.weather",
         "power_source": "Battery",
         "type": "EndDevice"
     },
@@ -132,7 +102,7 @@
     {
         "vendor": "Develco",
         "model": "SMSZB-120",
-        "friendly_name": "Entryway Fire Alarm",
+        "friendly_name": "Entryway Smoke Detector",
         "description": "Smoke detector with siren",
         "manufacturer": "Develco Products A/S",
         "model_id": "SMSZB-120",
@@ -180,12 +150,22 @@
         "type": "Router"
     },
     {
-        "vendor": "IKEA",
-        "model": "E1812",
-        "friendly_name": "Toggle Button",
-        "description": "TRADFRI shortcut button",
-        "manufacturer": "IKEA of Sweden",
-        "model_id": "TRADFRI SHORTCUT Button",
+        "vendor": "HOBEIAN",
+        "model": "ZG-204ZV",
+        "friendly_name": "Entryway mmWave Sensor",
+        "description": "Millimeter wave motion detection",
+        "manufacturer": "HOBEIAN",
+        "model_id": "ZG-204ZV",
+        "power_source": "Battery",
+        "type": "EndDevice"
+    },
+    {
+        "vendor": "HOBEIAN",
+        "model": "ZG-204ZV",
+        "friendly_name": "Toilet Occupancy Sensor",
+        "description": "Millimeter wave motion detection",
+        "manufacturer": "HOBEIAN",
+        "model_id": "ZG-204ZV",
         "power_source": "Battery",
         "type": "EndDevice"
     },
@@ -196,6 +176,16 @@
         "description": "RODRET wireless dimmer/power switch",
         "manufacturer": "IKEA of Sweden",
         "model_id": "RODRET Dimmer",
+        "power_source": "Battery",
+        "type": "EndDevice"
+    },
+    {
+        "vendor": "IKEA",
+        "model": "E2213",
+        "friendly_name": "Closet Switch",
+        "description": "SOMRIG shortcut button",
+        "manufacturer": "IKEA of Sweden",
+        "model_id": "SOMRIG shortcut button",
         "power_source": "Battery",
         "type": "EndDevice"
     },
@@ -253,7 +243,7 @@
         "vendor": "Namron",
         "model": "1402755",
         "friendly_name": "Kitchen Lights",
-        "description": "ZigBee LED dimmer",
+        "description": "Zigbee LED dimmer",
         "manufacturer": "Namron AS",
         "model_id": "1402755",
         "power_source": "Mains (single phase)",
@@ -263,7 +253,7 @@
         "vendor": "Namron",
         "model": "1402755",
         "friendly_name": "Living Room Lights 1",
-        "description": "ZigBee LED dimmer",
+        "description": "Zigbee LED dimmer",
         "manufacturer": "Namron AS",
         "model_id": "1402755",
         "power_source": "Mains (single phase)",
@@ -273,7 +263,7 @@
         "vendor": "Namron",
         "model": "1402755",
         "friendly_name": "Living Room Lights 2",
-        "description": "ZigBee LED dimmer",
+        "description": "Zigbee LED dimmer",
         "manufacturer": "Namron AS",
         "model_id": "1402755",
         "power_source": "Mains (single phase)",
@@ -283,11 +273,21 @@
         "vendor": "Namron",
         "model": "1402769",
         "friendly_name": "Toilet Lights",
-        "description": "ZigBee LED dimmer",
+        "description": "Zigbee LED dimmer",
         "manufacturer": "Namron AS",
         "model_id": "1402769",
         "power_source": "Mains (single phase)",
         "type": "Router"
+    },
+    {
+        "vendor": "Tuya",
+        "model": "ERS-10TZBVK-AA",
+        "friendly_name": "0x385b44fffe0b93d6",
+        "description": "Smart knob",
+        "manufacturer": "_TZ3000_ixla93vd",
+        "model_id": "TS004F",
+        "power_source": "Battery",
+        "type": "EndDevice"
     },
     {
         "vendor": "Tuya",
@@ -350,9 +350,59 @@
         "type": "Router"
     },
     {
+        "vendor": "Tuya",
+        "model": "TS0601_soil_3",
+        "friendly_name": "Green Soil Sensor",
+        "description": "Soil sensor",
+        "manufacturer": "_TZE284_aao3yzhs",
+        "model_id": "TS0601",
+        "power_source": "Battery",
+        "type": "EndDevice"
+    },
+    {
+        "vendor": "Tuya",
+        "model": "TS0601_temperature_humidity_sensor_2",
+        "friendly_name": "Fridge",
+        "description": "Temperature and humidity sensor",
+        "manufacturer": "_TZE284_1wnh8bqp",
+        "model_id": "TS0601",
+        "power_source": "Battery",
+        "type": "EndDevice"
+    },
+    {
+        "vendor": "Tuya",
+        "model": "ZTH05_1",
+        "friendly_name": "Bedroom Sensor",
+        "description": "Temperature and humidity sensor",
+        "manufacturer": "_TZ3000_bgsigers",
+        "model_id": "TS0201",
+        "power_source": "Battery",
+        "type": "EndDevice"
+    },
+    {
+        "vendor": "Tuya",
+        "model": "ZTH05_1",
+        "friendly_name": "Kitchen Sensor",
+        "description": "Temperature and humidity sensor",
+        "manufacturer": "_TZ3000_bgsigers",
+        "model_id": "TS0201",
+        "power_source": "Battery",
+        "type": "EndDevice"
+    },
+    {
+        "vendor": "WMUN",
+        "model": "ZS05",
+        "friendly_name": "IR test",
+        "description": "Universal smart IR remote control on batteries",
+        "manufacturer": "_TZ3290_u9xac5rv",
+        "model_id": "TS1201",
+        "power_source": "Battery",
+        "type": "EndDevice"
+    },
+    {
         "vendor": "Xiaomi",
         "model": "GZCGQ01LM",
-        "friendly_name": "Living Room Illuminance",
+        "friendly_name": "Living Room Light Sensor",
         "description": "Mi light sensor",
         "manufacturer": "LUMI",
         "model_id": "lumi.sen_ill.mgl01",
@@ -363,16 +413,6 @@
         "vendor": "Xiaomi",
         "model": "WSDCGQ01LM",
         "friendly_name": "Bathroom Sensor",
-        "description": "Mi temperature and humidity sensor",
-        "manufacturer": "LUMI",
-        "model_id": "lumi.sensor_ht",
-        "power_source": "Battery",
-        "type": "EndDevice"
-    },
-    {
-        "vendor": "Xiaomi",
-        "model": "WSDCGQ01LM",
-        "friendly_name": "Living Room Sensor",
         "description": "Mi temperature and humidity sensor",
         "manufacturer": "LUMI",
         "model_id": "lumi.sensor_ht",
@@ -398,5 +438,15 @@
         "model_id": "lumi.plug",
         "power_source": "Mains (single phase)",
         "type": "Router"
+    },
+    {
+        "vendor": "Zemismart",
+        "model": "ZM16EL-03/33",
+        "friendly_name": "Office Blinds",
+        "description": "Cover motor",
+        "manufacturer": "_TZE200_68nvbio9",
+        "model_id": "TS0601",
+        "power_source": "Battery",
+        "type": "EndDevice"
     }
 ]

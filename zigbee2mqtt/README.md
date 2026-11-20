@@ -1,7 +1,10 @@
 | Image | Vencor | Model | Name | Description |
 |-----|-----|-----|-----|-----|
+| ![img](https://www.zigbee2mqtt.io/images/devices/MCCGQ11LM.jpg) | Aqara | [MCCGQ11LM](https://www.zigbee2mqtt.io/devices/MCCGQ11LM.html) | Bedroom Window Sensor | Door and window sensor |
 | ![img](https://www.zigbee2mqtt.io/images/devices/MCCGQ11LM.jpg) | Aqara | [MCCGQ11LM](https://www.zigbee2mqtt.io/devices/MCCGQ11LM.html) | Closet Door | Door and window sensor |
 | ![img](https://www.zigbee2mqtt.io/images/devices/MCCGQ11LM.jpg) | Aqara | [MCCGQ11LM](https://www.zigbee2mqtt.io/devices/MCCGQ11LM.html) | Living Room Door | Door and window sensor |
+| ![img](https://www.zigbee2mqtt.io/images/devices/MCCGQ11LM.jpg) | Aqara | [MCCGQ11LM](https://www.zigbee2mqtt.io/devices/MCCGQ11LM.html) | Living Room Window Sensor | Door and window sensor |
+| ![img](https://www.zigbee2mqtt.io/images/devices/MCCGQ11LM.jpg) | Aqara | [MCCGQ11LM](https://www.zigbee2mqtt.io/devices/MCCGQ11LM.html) | Office Window Sensor | Door and window sensor |
 | ![img](https://www.zigbee2mqtt.io/images/devices/RTCGQ11LM.jpg) | Aqara | [RTCGQ11LM](https://www.zigbee2mqtt.io/devices/RTCGQ11LM.html) | Entryway Motion 2 | Motion sensor |
 | ![img](https://www.zigbee2mqtt.io/images/devices/RTCGQ14LM.jpg) | Aqara | [RTCGQ14LM](https://www.zigbee2mqtt.io/devices/RTCGQ14LM.html) | Entryway Motion | Motion sensor P1 |
 | ![img](https://www.zigbee2mqtt.io/images/devices/RTCGQ14LM.jpg) | Aqara | [RTCGQ14LM](https://www.zigbee2mqtt.io/devices/RTCGQ14LM.html) | Toilet Motion | Motion sensor P1 |
@@ -9,8 +12,8 @@
 | ![img](https://www.zigbee2mqtt.io/images/devices/WSDCGQ11LM.jpg) | Aqara | [WSDCGQ11LM](https://www.zigbee2mqtt.io/devices/WSDCGQ11LM.html) | Outdoor Sensor | Temperature and humidity sensor |
 | ![img](https://www.zigbee2mqtt.io/images/devices/WXCJKG13LM.jpg) | Aqara | [WXCJKG13LM](https://www.zigbee2mqtt.io/devices/WXCJKG13LM.html) | Living Room Switch | Opple wireless switch (triple band) |
 | ![img](https://www.zigbee2mqtt.io/images/devices/ZNLDP12LM.jpg) | Aqara | [ZNLDP12LM](https://www.zigbee2mqtt.io/devices/ZNLDP12LM.html) | Closet Light 2 | Light bulb |
-| ![img](https://www.zigbee2mqtt.io/images/devices/SMSZB-120.jpg) | Develco | [SMSZB-120](https://www.zigbee2mqtt.io/devices/SMSZB-120.html) | 0x0015bc0031005caa | Smoke detector with siren |
-| ![img](https://www.zigbee2mqtt.io/images/devices/SMSZB-120.jpg) | Develco | [SMSZB-120](https://www.zigbee2mqtt.io/devices/SMSZB-120.html) | Entryway Smoke Alarm | Smoke detector with siren |
+| ![img](https://www.zigbee2mqtt.io/images/devices/SMSZB-120.jpg) | Develco | [SMSZB-120](https://www.zigbee2mqtt.io/devices/SMSZB-120.html) | Bedroom Smoke Detector | Smoke detector with siren |
+| ![img](https://www.zigbee2mqtt.io/images/devices/SMSZB-120.jpg) | Develco | [SMSZB-120](https://www.zigbee2mqtt.io/devices/SMSZB-120.html) | Entryway Fire Alarm | Smoke detector with siren |
 | ![img](https://www.zigbee2mqtt.io/images/devices/4523430.jpg) | ELKO | [4523430](https://www.zigbee2mqtt.io/devices/4523430.html) | Bathroom Floor Heating | ESH Plus Super TR RF PH |
 | ![img](https://www.zigbee2mqtt.io/images/devices/4523430.jpg) | ELKO | [4523430](https://www.zigbee2mqtt.io/devices/4523430.html) | Entryway Floor Heating | ESH Plus Super TR RF PH |
 | ![img](https://www.zigbee2mqtt.io/images/devices/4523430.jpg) | ELKO | [4523430](https://www.zigbee2mqtt.io/devices/4523430.html) | Living Room Floor Heating | ESH Plus Super TR RF PH |
@@ -26,14 +29,15 @@
 | ![img](https://www.zigbee2mqtt.io/images/devices/1402755.jpg) | Namron | [1402755](https://www.zigbee2mqtt.io/devices/1402755.html) | Living Room Lights 1 | ZigBee LED dimmer |
 | ![img](https://www.zigbee2mqtt.io/images/devices/1402755.jpg) | Namron | [1402755](https://www.zigbee2mqtt.io/devices/1402755.html) | Living Room Lights 2 | ZigBee LED dimmer |
 | ![img](https://www.zigbee2mqtt.io/images/devices/1402769.jpg) | Namron | [1402769](https://www.zigbee2mqtt.io/devices/1402769.html) | Toilet Lights | ZigBee LED dimmer |
-| ![img](https://www.zigbee2mqtt.io/images/devices/TS011F_plug_1.jpg) | TuYa | [TS011F_plug_1](https://www.zigbee2mqtt.io/devices/TS011F_plug_1.html) | Christmas Tree | Smart plug (with power monitoring) |
-| ![img](https://www.zigbee2mqtt.io/images/devices/TS011F_plug_1.jpg) | TuYa | [TS011F_plug_1](https://www.zigbee2mqtt.io/devices/TS011F_plug_1.html) | Kiosk Charger | Smart plug (with power monitoring) |
-| ![img](https://www.zigbee2mqtt.io/images/devices/TS011F_plug_2.jpg) | TuYa | [TS011F_plug_2](https://www.zigbee2mqtt.io/devices/TS011F_plug_2.html) | Balcony Light | Smart plug (without power monitoring) |
-| ![img](https://www.zigbee2mqtt.io/images/devices/TS011F_plug_2.jpg) | TuYa | [TS011F_plug_2](https://www.zigbee2mqtt.io/devices/TS011F_plug_2.html) | Office Window Light | Smart plug (without power monitoring) |
-| ![img](https://www.zigbee2mqtt.io/images/devices/TS011F_plug_2.jpg) | TuYa | [TS011F_plug_2](https://www.zigbee2mqtt.io/devices/TS011F_plug_2.html) | Window Light | Smart plug (without power monitoring) |
+| ![img](https://www.zigbee2mqtt.io/images/devices/TS011F_plug_1.jpg) | Tuya | [TS011F_plug_1](https://www.zigbee2mqtt.io/devices/TS011F_plug_1.html) | Christmas Tree | Smart plug (with power monitoring) |
+| ![img](https://www.zigbee2mqtt.io/images/devices/TS011F_plug_1.jpg) | Tuya | [TS011F_plug_1](https://www.zigbee2mqtt.io/devices/TS011F_plug_1.html) | Kiosk Charger | Smart plug (with power monitoring) |
+| ![img](https://www.zigbee2mqtt.io/images/devices/TS011F_plug_1.jpg) | Tuya | [TS011F_plug_1](https://www.zigbee2mqtt.io/devices/TS011F_plug_1.html) | Living Room Corner Lamp | Smart plug (with power monitoring) |
+| ![img](https://www.zigbee2mqtt.io/images/devices/TS011F_plug_2.jpg) | Tuya | [TS011F_plug_2](https://www.zigbee2mqtt.io/devices/TS011F_plug_2.html) | Balcony Light | Smart plug (without power monitoring) |
+| ![img](https://www.zigbee2mqtt.io/images/devices/TS011F_plug_2.jpg) | Tuya | [TS011F_plug_2](https://www.zigbee2mqtt.io/devices/TS011F_plug_2.html) | Office Window Light | Smart plug (without power monitoring) |
+| ![img](https://www.zigbee2mqtt.io/images/devices/TS011F_plug_2.jpg) | Tuya | [TS011F_plug_2](https://www.zigbee2mqtt.io/devices/TS011F_plug_2.html) | Window Light | Smart plug (without power monitoring) |
 | ![img](https://www.zigbee2mqtt.io/images/devices/GZCGQ01LM.jpg) | Xiaomi | [GZCGQ01LM](https://www.zigbee2mqtt.io/devices/GZCGQ01LM.html) | Living Room Illuminance | Mi light sensor |
 | ![img](https://www.zigbee2mqtt.io/images/devices/WSDCGQ01LM.jpg) | Xiaomi | [WSDCGQ01LM](https://www.zigbee2mqtt.io/devices/WSDCGQ01LM.html) | Bathroom Sensor | Mi temperature and humidity sensor |
-| ![img](https://www.zigbee2mqtt.io/images/devices/WSDCGQ01LM.jpg) | Xiaomi | [WSDCGQ01LM](https://www.zigbee2mqtt.io/devices/WSDCGQ01LM.html) | Bedroom Sensor | Mi temperature and humidity sensor |
+| ![img](https://www.zigbee2mqtt.io/images/devices/WSDCGQ01LM.jpg) | Xiaomi | [WSDCGQ01LM](https://www.zigbee2mqtt.io/devices/WSDCGQ01LM.html) | Living Room Sensor | Mi temperature and humidity sensor |
 | ![img](https://www.zigbee2mqtt.io/images/devices/WSDCGQ01LM.jpg) | Xiaomi | [WSDCGQ01LM](https://www.zigbee2mqtt.io/devices/WSDCGQ01LM.html) | Office Sensor | Mi temperature and humidity sensor |
 | ![img](https://www.zigbee2mqtt.io/images/devices/ZNCZ02LM.jpg) | Xiaomi | [ZNCZ02LM](https://www.zigbee2mqtt.io/devices/ZNCZ02LM.html) | Printer | Mi smart plug |
 

@@ -28,7 +28,7 @@ wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
   manual_ip:
-    static_ip: 192.168.20.233
+    static_ip: 192.168.20.232
     gateway: 192.168.20.1
     subnet: 255.255.255.0
 
@@ -64,7 +64,7 @@ script:
       - delay: 1.5s
       - servo.write:
           id: my_servo
-          level: 0%
+          level: 100%
 
 servo:
   - id: my_servo

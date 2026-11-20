@@ -33,6 +33,15 @@
         ulm_card_light_enable_popup: true
     - type: custom:button-card
       template: card_light
+      entity: light.living_room_corner_lamp
+      variables:
+        ulm_card_light_name: Corner lamp
+        ulm_card_light_icon: mdi:lamp-outline
+        ulm_card_light_enable_slider: false
+        ulm_card_light_enable_color: true
+        ulm_card_light_enable_popup: true
+    - type: custom:button-card
+      template: card_light
       entity: light.balcony_light
       variables:
         ulm_card_light_enable_slider: false

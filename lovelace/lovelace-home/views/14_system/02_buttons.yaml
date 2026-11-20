@@ -8,17 +8,38 @@
   cards:
     - type: "custom:button-card"
       template: card_graph
-      entity: sensor.tomatoes_moisture
+      entity: sensor.green_soil_sensor_soil_moisture
       variables:
         ulm_card_graph_color: "var(--google-red)"
-        ulm_card_graph_name: Tomatoes moisture
-        ulm_card_graph_entity: sensor.tomatoes_moisture
+        ulm_card_graph_name: Plant soul moisture
+        ulm_card_graph_entity: sensor.green_soil_sensor_soil_moisture
         ulm_card_graph_type: fill
-        ulm_card_graph_hours: 24
+        ulm_card_graph_hours: 48
 
 - type: custom:button-card
   template: card_title
   name: Buttons
+- type: "custom:button-card"
+  template: card_script
+  variables:
+    ulm_card_script_title: Water A
+    ulm_card_script_icon: "mdi:water"
+  tap_action:
+    action: call-service
+    service: automation.trigger
+    service_data:
+      entity_id: automation.pump_a_watering
+- type: "custom:button-card"
+  template: card_script
+  variables:
+    ulm_card_script_title: Water B
+    ulm_card_script_icon: "mdi:water"
+  tap_action:
+    action: call-service
+    service: automation.trigger
+    service_data:
+      entity_id: automation.pump_b_watering
+
 - type: "custom:button-card"
   template: card_script
   variables:

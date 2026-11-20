@@ -26,13 +26,13 @@
           tap_action:
             action: toggle
         entity_2:
-          entity_id: climate.living_room_floor_heating
+          entity_id: light.living_room_corner_lamp
           templates:
-            - red_on
+            - yellow_on
           tap_action:
-            action: more-info
+            action: toggle
         entity_3:
-          entity_id: media_player.living_room
+          entity_id: climate.living_room_floor_heating
           templates:
             - red_on
           tap_action:

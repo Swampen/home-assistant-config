@@ -81,3 +81,10 @@
       variables:
         ulm_card_light_enable_slider: false
         ulm_card_light_enable_popup: false
+
+    - type: custom:button-card
+      template: card_light
+      entity: switch.wax_candles
+      variables:
+        ulm_card_light_enable_slider: false
+        ulm_card_light_enable_popup: false

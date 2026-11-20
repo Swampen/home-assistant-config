@@ -14,10 +14,10 @@
         ulm_card_graph_hours: 24
     - type: "custom:button-card"
       template: card_graph
-      entity: sensor.living_room_illuminance_illuminance_lux
+      entity: sensor.living_room_illuminance_illuminance
       variables:
         ulm_card_graph_color: "var(--google-yellow)"
         ulm_card_graph_name: Lux
-        ulm_card_graph_entity: sensor.living_room_illuminance_illuminance_lux
+        ulm_card_graph_entity: sensor.living_room_illuminance_illuminance
         ulm_card_graph_type: fill
         ulm_card_graph_hours: 24

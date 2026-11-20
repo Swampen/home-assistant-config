@@ -3,10 +3,10 @@
   title: Living room
   camera_view: live
   entities:
-    - button.c210_move_left
-    - button.c210_move_right
+    - button.tapo_c210_1_move_left
+    - button.tapo_c210_1_move_right
     - script.toggle_camera
-  camera_image: camera.c210_hd_stream
+  camera_image: camera.tapo_c210_1_hd_stream
 
 - type: picture-glance
   title: 3D Printer

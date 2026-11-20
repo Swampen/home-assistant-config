@@ -1,0 +1,38 @@
+{
+  "Soft Apricot Dev": {
+    "ha-card-border-radius": "24px",
+    "ha-card-border-width": "0px",
+    "ha-card-box-shadow": "none",
+    "primary-font-family": "Manrope, sans-serif",
+    "ha-font-family-body": "Manrope, sans-serif",
+    "ha-font-family-heading": "Manrope, sans-serif",
+    "modes": {
+      "light": {
+        "primary-color": "#884819",
+        "accent-color": "#884819",
+        "primary-background-color": "#f8f4ef",
+        "secondary-background-color": "#f8f4ef",
+        "card-background-color": "#fffdfa",
+        "ha-card-background": "#fffdfa",
+        "primary-text-color": "#302b25",
+        "secondary-text-color": "#6b5b4f",
+        "home-bg-primary": "#fbe0c5",
+        "home-text-accent": "#884819",
+        "divider-color": "#e5d9cc"
+      },
+      "dark": {
+        "primary-color": "#f7c095",
+        "accent-color": "#f7c095",
+        "primary-background-color": "#211b17",
+        "secondary-background-color": "#211b17",
+        "card-background-color": "#302722",
+        "ha-card-background": "#302722",
+        "primary-text-color": "#fff0e4",
+        "secondary-text-color": "#d6c0af",
+        "home-bg-primary": "#5a3a26",
+        "home-text-accent": "#f7c095",
+        "divider-color": "#4b3a2e"
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "domain": "entur_sx",
+  "name": "Entur Situation Exchange",
+  "codeowners": [
+    "@DTekNOdev"
+  ],
+  "config_flow": true,
+  "documentation": "https://github.com/DTekNO/ha-entur_sx",
+  "integration_type": "service",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/DTekNO/ha-entur_sx/issues",
+  "requirements": [],
+  "version": "2026.7.1"
+}

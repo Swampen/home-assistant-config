@@ -1,0 +1,81 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Select Operator",
+        "description": "Choose the public transport operator to monitor",
+        "data": {
+          "operator": "Operator"
+        },
+        "data_description": {
+          "operator": "Select the public transport company"
+        }
+      },
+      "device_name": {
+        "title": "Name Your Device",
+        "description": "Choose a name for this collection of monitored lines from {operator}",
+        "data": {
+          "device_name": "Device name"
+        },
+        "data_description": {
+          "device_name": "A friendly name for this device (defaults to operator name)"
+        }
+      },
+      "select_lines": {
+        "title": "Select Lines to Monitor",
+        "description": "Choose which lines to monitor for {operator}",
+        "data": {
+          "lines_to_check": "Lines to monitor"
+        },
+        "data_description": {
+          "lines_to_check": "Select one or more lines to track"
+        }
+      },
+      "summary_sensors": {
+        "title": "Summary Sensor",
+        "description": "Create a summary sensor for {device_name} with {line_count} lines",
+        "data": {
+          "create_summary_sensors": "Create markdown summary sensor",
+          "summary_icon": "Icon for summary sensor"
+        },
+        "data_description": {
+          "create_summary_sensors": "Automatically create a text sensor with markdown-formatted content showing all disruptions, ready to display in a markdown card",
+          "summary_icon": "Choose an icon that represents your transit type"
+        }
+      }
+    },
+    "error": {
+      "no_lines": "You must select at least one line to monitor",
+      "cannot_connect": "Failed to connect to Entur API",
+      "no_lines_found": "No lines found for this operator"
+    },
+    "abort": {
+      "already_configured": "This combination of operator and lines is already configured"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Modify Monitored Lines",
+        "description": "Add or remove lines for {device_name}",
+        "data": {
+          "lines_to_check": "Lines to monitor"
+        },
+        "data_description": {
+          "lines_to_check": "Select the lines you want to monitor for deviations"
+        }
+      }
+    },
+    "error": {
+      "no_lines": "You must select at least one line",
+      "cannot_connect": "Failed to connect to Entur API"
+    }
+  },
+  "entity": {
+    "sensor": {
+      "disruption": {
+        "name": "Disruption"
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{%- if disruptions and disruptions | length > 0 -%}
+{#- Grupper avvik etter linje og vis badge én gang per linje -#}
+{%- for group in disruptions | groupby('line_name') %}
+{%- set line_name = group.grouper -%}
+{%- set line_disruptions = group.list -%}
+{%- set first_disruption = line_disruptions[0] -%}
+{%- set transport_mode = first_disruption.get('transport_mode', 'bus') -%}
+{%- set travel_tag = first_disruption.get('travel_tag', '') -%}
+{%- set outer_index = loop.index0 -%}
+
+{#- Legg til mellomrom mellom linjegrupper -#}
+{% if outer_index > 0 %}<br>
+{% endif %}
+
+{#- Første varsel med badge for linjen (utelatt i per-item-modus — kortrad viser bildet) -#}
+{%- if not per_item %}
+<ha-alert alert-type="error">
+{%- if travel_tag %}
+<img src="{{ travel_tag }}" alt="{{ transport_mode }} {{ line_name }}" height="32">
+{%- endif %}
+</ha-alert>
+{%- endif %}
+
+{#- Vis hvert avvik for denne linjen -#}
+{%- for disruption in line_disruptions %}
+{%- set summary = disruption.get('summary', 'Avvik') %}
+{%- set description = disruption.get('description', '') %}
+{%- set valid_from = disruption.get('valid_from_formatted', disruption.get('valid_from', '')) %}
+{%- set valid_to = disruption.get('valid_to_formatted', disruption.get('valid_to', '')) %}
+
+{# Varsel-banner med avvikstittel #}
+<ha-alert alert-type="error" title="{{ summary }}">
+
+{# Datotabell #}
+<table role="presentation">
+  <tr>
+    <td align="right"><b>Fra:&nbsp;</b></td><td><i>{% if valid_from %}{{ valid_from }}{% endif %}</i></td>
+  </tr>
+  <tr>
+    <td align="right"><b>Til:&nbsp;</b></td><td><i>{% if valid_to %}{{ valid_to }}{% else %}{% if valid_from %}Inntil videre{% endif %}{% endif %}</i></td>
+  </tr>
+</table>
+
+{# Beskrivelse vises av kortet i per-item-modus #}
+{%- if description and not per_item %}
+{{ description }}
+
+{%- endif %}
+</ha-alert>
+
+{% endfor %}
+
+{%- endfor -%}
+{%- else -%}
+✓ **Ingen aktive avvik**
+{%- endif -%}

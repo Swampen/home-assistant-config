@@ -1,0 +1,81 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Velg operatør",
+        "description": "Velg kollektivoperatøren du vil overvåke",
+        "data": {
+          "operator": "Operatør"
+        },
+        "data_description": {
+          "operator": "Velg kollektivselskapet"
+        }
+      },
+      "device_name": {
+        "title": "Gi enheten et navn",
+        "description": "Velg et navn for denne samlingen av overvåkede linjer fra {operator}",
+        "data": {
+          "device_name": "Enhetsnavn"
+        },
+        "data_description": {
+          "device_name": "Et vennlig navn for enheten (bruker operatørnavn som standard)"
+        }
+      },
+      "select_lines": {
+        "title": "Velg linjer å overvåke",
+        "description": "Velg hvilke linjer som skal overvåkes for {operator}",
+        "data": {
+          "lines_to_check": "Linjer å overvåke"
+        },
+        "data_description": {
+          "lines_to_check": "Velg én eller flere linjer å følge"
+        }
+      },
+      "summary_sensors": {
+        "title": "Sammendragssensor",
+        "description": "Opprett en sammendragssensor for {device_name} med {line_count} linjer",
+        "data": {
+          "create_summary_sensors": "Opprett markdown-sammendragssensor",
+          "summary_icon": "Ikon for sammendragssensor"
+        },
+        "data_description": {
+          "create_summary_sensors": "Opprett automatisk en tekstsensor med markdown-formatert innhold som viser alle avvik, klar til å vises i et markdown-kort",
+          "summary_icon": "Velg et ikon som representerer din transporttype"
+        }
+      }
+    },
+    "error": {
+      "no_lines": "Du må velge minst én linje å overvåke",
+      "cannot_connect": "Kunne ikke koble til Entur API",
+      "no_lines_found": "Ingen linjer funnet for denne operatøren"
+    },
+    "abort": {
+      "already_configured": "Denne kombinasjonen av operatør og linjer er allerede konfigurert"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Endre overvåkede linjer",
+        "description": "Legg til eller fjern linjer for {device_name}",
+        "data": {
+          "lines_to_check": "Linjer å overvåke"
+        },
+        "data_description": {
+          "lines_to_check": "Velg linjer du vil overvåke for avvik"
+        }
+      }
+    },
+    "error": {
+      "no_lines": "Du må velge minst én linje",
+      "cannot_connect": "Kunne ikke koble til Entur API"
+    }
+  },
+  "entity": {
+    "sensor": {
+      "disruption": {
+        "name": "Avvik"
+      }
+    }
+  }
+}

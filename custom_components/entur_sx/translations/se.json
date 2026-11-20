@@ -1,0 +1,81 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Vállje vuojuheaddji",
+        "description": "Vállje almmolaš johtalanvuojuheaddji maid áiggut bearráigeahččat",
+        "data": {
+          "operator": "Vuojuheaddji"
+        },
+        "data_description": {
+          "operator": "Vállje johtalanfitnodaga"
+        }
+      },
+      "device_name": {
+        "title": "Addde ovttadahkii nama",
+        "description": "Vállje nama dán čoakkáldahkii bearráigeahččan linnjáin {operator}",
+        "data": {
+          "device_name": "Ovttadaga namma"
+        },
+        "data_description": {
+          "device_name": "Soahpaš namma ovttadahkii (geavaha vuojuheaddji nama standárdan)"
+        }
+      },
+      "select_lines": {
+        "title": "Vállje linnjáid bearráigeahččat",
+        "description": "Vállje guđe linnjáid galget bearráigeahččat {operator}",
+        "data": {
+          "lines_to_check": "Linnjáid bearráigeahččat"
+        },
+        "data_description": {
+          "lines_to_check": "Vállje okta dahje eanet linnjáid čuovvolit"
+        }
+      },
+      "summary_sensors": {
+        "title": "Čoakkáldat sensora",
+        "description": "Ráhkat čoakkáldat sensora {device_name} várás {line_count} linnjáiguin",
+        "data": {
+          "create_summary_sensors": "Ráhkat markdown-čoakkáldat sensora",
+          "summary_icon": "Govva čoakkáldat sensorii"
+        },
+        "data_description": {
+          "create_summary_sensors": "Automáhtalaččat ráhkat teavstta sensora markdown-formáhttojuvvon sisdoaluin mii čájeha buot heiveheamiid, gárves čájehuvvot markdown-kártas",
+          "summary_icon": "Vállje govva mii ovdanbuktá du johtalantyypa"
+        }
+      }
+    },
+    "error": {
+      "no_lines": "Fertet válljit uhcimustá okta linnjá bearráigeahččat",
+      "cannot_connect": "Ii sáhttán čatnasit Entur API:i",
+      "no_lines_found": "Eai gávdnon linnjáid dán vuojuheaddji várás"
+    },
+    "abort": {
+      "already_configured": "Dát vuojuheaddji ja linnjáid kombinašuvdna lea juo konfigurerejuvvon"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Rievdat bearráigeahččan linnjáid",
+        "description": "Lasit dahje válde eret linnjáid {device_name} várás",
+        "data": {
+          "lines_to_check": "Linnjáid bearráigeahččat"
+        },
+        "data_description": {
+          "lines_to_check": "Vállje linnjáid maid áiggut bearráigeahččat heiveheapmiid várás"
+        }
+      }
+    },
+    "error": {
+      "no_lines": "Fertet válljit uhcimustá okta linnjá",
+      "cannot_connect": "Ii sáhttán čatnasit Entur API:i"
+    }
+  },
+  "entity": {
+    "sensor": {
+      "disruption": {
+        "name": "Heiveheapmi"
+      }
+    }
+  }
+}

@@ -8,7 +8,6 @@
 !*.md
 !LICENSE
 !.HA_VERSION
-!.yamllint
 !.githooks/
 !.github/
 !.vscode/

@@ -1,19 +1,37 @@
 ---
 template:
-  - sensor:
-      - name: Living Room Floor Heating Current Load
-        unit_of_measurement: W
-        state: >
-          {% if state_attr("climate.living_room_floor_heating", 'running_state') == 'heat' %}
-            {{ states('sensor.living_room_floor_heating_load') }}
-          {% else %}
-            0
-          {% endif -%}
-      - name: Bathroom Floor Heating Current Load
-        unit_of_measurement: W
-        state: >
-          {% if state_attr("climate.bathroom_floor_heating", 'running_state') == 'heat' %}
-            {{ states('sensor.bathroom_floor_heating_load') }}
-          {% else %}
-            0
-          {% endif -%}
+  - trigger:
+      - trigger: event
+        event_type: bubble_card_update_modules
+    sensor:
+      - name: "Bubble Card Modules"
+        state: "saved"
+        icon: "mdi:puzzle"
+        attributes:
+          modules: "{{ trigger.event.data.modules }}"
+          last_updated: "{{ trigger.event.data.last_updated }}"
+  # - sensor:
+  #     - name: Bathroom Floor Heating Current Power
+  #       unit_of_measurement: W
+  #       state: >
+  #         {% if state_attr('climate.bathroom_floor_heating', 'hvac_action') == 'heating' %}
+  #           {{ states('number.bathroom_floor_heating_load') }}
+  #         {% else %}
+  #           0
+  #         {% endif %}
+  #     - name: Entryway Floor Heating Current Power
+  #       unit_of_measurement: W
+  #       state: >
+  #         {% if state_attr('climate.entryway_floor_heating', 'hvac_action') == 'heating' %}
+  #           {{ states('number.entryway_floor_heating_load') }}
+  #         {% else %}
+  #           0
+  #         {% endif %}
+  #     - name: Living Room Floor Heating Current Power
+  #       unit_of_measurement: W
+  #       state: >
+  #         {% if state_attr('climate.living_room_floor_heating', 'hvac_action') == 'heating' %}
+  #           {{ states('number.living_room_floor_heating_load') }}
+  #         {% else %}
+  #           0
+  #         {% endif %}

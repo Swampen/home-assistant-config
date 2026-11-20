@@ -1,7 +1,14 @@
 ---
-climate.office_heater:
-  target_temp_step: 0.5
-climate.oil_heater:
-  target_temp_step: 0.5
+# climate.office_heater:
+#   home_temp: 23
+#   away_temp: 19
+#   preset_modes:
+#     - home
+#     - away
+#   supported_features:
+#     - PRESET_MODE
+#   target_temp_step: 0.5
 climate.living_room_heater:
+  target_temp_step: 0.5
+climate.bedroom_heater:
   target_temp_step: 0.5

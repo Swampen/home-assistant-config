@@ -1,0 +1,7 @@
+---
+utility_meter:
+  office_heater_day_consumption:
+    name: Office Heater Day Consumption
+    unique_id: office_heater_day_consumption
+    source: sensor.office_heater_consumption_sum
+    cycle: daily

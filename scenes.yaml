@@ -1,0 +1,102 @@
+- id: '1735368919429'
+  name: Home
+  entities:
+    climate.living_room_floor_heating:
+      hvac_modes:
+      - 'off'
+      - heat
+      min_temp: 5
+      max_temp: 50
+      target_temp_step: 1
+      current_temperature: 24.9
+      temperature: 22
+      hvac_action: heating
+      friendly_name: Living Room Floor Heating
+      supported_features: 385
+      state: heat
+    climate.living_room_heater:
+      hvac_modes:
+      - heat
+      - 'off'
+      min_temp: 5
+      max_temp: 35
+      target_temp_step: 0.5
+      current_temperature: 19
+      temperature: 20.5
+      hvac_action: heating
+      friendly_name: Living Room Heater
+      supported_features: 385
+      state: heat
+    climate.entryway_floor_heating:
+      hvac_modes:
+      - 'off'
+      - heat
+      min_temp: 5
+      max_temp: 50
+      target_temp_step: 1
+      current_temperature: 21
+      temperature: 21
+      hvac_action: idle
+      friendly_name: Entryway Floor Heating
+      supported_features: 385
+      state: heat
+  icon: mdi:home
+  metadata:
+    climate.living_room_floor_heating:
+      entity_only: true
+    climate.living_room_heater:
+      entity_only: true
+    climate.entryway_floor_heating:
+      entity_only: true
+- id: '1751835290174'
+  name: Away Office
+  entities:
+    climate.office_heater:
+      hvac_modes:
+      - heat
+      - 'off'
+      min_temp: 5
+      max_temp: 35
+      target_temp_step: 0.5
+      current_temperature: 23.6
+      temperature: 19
+      hvac_action: idle
+      friendly_name: Office Heater
+      supported_features: 385
+      state: heat
+  metadata: {}
+- id: '1751835339006'
+  name: Office Away
+  entities:
+    climate.office_heater:
+      hvac_modes:
+      - heat
+      - 'off'
+      min_temp: 5
+      max_temp: 35
+      target_temp_step: 0.5
+      current_temperature: 23.6
+      temperature: 19
+      hvac_action: idle
+      friendly_name: Office Heater
+      supported_features: 385
+      state: heat
+  metadata:
+    climate.office_heater:
+      entity_only: true
+- id: '1792356578937'
+  name: Away
+  entities:
+    climate.office_heater:
+      hvac_modes:
+      - 'off'
+      - heat
+      - cool
+      min_temp: 5
+      max_temp: 35
+      current_temperature: 22.5
+      temperature: 19
+      friendly_name: Office Heater
+      supported_features: 385
+      state: heat
+  metadata: {}

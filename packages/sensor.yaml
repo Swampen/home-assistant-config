@@ -4,27 +4,6 @@
 #
 # https://www.home-assistant.io/integrations/sensor
 sensor:
-  - platform: seventeentrack
-    username: !secret email
-    password: !secret seventeentrack_password
-  - platform: min_max
-    name: Apartment Mean Humidity
-    type: mean
-    entity_ids:
-      - sensor.living_room_air_quality_sensor_humidity
-      - sensor.bedroom_sensor_humidity
-      - sensor.office_sensor_humidity
-  - platform: integration
-    name: Living Room Floor Heating Energy
-    unit_prefix: k
-    round: 2
-    source: sensor.living_room_floor_heating_current_load
-  - platform: integration
-    name: Bathroom Floor Heating Energy Custom
-    unit_prefix: k
-    round: 2
-    source: sensor.bathroom_floor_heating_current_load
-
   # https://www.home-assistant.io/integrations/time_date/
   - platform: time_date
     display_options:
@@ -34,5 +13,34 @@ sensor:
 
   # https://github.com/custom-components/nordpool
   - platform: nordpool
-    region: Oslo
+    region: NO1
     precision: 4
+
+  # https://www.home-assistant.io/integrations/integration/
+  - platform: integration
+    name: Office Heater Consumption Sum
+    unique_id: office_heater_consumption_sum
+    source: sensor.office_heater_current_power
+    unit_prefix: k
+    unit_time: h
+    method: trapezoidal
+
+  - platform: rest
+    name: Yr Rain Next 90 Minutes
+    unique_id: yr_rain_next_90_minutes
+    resource: "https://www.yr.no/api/v0/locations/10-1013622/forecast/now?language=en"
+    scan_interval: 300
+    timeout: 20
+    value_template: "{{ value_json.status.code }}"
+    json_attributes:
+      - created
+      - update
+      - radarIsDown
+      - precipitationForecastDescription
+      - points
+
+  - platform: entur_public_transport
+    number_of_departures: 8
+    show_on_map: true
+    stop_ids:
+      - "NSR:StopPlace:58198"

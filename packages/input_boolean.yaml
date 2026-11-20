@@ -8,8 +8,3 @@ input_boolean:
   minimalist_header_toggle:
     name: Welcome header toggle
     initial: false
-
-  entryway_motion_toggle:
-    name: Entryway motion toggle
-    initial: true
-    icon: mdi:motion-sensor

@@ -1,85 +1,1254 @@
----
-- id: "1700155406040"
+- id: '1700155406040'
   alias: Notify
-  description: ""
-  trigger:
-    - platform: state
-      entity_id:
-        - sensor.washing_machine_washer_machine_state
-      to: stop
-      from: run
-    - platform: state
-      entity_id:
-        - sensor.dryer_dryer_machine_state
-      to: stop
-      from: run
-  condition: []
-  action:
-    - service: notify.html5_notify_hanbit_desktop
-      data:
-        title:
-          "{{ trigger.from_state.attributes.friendly_name.split(' State')[0]
-          }} finished"
-        message: "{{trigger.event}}"
+  description: ''
+  triggers:
+  - entity_id:
+    - sensor.washing_machine_washer_machine_state
+    to: stop
+    from: run
+    trigger: state
+    id: washer
+  - entity_id:
+    - select.dryer
+    to: stop
+    from: run
+    trigger: state
+    id: dryer
+  conditions: []
+  actions:
+  - if:
+    - condition: state
+      entity_id: person.ole_martin
+      state: home
+    then:
+    - data:
+        title: '{{ trigger.from_state.attributes.friendly_name.split('' State'')[0]
+          }} finished'
+        message: '{{ trigger.event }}'
       enabled: true
-    - service: notify.html5_notify_ole_martin_desktop
-      data:
-        title:
-          "{{ trigger.from_state.attributes.friendly_name.split(' State')[0]
-          }} finished"
-        message: "{{ trigger.event }}"
-      enabled: true
-    - service: tts.google_translate_say
-      data:
-        cache: false
-        entity_id: media_player.living_room
-        message:
-          The {{ trigger.from_state.attributes.friendly_name.split(' State')[0]
-          }} has finished running
-      enabled: false
-  mode: single
-- id: "1702154474232"
-  alias: Turn on printer
-  description: ""
-  trigger:
-    - platform: state
-      entity_id:
-        - sensor.hp_envy_6000_series_hpcups_3_21_2
-      to: printing
-  condition: []
-  action:
-    - service: switch.turn_on
+      action: notify.send_message
       target:
-        entity_id: switch.printer
+        entity_id: notify.ole_martin_desktop
+  - if:
+    - condition: state
+      entity_id: person.hanbit
+      state: home
+    then:
+    - data:
+        title: '{{ trigger.from_state.attributes.friendly_name.split('' State'')[0]
+          }} finished'
+        message: '{{trigger.event}}'
+      enabled: true
+      action: notify.send_message
+      target:
+        entity_id: notify.hanbit_desktop
+  - data:
+      cache: false
+      entity_id: media_player.living_room
+      message: The {{ trigger.from_state.attributes.friendly_name.split(' State')[0]
+        }} has finished running
+    enabled: false
+    action: tts.google_translate_say
+  mode: single
+- id: '1723494358896'
+  alias: Air Purifier auto shutoff
+  description: ''
+  triggers:
+  - at: '23:00:00'
+    trigger: time
+  conditions: []
+  actions:
+  - repeat:
+      count: 5
+      sequence:
+      - action: fan.turn_off
+        metadata: {}
+        data: {}
+        target:
+          entity_id: fan.wellbeing_air_purifier_fanspeed
+      - delay:
+          hours: 0
+          minutes: 0
+          seconds: 5
+          milliseconds: 0
+  mode: single
+- id: '1726176309736'
+  alias: Aurora alert
+  description: ''
+  triggers:
+  - type: turned_on
+    device_id: 69f273e2d935df8a1488324af21c9cab
+    entity_id: dbdc077297af9b78967401118a86486f
+    domain: binary_sensor
+    trigger: device
+  - entity_id:
+    - binary_sensor.aurora_59_10
+    to: 'on'
+    trigger: state
+  conditions: []
+  actions:
+  - action: notify.mobile_app_pixel_9_pro
+    metadata: {}
+    data:
+      title: "\U0001F7E2Aurora notification"
+      message: 'Look up! '
+  mode: single
+- id: '1729019138025'
+  alias: Office Heater off when window open
+  description: ''
+  triggers:
+  - type: opened
+    device_id: 804122b9f711016ba5c1cf42a1a1a5f7
+    entity_id: 688b6549f0d44dfba442e81f7769fa2b
+    domain: binary_sensor
+    trigger: device
+    id: open
+  - type: not_opened
+    device_id: 804122b9f711016ba5c1cf42a1a1a5f7
+    entity_id: 688b6549f0d44dfba442e81f7769fa2b
+    domain: binary_sensor
+    trigger: device
+    id: close
+  conditions: []
+  actions:
+  - if:
+    - condition: trigger
+      id:
+      - open
+    then:
+    - action: climate.turn_off
+      metadata: {}
+      data: {}
+      target:
+        entity_id: climate.office_heater
+    else:
+    - action: climate.turn_on
+      metadata: {}
+      target:
+        entity_id: climate.office_heater
       data: {}
   mode: single
-- id: "1702154913131"
-  alias: Turn off printer
-  description: ""
-  trigger:
-    - platform: state
-      entity_id:
-        - sensor.hp_envy_6000_series_hpcups_3_21_2
-      from: printing
-      to: idle
-  condition: []
-  action:
-    - delay:
+- id: '1729019872598'
+  alias: Bedroom Heater off when window open
+  description: ''
+  triggers:
+  - type: opened
+    device_id: f2096ea40095641292b09a675a8a4f0f
+    entity_id: d17547c50d8005bbe534425f0138354f
+    domain: binary_sensor
+    trigger: device
+    id: open
+  - type: not_opened
+    device_id: f2096ea40095641292b09a675a8a4f0f
+    entity_id: d17547c50d8005bbe534425f0138354f
+    domain: binary_sensor
+    trigger: device
+    id: closed
+  conditions: []
+  actions:
+  - if:
+    - condition: trigger
+      id:
+      - open
+    then:
+    - device_id: 000809282798575af1f35a10503a1fe3
+      domain: climate
+      entity_id: 9d599a4baba249a43905abfe2abb84f6
+      type: set_hvac_mode
+      hvac_mode: 'off'
+    else:
+    - device_id: 000809282798575af1f35a10503a1fe3
+      domain: climate
+      entity_id: 9d599a4baba249a43905abfe2abb84f6
+      type: set_hvac_mode
+      hvac_mode: heat
+  mode: single
+- id: '1729020423212'
+  alias: Living Room Heater off when window open
+  description: ''
+  triggers:
+  - type: opened
+    device_id: b3288b4208116dea88740549754dae2d
+    entity_id: 9c5b04fcc318d3daf3a4d224701aacb1
+    domain: binary_sensor
+    trigger: device
+    id: open
+  - type: not_opened
+    device_id: b3288b4208116dea88740549754dae2d
+    entity_id: 9c5b04fcc318d3daf3a4d224701aacb1
+    domain: binary_sensor
+    trigger: device
+    id: close
+  conditions: []
+  actions:
+  - if:
+    - condition: trigger
+      id:
+      - open
+    then:
+    - device_id: 619075a12ad16e9a0b4adf384f4d1486
+      domain: climate
+      entity_id: cb0b57bfe2ac1397027e07dabaceb045
+      type: set_hvac_mode
+      hvac_mode: 'off'
+    else:
+    - device_id: 619075a12ad16e9a0b4adf384f4d1486
+      domain: climate
+      entity_id: cb0b57bfe2ac1397027e07dabaceb045
+      type: set_hvac_mode
+      hvac_mode: heat
+  mode: single
+- id: '1732220365161'
+  alias: Bathroom set normal operation
+  description: ''
+  triggers:
+  - trigger: template
+    value_template: '{{states(''sensor.bathroom_sensor_humidity'') | float(0) < (states(''sensor.apartment_mean_humidity'')|float(0)
+      + 7) }}'
+    for:
+      hours: 1
+      minutes: 30
+      seconds: 0
+  conditions: []
+  actions:
+  - repeat:
+      count: 5
+      sequence:
+      - action: climate.set_temperature
+        metadata: {}
+        data:
+          temperature: '{{ states(''input_number.bathroom_floor_heating_set_percentage'')
+            | float(0) }}
+
+            '
+        target:
+          entity_id: climate.bathroom_floor_heating
+      - type: turn_on
+        device_id: d87b69865f0a11cac95417f7a7aeae26
+        entity_id: c9e1801e494d33064a2c56bd5ad6ebd6
+        domain: switch
+      - delay:
+          hours: 0
+          minutes: 1
+          seconds: 0
+          milliseconds: 0
+  mode: single
+- id: '1732813709418'
+  alias: e-Golf inspection reminder
+  description: ''
+  triggers:
+  - trigger: numeric_state
+    entity_id:
+    - sensor.e_golf_service_inspection_days
+    below: 60
+  conditions: []
+  actions:
+  - action: notify.mobile_app_pixel_9_pro
+    metadata: {}
+    data:
+      title: "\U0001F697 e-Golf inspection"
+      message: Remember to order a new inspection service
+  mode: single
+- id: '1736286115195'
+  alias: Trash reminder
+  description: ''
+  triggers:
+  - trigger: calendar
+    entity_id: calendar.trash
+    event: start
+    offset: '-24:0:0'
+  conditions: []
+  actions:
+  - action: notify.mobile_app_pixel_9_pro
+    metadata: {}
+    data:
+      title: "Trash reminder \U0001F6AE"
+      message: Remember to take out the big trash!
+  - action: notify.mobile_app_sm_s921n
+    metadata: {}
+    data:
+      message: Remember to take out the big trash!
+      title: "Trash reminder \U0001F6AE"
+    enabled: true
+  mode: single
+- id: '1736633030783'
+  alias: Bathroom set high humidity operation
+  description: ''
+  triggers:
+  - trigger: template
+    value_template: '{{states(''sensor.bathroom_sensor_humidity'') | float(0) > (states(''sensor.apartment_mean_humidity'')
+      | float(0) + 7) }}'
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 0
+  conditions: []
+  actions:
+  - repeat:
+      count: 5
+      sequence:
+      - action: climate.set_temperature
+        metadata: {}
+        data:
+          temperature: 40
+        target:
+          entity_id: climate.bathroom_floor_heating
+      - type: turn_off
+        device_id: d87b69865f0a11cac95417f7a7aeae26
+        entity_id: c9e1801e494d33064a2c56bd5ad6ebd6
+        domain: switch
+      - delay:
+          hours: 0
+          minutes: 1
+          seconds: 0
+          milliseconds: 0
+  mode: single
+- id: '1747767400718'
+  alias: New automation
+  description: ''
+  triggers:
+  - trigger: template
+    value_template: '{{states(''sensor.bathroom_sensor_humidity'') | float(0) > (states(''sensor.apartment_mean_humidity'')
+      | float(0) + 10) }}'
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  conditions:
+  - condition: device
+    type: is_off
+    device_id: 469d214a22e3fe8bae5a7be9ad678817
+    entity_id: 66ca02d28eec4417e96c7e09cc4d36d1
+    domain: switch
+  actions:
+  - action: cover.set_cover_position
+    metadata: {}
+    data:
+      position: 50
+    target:
+      device_id: df10e0f16107bdc6a1bc88b567c6fb77
+  - delay:
+      hours: 0
+      minutes: 30
+      seconds: 0
+      milliseconds: 0
+  - action: cover.open_cover
+    metadata: {}
+    data: {}
+    target:
+      device_id: df10e0f16107bdc6a1bc88b567c6fb77
+  mode: restart
+- id: '1748074122430'
+  alias: New automation
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - binary_sensor.e_golf_vehicle_moving
+    to: 'off'
+    for:
+      hours: 0
+      minutes: 30
+      seconds: 0
+  conditions:
+  - condition: state
+    entity_id: binary_sensor.e_golf_doors_locked
+    state: 'on'
+  actions:
+  - action: notify.mobile_app_pixel_9_pro
+    metadata: {}
+    data:
+      message: e-Golf is unlocked
+      title: "\U0001F513"
+  mode: single
+- id: '1751922169507'
+  alias: Pump A watering
+  description: ''
+  triggers:
+  - trigger: numeric_state
+    entity_id:
+    - sensor.green_soil_sensor_soil_moisture
+    for:
+      hours: 1
+      minutes: 0
+      seconds: 0
+    below: 55
+  conditions: []
+  actions:
+  - repeat:
+      count: 5
+      sequence:
+      - action: switch.turn_on
+        metadata: {}
+        data: {}
+        target:
+          entity_id: switch.tasmota
+      - delay:
+          hours: 0
+          minutes: 0
+          seconds: 5
+          milliseconds: 0
+  - delay:
+      hours: 0
+      minutes: 2
+      seconds: 0
+      milliseconds: 0
+  - repeat:
+      count: 5
+      sequence:
+      - action: switch.turn_off
+        metadata: {}
+        data: {}
+        target:
+          entity_id: switch.tasmota
+      - delay:
+          hours: 0
+          minutes: 0
+          seconds: 5
+          milliseconds: 0
+  mode: single
+- id: '1751922446380'
+  alias: Pump B watering
+  description: ''
+  triggers:
+  - trigger: time_pattern
+    hours: '14'
+  conditions:
+  - condition: time
+    weekday:
+    - fri
+    - tue
+  actions:
+  - repeat:
+      count: 5
+      sequence:
+      - action: switch.turn_on
+        metadata: {}
+        data: {}
+        target:
+          entity_id: switch.tasmota_tasmota2
+      - delay:
+          hours: 0
+          minutes: 0
+          seconds: 5
+          milliseconds: 0
+  - delay:
+      hours: 0
+      minutes: 1
+      seconds: 0
+      milliseconds: 0
+  - repeat:
+      count: 5
+      sequence:
+      - action: switch.turn_off
+        metadata: {}
+        data: {}
+        target:
+          entity_id: switch.tasmota_tasmota2
+      - delay:
+          hours: 0
+          minutes: 0
+          seconds: 5
+          milliseconds: 0
+  mode: single
+- id: '1757532587001'
+  alias: Toilet  lights off motion
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - binary_sensor.toilet_occupancy_sensor_presence
+    from:
+    - 'on'
+    to:
+    - 'off'
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+    id: Clear
+  conditions: []
+  actions:
+  - type: turn_off
+    device_id: 76262006f37eb0f9d64043c630b77bd5
+    entity_id: 30f28d0f4634b70633abeb8f2b328406
+    domain: light
+  mode: restart
+- id: '1759428357575'
+  alias: Entryway motion light
+  description: ''
+  triggers:
+  - trigger: occupancy.detected
+    target:
+      area_id: entryway
+    options:
+      behavior: first
+    id: occupied
+  - trigger: occupancy.cleared
+    target:
+      area_id: entryway
+    options:
+      behavior: all
+      for:
         hours: 0
-        minutes: 30
+        minutes: 0
         seconds: 0
-        milliseconds: 0
-    - if:
-        - condition: state
-          entity_id: sensor.hp_envy_6000_series_driverless_cups_filters_1_28_7
-          state: printing
-      then:
-        - stop: Printing ongoing
-    - service: switch.turn_off
+    id: clear
+  conditions: []
+  actions:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id:
+        - occupied
+      sequence:
+      - if:
+        - condition: time
+          after: '22:30:00'
+          before: 07:00:00
+        then:
+        - action: light.turn_on
+          metadata: {}
+          data:
+            brightness_pct: 35
+          target:
+            entity_id:
+            - light.entryway_light_2
+            - light.entryway_light_4
+        else:
+        - action: light.turn_on
+          metadata: {}
+          data:
+            brightness_pct: 100
+          target:
+            entity_id: light.entryway_light
+      - type: turn_on
+        device_id: 0826281dbc8437a4537712c39ffa969a
+        entity_id: 68aa9a37423fb0b603e0122ada7bc00a
+        domain: switch
+    - conditions:
+      - condition: trigger
+        id:
+        - clear
+      sequence:
+      - action: light.turn_off
+        metadata: {}
+        data: {}
+        target:
+          entity_id: light.entryway_light
+      - type: turn_off
+        device_id: 0826281dbc8437a4537712c39ffa969a
+        entity_id: 68aa9a37423fb0b603e0122ada7bc00a
+        domain: switch
+  mode: restart
+- id: '1764009454397'
+  alias: Evening dimming
+  description: ''
+  triggers:
+  - trigger: time
+    at: '21:00:00'
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+  conditions:
+  - condition: zone.in_zone
+    target:
+      entity_id:
+      - person.hanbit
+      - person.ole_martin
+      - person.seongeun
+    options:
+      for: 00:00:00
+      zone: zone.home
+      behavior: any
+  actions:
+  - action: light.turn_on
+    metadata: {}
+    data:
+      transition: 2880
+      brightness_pct: 50
+    target:
+      entity_id:
+      - light.living_room_lights
+      - light.kitchen_lights
+  - action: light.turn_on
+    metadata: {}
+    data: {}
+    target:
+      entity_id: light.living_room_corner_lamp
+  mode: single
+- id: '1764535157882'
+  alias: Bedtime
+  description: ''
+  triggers:
+  - trigger: time
+    at: '23:00:00'
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+    - sat
+    - sun
+  conditions:
+  - condition: or
+    conditions:
+    - condition: zone
+      entity_id: person.hanbit
+      zone: zone.home
+    - condition: zone
+      entity_id: person.ole_martin
+      zone: zone.home
+  actions:
+  - action: switch.turn_off
+    metadata: {}
+    data: {}
+    target:
+      entity_id: switch.wax_candles
+  - action: light.turn_off
+    metadata: {}
+    data: {}
+    target:
+      entity_id:
+      - light.window_light
+      - light.office_light
+      - light.christmas_tree
+      - light.balcony_light
+  - action: climate.set_temperature
+    metadata: {}
+    target:
+      entity_id:
+      - climate.office_heater
+      - climate.living_room_heater
+    data:
+      temperature: 19
+  mode: single
+- id: '1764572147388'
+  alias: Christmas automation
+  description: ''
+  triggers:
+  - trigger: time
+    at: 07:00:00
+    weekday:
+    - sun
+    - sat
+    - fri
+    - thu
+    - wed
+    - tue
+    - mon
+  conditions: []
+  actions:
+  - action: light.turn_on
+    metadata: {}
+    data: {}
+    target:
+      entity_id:
+      - light.window_light
+      - light.christmas_tree
+      - light.office_light
+  mode: single
+- id: '1765452382046'
+  alias: Try prevent manual override
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - light.toilet_lights
+    from:
+    - 'on'
+    to:
+    - 'off'
+  conditions:
+  - condition: template
+    value_template: '{{ (as_timestamp(now()) - as_timestamp(state_attr(''automation.toilet_lights_on_motion'',
+      ''last_triggered''))) < 2 }}'
+  actions:
+  - if:
+    - condition: time
+      after: 00:00:00
+      before: 05:00:00
+    then:
+    - type: turn_on
+      device_id: 76262006f37eb0f9d64043c630b77bd5
+      entity_id: 30f28d0f4634b70633abeb8f2b328406
+      domain: light
+      brightness_pct: 10
+    else:
+    - type: turn_on
+      device_id: 76262006f37eb0f9d64043c630b77bd5
+      entity_id: 30f28d0f4634b70633abeb8f2b328406
+      domain: light
+      brightness_pct: 100
+  mode: single
+- id: '1765489571952'
+  alias: Toilet lights on motion
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - binary_sensor.toilet_occupancy_sensor_presence
+    from: 'off'
+    to: 'on'
+    id: Detected
+  conditions: []
+  actions:
+  - if:
+    - condition: time
+      after: '22:30:00'
+      before: 05:00:00
+    then:
+    - type: turn_on
+      device_id: 76262006f37eb0f9d64043c630b77bd5
+      entity_id: 30f28d0f4634b70633abeb8f2b328406
+      domain: light
+      brightness_pct: 10
+    else:
+    - type: turn_on
+      device_id: 76262006f37eb0f9d64043c630b77bd5
+      entity_id: 30f28d0f4634b70633abeb8f2b328406
+      domain: light
+      brightness_pct: 100
+  mode: restart
+- id: '1765490546497'
+  alias: Wax candles automation
+  description: ''
+  triggers:
+  - trigger: time
+    at: '16:00:00'
+  conditions: []
+  actions:
+  - action: switch.turn_on
+    metadata: {}
+    target:
+      entity_id: switch.wax_candles
+    data: {}
+  mode: single
+- id: '1767296526454'
+  alias: Living Room Switch functions
+  description: ''
+  use_blueprint:
+    path: bouyssic/z2m-aqara-opple-6-boutons-blueprint-wxcjkg13lm-updated-2025.yaml
+    input:
+      device_selection: 151def4e394b47cc28e42a76f61bee6b
+      button_1_single:
+      - type: turn_on
+        device_id: 837392870784b0a66a58b96aae6d078c
+        entity_id: 6f2585693924528f84b798e71b9d809e
+        domain: light
+        brightness_pct: 100
+      - action: light.turn_on
+        metadata: {}
+        data: {}
+        target:
+          device_id: a013a049731ab9ae6b4ff5fb1d3cb229
+      button_2_single:
+      - type: turn_off
+        device_id: 837392870784b0a66a58b96aae6d078c
+        entity_id: 6f2585693924528f84b798e71b9d809e
+        domain: light
+      - action: light.turn_off
+        metadata: {}
+        target:
+          device_id: a013a049731ab9ae6b4ff5fb1d3cb229
+        data: {}
+      button_3_single:
+      - type: turn_on
+        device_id: d092bbc6e6a8277c8c3cb8383eaead40
+        entity_id: bc08e405233d84d64ad1aff0d228ce15
+        domain: light
+      button_3_double:
+      - type: turn_on
+        device_id: 63abd19dbc1b381851f765b801be95c5
+        entity_id: 76b4562cd2d2a5f8a723950b0fd630ed
+        domain: light
+      button_4_single:
+      - type: turn_off
+        device_id: d092bbc6e6a8277c8c3cb8383eaead40
+        entity_id: bc08e405233d84d64ad1aff0d228ce15
+        domain: light
+      button_4_double:
+      - type: turn_off
+        device_id: 63abd19dbc1b381851f765b801be95c5
+        entity_id: 76b4562cd2d2a5f8a723950b0fd630ed
+        domain: light
+      button_4_hold: []
+      button_5_single:
+      - type: turn_on
+        device_id: b3f19c4f7955644c747cb4a2c1c281ec
+        entity_id: 270eef48e82df26074574ab8f8767bb3
+        domain: light
+        brightness_pct: 100
+      button_5_double:
+      - type: turn_on
+        device_id: 19e7454579f590864a08c36c567c881d
+        entity_id: 6312e50b32453c265aa348522f91fb8d
+        domain: light
+      button_5_hold:
+      - type: turn_on
+        device_id: 3fca57f4fa918ffe24be47e656d4f379
+        entity_id: 1b1ae610aa032e4bdeed92e3af5b269f
+        domain: switch
+      - type: turn_on
+        device_id: 96e88c7ea39262ebee931cb18b9e06a7
+        entity_id: e05c06a2226b9498c47137f1c8659582
+        domain: switch
+      button_6_single:
+      - type: turn_off
+        device_id: b3f19c4f7955644c747cb4a2c1c281ec
+        entity_id: 270eef48e82df26074574ab8f8767bb3
+        domain: light
+      button_6_double:
+      - type: turn_off
+        device_id: 19e7454579f590864a08c36c567c881d
+        entity_id: 6312e50b32453c265aa348522f91fb8d
+        domain: light
+      button_6_hold:
+      - type: turn_off
+        device_id: 3fca57f4fa918ffe24be47e656d4f379
+        entity_id: 1b1ae610aa032e4bdeed92e3af5b269f
+        domain: switch
+      - type: turn_off
+        device_id: 96e88c7ea39262ebee931cb18b9e06a7
+        entity_id: e05c06a2226b9498c47137f1c8659582
+        domain: switch
+      button_2_double:
+      - action: script.toggle_script
+        metadata: {}
+        data: {}
+- id: '1767961787556'
+  alias: Balcony lights on sunset
+  description: ''
+  triggers:
+  - trigger: sun
+    event: sunset
+    offset: -01:00:00
+  conditions:
+  - condition: zone.in_zone
+    target:
+      entity_id:
+      - person.hanbit
+      - person.ole_martin
+      - person.seongeun
+    options:
+      for: 00:00:00
+      zone: zone.home
+      behavior: any
+  actions:
+  - type: turn_on
+    device_id: 63abd19dbc1b381851f765b801be95c5
+    entity_id: 76b4562cd2d2a5f8a723950b0fd630ed
+    domain: light
+  mode: single
+- id: '1767961934154'
+  alias: Closet light door trigger
+  description: ''
+  triggers:
+  - type: opened
+    device_id: b3d26d9b5f75d679f3a9e715112b531c
+    entity_id: 183a23928262199fe27654bbd0bb9e21
+    domain: binary_sensor
+    trigger: device
+    id: open
+  - type: not_opened
+    device_id: b3d26d9b5f75d679f3a9e715112b531c
+    entity_id: 183a23928262199fe27654bbd0bb9e21
+    domain: binary_sensor
+    trigger: device
+    id: close
+  conditions: []
+  actions:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id:
+        - open
+      sequence:
+      - type: turn_on
+        device_id: 755acc583f1fe9a89b0883b4bfa289fc
+        entity_id: 428f1d3d8532be4b51163bf962eaf33d
+        domain: light
+    - conditions:
+      - condition: trigger
+        id:
+        - close
+      sequence:
+      - type: turn_off
+        device_id: 755acc583f1fe9a89b0883b4bfa289fc
+        entity_id: 428f1d3d8532be4b51163bf962eaf33d
+        domain: light
+  mode: single
+- id: '1767962276566'
+  alias: Empty house
+  description: ''
+  triggers:
+  - trigger: zone.left
+    target:
+      entity_id:
+      - person.ole_martin
+      - person.hanbit
+    options:
+      behavior: each
+      for: 00:00:00
+      zone: zone.home
+  conditions:
+  - condition: zone.not_in_zone
+    target:
+      entity_id:
+      - person.hanbit
+      - person.ole_martin
+    options:
+      for: 00:00:00
+      zone: zone.home
+      behavior: all
+  actions:
+  - action: light.turn_off
+    metadata: {}
+    data: {}
+    target:
+      area_id:
+      - kitchen
+      - living_room
+      - toilet
+      - closet
+      - entryway
+  - action: climate.set_temperature
+    metadata: {}
+    target:
+      entity_id:
+      - climate.entryway_floor_heating
+      - climate.living_room_floor_heating
+    data:
+      temperature: 20
+  mode: single
+- id: '1767962649221'
+  alias: Someone got home
+  description: ''
+  triggers:
+  - trigger: zone.entered
+    target:
+      entity_id:
+      - person.ole_martin
+      - person.hanbit
+    options:
+      for: 00:00:00
+      zone: zone.home
+      behavior: each
+  conditions: []
+  actions:
+  - action: light.turn_on
+    metadata: {}
+    target:
+      entity_id:
+      - light.entryway_light
+    data: {}
+  - action: climate.set_temperature
+    metadata: {}
+    target:
+      entity_id: climate.entryway_floor_heating
+    data:
+      temperature: '{{ states(''input_number.entryway_floor_heating_set_temperature'')
+        | float }}'
+  - action: climate.set_temperature
+    metadata: {}
+    target:
+      entity_id: climate.living_room_floor_heating
+    data:
+      temperature: '{{ states(''input_number.living_room_floor_heating_set_temperature'')
+        | float }}'
+  - if:
+    - type: is_illuminance
+      condition: device
+      device_id: 3899ec950277caad61a4437eae2cf4b2
+      entity_id: 57815c8295088ce86c39a87de0b50945
+      domain: sensor
+      below: 15
+    then:
+    - action: light.turn_on
+      metadata: {}
       target:
         entity_id:
-          - switch.printer
-        device_id: []
-        area_id: []
+        - light.entryway_light
+        - light.kitchen_lights
+        - light.living_room_lights
+        - light.display_cabinet
+      data: {}
+  - if:
+    - condition: sun
+      after: sunset
+      after_offset: -01:00:00
+    then:
+    - action: light.turn_on
+      metadata: {}
+      target:
+        entity_id: light.balcony_light
       data: {}
   mode: single
+- id: '1767964266702'
+  alias: Kiosk charging
+  description: ''
+  triggers:
+  - type: battery_level
+    device_id: 07daf1f38c88a6207b245c7fae91c5ab
+    entity_id: 9fe38dc6faf28bf7264763f2ff4af069
+    domain: sensor
+    trigger: device
+    above: 90
+    id: charged
+  - type: battery_level
+    device_id: 07daf1f38c88a6207b245c7fae91c5ab
+    entity_id: 9fe38dc6faf28bf7264763f2ff4af069
+    domain: sensor
+    trigger: device
+    id: charge_needed
+    below: 17
+  conditions: []
+  actions:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id:
+        - charge_needed
+      sequence:
+      - type: turn_on
+        device_id: bdc0e83d2717ef08fd70f603425f52b3
+        entity_id: b1911a9da67ed64f7cdda91a6ce557ac
+        domain: switch
+    - conditions:
+      - condition: trigger
+        id:
+        - charged
+      sequence:
+      - type: turn_off
+        device_id: bdc0e83d2717ef08fd70f603425f52b3
+        entity_id: b1911a9da67ed64f7cdda91a6ce557ac
+        domain: switch
+  mode: single
+- id: '1768048044543'
+  alias: IKEA Bilresa Scroll Wheel
+  description: ''
+  use_blueprint:
+    path: jhol-byte/Ikea_bilresa_scroll_wheel.yaml
+    input:
+      remote: 4087e85337c8a4d0437573ca950106eb
+      scroll_wheel_mode_ch1: 'media: volume control'
+      scroll_wheel_target_ch1:
+      - media_player.kitchen_speaker
+      scroll_wheel_mode_ext_ch1: instant
+      click_action_ch2:
+      - action: light.toggle
+        metadata: {}
+        target:
+          entity_id: light.living_room_lights
+        data: {}
+      scroll_wheel_target_ch2:
+      - light.living_room_lights
+      scroll_wheel_mode_ext_ch2: instant
+      click_action_ch1:
+      - action: media_player.media_play_pause
+        metadata: {}
+        target:
+          entity_id: media_player.kitchen_speaker
+        data: {}
+      scroll_wheel_user_action_ch2: []
+- id: '1768126853903'
+  alias: Closet switch
+  description: ''
+  use_blueprint:
+    path: amvlab/somrig.yaml
+    input:
+      remote_name: 2672872c99cec43dd58a8609f2699f92
+      dots_1_press_action:
+      - action: light.turn_on
+        metadata: {}
+        target:
+          entity_id: light.closet_light
+        data: {}
+      dots_2_press_action:
+      - action: light.turn_off
+        metadata: {}
+        target:
+          entity_id: light.closet_light
+        data: {}
+- id: '1771086518699'
+  alias: Tibber Reload
+  description: Reload Tibber integration if it has not received any data for 10 minutes
+  triggers:
+  - entity_id: sensor.last_meter_consumption_kristins_vei_6_2
+    for:
+      hours: 0
+      minutes: 10
+      seconds: 0
+    trigger: state
+  conditions: []
+  actions:
+  - action: homeassistant.reload_config_entry
+    metadata: {}
+    data:
+      entry_id: 01KEQFTCA4YBNSDVDFSZJ65VJQ
+    target:
+      device_id: a705b626b5cc5a12b15cf599968a0cfb
+  mode: single
+- id: update_dns_records
+  alias: Update DNS records on boot
+  description: ''
+  triggers:
+  - event: start
+    trigger: homeassistant
+  conditions: []
+  actions:
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 20
+      milliseconds: 0
+  - data: {}
+    action: cloudflare.update_records
+  mode: single
+- id: update_dns_records
+  alias: Update DNS records on boot
+  description: ''
+  triggers:
+  - event: start
+    trigger: homeassistant
+  conditions: []
+  actions:
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 20
+      milliseconds: 0
+  - data: {}
+    action: cloudflare.update_records
+  mode: single
+- id: update_dns_records
+  alias: Update DNS records on boot
+  description: ''
+  triggers:
+  - event: start
+    trigger: homeassistant
+  conditions: []
+  actions:
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 20
+      milliseconds: 0
+  - data: {}
+    action: cloudflare.update_records
+  mode: single
+- id: dev_washer_completion
+  alias: Dev washer completion
+  description: Retain confirmed Finish until Done or a new active wash stage. Does
+    not control the washer.
+  triggers:
+  - trigger: state
+    entity_id: sensor.washing_machine_washer_job_state
+    to:
+    - air_wash
+    - ai_rinse
+    - ai_spin
+    - ai_wash
+    - cooling
+    - delay_wash
+    - drying
+    - pre_wash
+    - rinse
+    - spin
+    - wash
+    - weight_sensing
+    - freeze_protection
+    id: active
+  - trigger: state
+    entity_id: sensor.washing_machine_washer_job_state
+    to: finish
+    id: finish
+  conditions: []
+  actions:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id: active
+      sequence:
+      - action: input_select.select_option
+        target:
+          entity_id: input_select.dev_washer_cycle_status
+        data:
+          option: running
+    - conditions:
+      - condition: trigger
+        id: finish
+      - condition: state
+        entity_id: input_select.dev_washer_cycle_status
+        state: running
+      sequence:
+      - action: input_datetime.set_datetime
+        target:
+          entity_id: input_datetime.dev_washer_finished_at
+        data:
+          timestamp: '{{ as_timestamp(trigger.to_state.last_changed) }}'
+      - action: input_select.select_option
+        target:
+          entity_id: input_select.dev_washer_cycle_status
+        data:
+          option: finished
+  mode: queued
+- id: dryer_completion
+  alias: Dryer completion
+  description: Retain confirmed finished phase until Done or a new drying stage. Wrinkle
+    prevention does not clear completion. Does not control the dryer.
+  triggers:
+  - trigger: state
+    entity_id: sensor.dryer_job_state
+    to:
+    - cooling
+    - delay_wash
+    - drying
+    - refreshing
+    - weight_sensing
+    - dehumidifying
+    - ai_drying
+    - sanitizing
+    - internal_care
+    - freeze_protection
+    - continuous_dehumidifying
+    - thawing_frozen_inside
+    id: active
+  - trigger: state
+    entity_id: sensor.dryer_job_state
+    to: finished
+    id: finish
+  conditions: []
+  actions:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id: active
+      sequence:
+      - action: input_select.select_option
+        target:
+          entity_id: input_select.dryer_cycle_status
+        data:
+          option: running
+    - conditions:
+      - condition: trigger
+        id: finish
+      - condition: state
+        entity_id: input_select.dryer_cycle_status
+        state: running
+      sequence:
+      - action: input_datetime.set_datetime
+        target:
+          entity_id: input_datetime.dryer_finished_at
+        data:
+          timestamp: '{{ as_timestamp(trigger.to_state.last_changed) }}'
+      - action: input_select.select_option
+        target:
+          entity_id: input_select.dryer_cycle_status
+        data:
+          option: finished
+  mode: queued

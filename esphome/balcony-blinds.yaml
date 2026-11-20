@@ -58,6 +58,8 @@ stepper:
       number: ${activate_pin}
       inverted: false
     max_speed: ${speed}
+    acceleration: 500
+    deceleration: 500
 
 esphome:
   name: balcony-blinds

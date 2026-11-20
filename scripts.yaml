@@ -1,1 +1,198 @@
----
+ir_commands:
+  alias: IR Commands
+  sequence:
+  - variables:
+      config:
+        'on': BV0jnBExAuAXAQHDBuAZA+AXAeATQwlxm10j4wgxAv//4AoHAggxAg==
+        'off': BV4joBFAAuAXAQGbBuAZA0ABQCfgDwHAG0AH4AcDCVubXiPRCEAC///gMgcCCEAC
+  - condition: template
+    value_template: '{{ command is defined and command in config }}'
+    enabled: true
+  - repeat:
+      count: 10
+      sequence:
+      - action: zha.issue_zigbee_cluster_command
+        data:
+          cluster_type: in
+          endpoint_id: 1
+          command: 2
+          ieee: 38:5c:fb:ff:fe:3e:2f:7f
+          command_type: server
+          params:
+            code: '{{ config.get(command) }}'
+          cluster_id: 57348
+    enabled: false
+  - action: zha.issue_zigbee_cluster_command
+    data:
+      cluster_type: in
+      endpoint_id: 1
+      command: 2
+      ieee: 38:5c:fb:ff:fe:3e:2f:7f
+      command_type: server
+      params:
+        code: '{{ config.get(command) }}'
+      cluster_id: 57348
+  description: ''
+  fields:
+    command:
+      selector:
+        select:
+          options:
+          - 'off'
+          - 'on'
+      required: true
+      name: Command
+ir_commands_mqtt:
+  alias: IR Commands MQTT
+  sequence:
+  - variables:
+      config:
+        'on': '{"Protocol":"NEC","Bits":32,"Data":"0xFF807F","DataLSB":"0xFF01FE","Repeat":0}'
+        'off': '{"Protocol":"NEC","Bits":32,"Data":"0xFFA05F","DataLSB":"0xFF05FA","Repeat":0}'
+  - condition: template
+    value_template: '{{ command is defined and command in config }}'
+    enabled: true
+  - repeat:
+      count: 10
+      sequence:
+      - action: zha.issue_zigbee_cluster_command
+        data:
+          cluster_type: in
+          endpoint_id: 1
+          command: 2
+          ieee: 38:5c:fb:ff:fe:3e:2f:7f
+          command_type: server
+          params:
+            code: '{{ config.get(command) }}'
+          cluster_id: 57348
+    enabled: false
+  - action: mqtt.publish
+    data:
+      evaluate_payload: false
+      qos: 0
+      retain: false
+      payload: '{{ config.get(command) }}'
+      topic: cmnd/ir_blaster/irsend
+  description: ''
+  fields:
+    command:
+      selector:
+        select:
+          options:
+          - 'off'
+          - 'on'
+      required: true
+      name: Command
+heat_e_golf:
+  sequence:
+  - repeat:
+      count: '{{ number_of_times }}'
+      sequence:
+      - action: climate.set_temperature
+        metadata: {}
+        target:
+          entity_id: climate.e_golf_electric_climatisation
+        data:
+          temperature: 28
+        enabled: true
+      - parallel:
+        - action: climate.turn_on
+          metadata: {}
+          target:
+            entity_id: climate.e_golf_electric_climatisation
+          data: {}
+        - action: switch.turn_on
+          metadata: {}
+          target:
+            entity_id: switch.e_golf_window_heater
+          data: {}
+          enabled: true
+      - delay:
+          hours: 0
+          minutes: 2
+          seconds: 0
+          milliseconds: 0
+      - wait_for_trigger:
+        - trigger: state
+          entity_id:
+          - climate.e_golf_electric_climatisation
+          from:
+          - heat_cool
+          to:
+          - 'off'
+        timeout:
+          hours: 0
+          minutes: 15
+          seconds: 0
+          milliseconds: 0
+  alias: Heat e-Golf
+  description: ''
+  fields:
+    number_of_times:
+      selector:
+        number:
+          min: 1
+          max: 3
+          step: 1
+      default: 2
+toggle_script:
+  sequence:
+  - choose:
+    - conditions:
+      - condition: device
+        type: is_on
+        device_id: 2af94db8a34c72663198c6d01ba0b320
+        entity_id: f121550ea9d7c798e2908198c9dc5b24
+        domain: switch
+      sequence:
+      - action: switch.turn_off
+        metadata: {}
+        target:
+          entity_id: switch.tapo_c210_1_privacy
+        data: {}
+      - wait_for_trigger:
+        - device_id: 2af94db8a34c72663198c6d01ba0b320
+          domain: select
+          entity_id: 3fc45d539589c2a57fbb0e9817dfeabe
+          type: current_option_changed
+          trigger: device
+          to: unknown
+        timeout:
+          hours: 0
+          minutes: 0
+          seconds: 30
+          milliseconds: 0
+      - delay:
+          hours: 0
+          minutes: 0
+          seconds: 2
+          milliseconds: 0
+      - device_id: 2af94db8a34c72663198c6d01ba0b320
+        domain: select
+        entity_id: 3fc45d539589c2a57fbb0e9817dfeabe
+        type: select_option
+        option: Default
+    - conditions:
+      - condition: device
+        type: is_off
+        device_id: 2af94db8a34c72663198c6d01ba0b320
+        entity_id: f121550ea9d7c798e2908198c9dc5b24
+        domain: switch
+      sequence:
+      - device_id: 2af94db8a34c72663198c6d01ba0b320
+        domain: select
+        entity_id: 3fc45d539589c2a57fbb0e9817dfeabe
+        type: select_option
+        option: Hide
+      - delay:
+          hours: 0
+          minutes: 0
+          seconds: 10
+          milliseconds: 0
+      - action: switch.turn_on
+        metadata: {}
+        target:
+          entity_id: switch.tapo_c210_1_privacy
+        data: {}
+  alias: Toggle camera
+  description: ''

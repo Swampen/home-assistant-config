@@ -1,12 +1,5 @@
-# Includes all files in subfolders
-browser_mod/*
-hacs/*
-!hacs/hacs.json
-!hacs/manifest.json
-localtuya/*
-nordpool/*
-tapo_control/*
-ui_lovelace_minimalist/*
-wellbeing/*
-
+# Ignore integration source, but keep the metadata needed to track versions.
+*
+!*/
+!/.gitignore
 !manifest.json
